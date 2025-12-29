@@ -4,21 +4,20 @@ import com.android.build.api.dsl.AndroidSourceSet
 plugins {
     id("com.android.application")
     kotlin("android")
-    kotlin("kapt")
+    id("com.google.devtools.ksp") version "2.3.0"  // Match Kotlin version
+    id("org.jetbrains.kotlin.plugin.compose") version "2.3.0"
 }
 
 val composeVersion = "1.1.1"
 
 android {
-    compileSdk = 31
-    buildToolsVersion = "30.0.3"
-
+    compileSdk = 36
     namespace = "io.eugenethedev.taigamobile"
 
     defaultConfig {
         applicationId = namespace!!
-        minSdk = 21
-        targetSdk = 31
+        minSdk = 23
+        targetSdk = 36
         versionCode = 29
         versionName = "2.0"
         project.base.archivesName.set("TaigaMobile-$versionName")
@@ -27,18 +26,10 @@ android {
     }
 
     signingConfigs {
-        getByName("debug") {
-            storeFile = file("./keystores/debug.keystore")
-            storePassword = "android"
-            keyAlias = "debug"
-            keyPassword = "android"
-        }
-
         create("release") {
             val properties = Properties().also {
                 it.load(file("./signing.properties").inputStream())
             }
-            storeFile = file("./keystores/release.keystore")
             storePassword = properties.getProperty("password")
             keyAlias = properties.getProperty("alias")
             keyPassword = properties.getProperty("password")
@@ -73,39 +64,37 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
         isCoreLibraryDesugaringEnabled = true
     }
 
-    kotlinOptions {
-        jvmTarget = "11"
-        freeCompilerArgs = listOf("-Xopt-in=kotlin.RequiresOptIn")
+    kotlin {
+        jvmToolchain(21)
+        compilerOptions {
+            freeCompilerArgs.add("-Xannotation-default-target=first-only")
+        }
     }
 
     buildFeatures {
         compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = composeVersion
+        buildConfig = true
     }
 
     lint { 
         abortOnError = false
     }
+    buildToolsVersion = "36.1.0"
 }
 
 dependencies {
     // Enforce correct kotlin version for all dependencies
     implementation(enforcedPlatform(kotlin("bom")))
 
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.1.5")
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
 
     implementation(kotlin("reflect"))
 
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.appcompat:appcompat:1.4.1")
+    implementation("androidx.core:core-ktx:1.17.0")
+    implementation("androidx.appcompat:appcompat:1.7.1")
     implementation("com.google.android.material:material:1.6.0")
 
     // ============================================================================================
@@ -152,7 +141,7 @@ dependencies {
     // Moshi
     val moshiVersion = "1.13.0"
     implementation("com.squareup.moshi:moshi:$moshiVersion")
-    kapt("com.squareup.moshi:moshi-kotlin-codegen:$moshiVersion")
+    ksp("com.squareup.moshi:moshi-kotlin-codegen:$moshiVersion")
 
     // Retrofit 2
     val retrofitVersion = "2.9.0"
@@ -165,10 +154,9 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor:$okHttpVersion")
 
     // Dagger 2
-    val daggerVersion = "2.42"
-    implementation("com.google.dagger:dagger-android:$daggerVersion")
-    kapt("com.google.dagger:dagger-android-processor:$daggerVersion")
-    kapt("com.google.dagger:dagger-compiler:$daggerVersion")
+    val daggerVersion = "2.57.2"
+    implementation("com.google.dagger:dagger:$daggerVersion")
+    ksp("com.google.dagger:dagger-compiler:$daggerVersion")
 
     // Timber
     implementation("com.jakewharton.timber:timber:5.0.1")
