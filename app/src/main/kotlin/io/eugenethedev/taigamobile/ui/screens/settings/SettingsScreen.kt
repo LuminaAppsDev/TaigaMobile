@@ -208,7 +208,7 @@ fun SettingsScreenContent(
                     )
 
                     DropdownSelector(
-                        items = ThemeSetting.values().toList(),
+                        items = ThemeSetting.entries,
                         selectedItem = themeSetting,
                         onItemSelected = { switchTheme(it) },
                         itemContent = {
