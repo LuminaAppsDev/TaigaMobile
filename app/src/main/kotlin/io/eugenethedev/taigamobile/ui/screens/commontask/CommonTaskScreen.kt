@@ -1,6 +1,8 @@
 package io.eugenethedev.taigamobile.ui.screens.commontask
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -476,7 +478,7 @@ fun CommonTaskScreenContent(
                     item {
                         Spacer(
                             Modifier
-                                .navigationBarsWithImePadding()
+                                .navigationBarsPadding().imePadding()
                                 .height(72.dp)
                         )
                     }

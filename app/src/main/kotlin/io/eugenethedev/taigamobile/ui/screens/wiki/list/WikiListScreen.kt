@@ -117,11 +117,11 @@ fun WikiListScreenContent(
     }
 
     HorizontalTabbedPager(
-        tabs = WikiTabs.values(),
+        tabs = WikiTabs.entries.toTypedArray(),
         modifier = Modifier.fillMaxSize(),
         pagerState = rememberPagerState()
     ) { page ->
-        when (WikiTabs.values()[page]) {
+        when (WikiTabs.entries[page]) {
             WikiTabs.Bookmarks -> WikiSelectorList(
                 titles = bookmarks.map { it.first },
                 bookmarks = bookmarks,

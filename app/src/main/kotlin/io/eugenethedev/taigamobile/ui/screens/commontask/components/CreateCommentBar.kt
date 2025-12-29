@@ -3,6 +3,8 @@ package io.eugenethedev.taigamobile.ui.screens.commontask.components
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -34,8 +36,8 @@ fun CreateCommentBar(
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
-            .padding(vertical = 8.dp, horizontal = mainHorizontalScreenPadding)
-            .navigationBarsWithImePadding(),
+                    .padding(vertical = 8.dp, horizontal = mainHorizontalScreenPadding)
+            .navigationBarsPadding().imePadding(),
     ) {
         Box(
             modifier = Modifier

@@ -6,6 +6,9 @@ import android.os.Build
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.navigationBars
+import androidx.compose.foundation.layout.windowInsetsBottomHeight
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -293,7 +296,7 @@ fun SettingsScreenContent(
             modifier = Modifier.clickableUnindicated { activity.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(githubUrl))) }
         )
 
-        Spacer(Modifier.navigationBarsHeight())
+        Spacer(Modifier.windowInsetsBottomHeight(WindowInsets.navigationBars))
     }
 }
 

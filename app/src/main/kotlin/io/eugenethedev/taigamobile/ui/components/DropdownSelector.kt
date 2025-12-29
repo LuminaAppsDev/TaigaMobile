@@ -2,6 +2,7 @@ package io.eugenethedev.taigamobile.ui.components
 
 import androidx.compose.animation.core.MutableTransitionState
 import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.rememberTransition
 import androidx.compose.animation.core.updateTransition
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -54,7 +55,7 @@ fun <T> DropdownSelector(
 
             selectedItemContent(selectedItem)
 
-            val arrowRotation by updateTransition(
+            val arrowRotation by rememberTransition(
                 transitionState,
                 label = "arrow"
             ).animateFloat { if (it) -180f else 0f }

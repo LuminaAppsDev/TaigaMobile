@@ -4,6 +4,7 @@ import androidx.annotation.StringRes
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.MutableTransitionState
 import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.rememberTransition
 import androidx.compose.animation.core.updateTransition
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -366,7 +367,7 @@ private fun <T : Filter> Section(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier.clickableUnindicated { isExpanded = !isExpanded }
     ) {
-        val arrowRotation by updateTransition(
+        val arrowRotation by rememberTransition(
             transitionState,
             label = "arrow"
         ).animateFloat { if (it) 0f else -90f }
