@@ -54,7 +54,7 @@
     <string name="backlog">Backlog</string>
 
     <string name="sprints_title">Sprints</string>
-    <string name="sprint_dates_template">%s - %s</string>
+    <string name="sprint_dates_template" translatable="false">%s - %s</string>
     <string name="stories_count_template">Stories: %d</string>
     <string name="taskboard">Board</string>
     <string name="closed">Closed</string>
