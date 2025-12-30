@@ -130,7 +130,7 @@
     <string name="create_userstory">Neue User Story</string>
     <string name="create_epic">Neues Epic</string>
     <string name="create_issue">Neues Problem</string>
-    <string name="loading">Lade...</string>
+    <string name="loading">Lade…</string>
     <string name="tasks_search_hint">ref oder subject suchen</string>
     <string name="filters">Filter</string>
     <string name="show_filters">Filtern</string>
@@ -147,7 +147,7 @@
     <string name="assignees_title">Zugewiesen</string>
     <string name="profile">Profil</string>
     <string name="contacts">Kontakte</string>
-    <string name="empty_wiki_dialog_title">Es existieren keine Wiki Seiten...</string>
+    <string name="empty_wiki_dialog_title">Es existieren keine Wiki Seiten…</string>
     <string name="empty_wiki_dialog_subtitle">Neue erstellen?</string>
     <string name="create_new_page">Neue Seite erstellen</string>
     <string name="role_title">Rolle</string>
