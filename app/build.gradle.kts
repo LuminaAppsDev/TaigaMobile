@@ -82,7 +82,6 @@ android {
     lint { 
         abortOnError = false
     }
-    buildToolsVersion = "36.1.0"
 }
 
 dependencies {
