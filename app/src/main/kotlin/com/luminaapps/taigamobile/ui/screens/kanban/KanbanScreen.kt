@@ -24,7 +24,7 @@ import com.luminaapps.taigamobile.ui.theme.TaigaMobileTheme
 import com.luminaapps.taigamobile.ui.utils.LoadingResult
 import com.luminaapps.taigamobile.ui.utils.navigateToCreateTaskScreen
 import com.luminaapps.taigamobile.ui.utils.navigateToTaskScreen
-import com.luminaapps.taigamobile.ui.utils.subscribeOnError
+import com.luminaapps.taigamobile.ui.utils.SubscribeOnError
 
 @Composable
 fun KanbanScreen(
@@ -39,16 +39,16 @@ fun KanbanScreen(
     val projectName by viewModel.projectName.collectAsState()
 
     val swimlanes by viewModel.swimlanes.collectAsState()
-    swimlanes.subscribeOnError(showMessage)
+    swimlanes.SubscribeOnError(showMessage)
 
     val statuses by viewModel.statuses.collectAsState()
-    statuses.subscribeOnError(showMessage)
+    statuses.SubscribeOnError(showMessage)
 
     val team by viewModel.team.collectAsState()
-    team.subscribeOnError(showMessage)
+    team.SubscribeOnError(showMessage)
 
     val stories by viewModel.stories.collectAsState()
-    stories.subscribeOnError(showMessage)
+    stories.SubscribeOnError(showMessage)
 
     val selectedSwimlane by viewModel.selectedSwimlane.collectAsState()
 

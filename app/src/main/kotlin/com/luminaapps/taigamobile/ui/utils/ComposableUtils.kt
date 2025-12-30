@@ -27,6 +27,7 @@ import androidx.paging.compose.LazyPagingItems
 import com.luminaapps.taigamobile.R
 import timber.log.Timber
 import kotlin.math.ln
+import androidx.core.graphics.toColorInt
 
 /**
  * Utility function to handle press on back button
@@ -72,7 +73,7 @@ fun Modifier.clickableUnindicated(
 
 // Error functions
 @Composable
-inline fun Result<*>.subscribeOnError(crossinline onError: (message: Int) -> Unit) = (this as? ErrorResult)?.message?.let {
+inline fun Result<*>.SubscribeOnError(crossinline onError: (message: Int) -> Unit) = (this as? ErrorResult)?.message?.let {
     LaunchedEffect(this) {
         onError(it)
     }
@@ -80,7 +81,7 @@ inline fun Result<*>.subscribeOnError(crossinline onError: (message: Int) -> Uni
 
 @SuppressLint("ComposableNaming")
 @Composable
-inline fun <T : Any> LazyPagingItems<T>.subscribeOnError(crossinline onError: (message: Int) -> Unit) {
+inline fun <T : Any> LazyPagingItems<T>.SubscribeOnError(crossinline onError: (message: Int) -> Unit) {
     if (loadState.run { listOf(refresh, prepend, append) }.any { it is LoadState.Error }) {
         LaunchedEffect(this) {
             onError(R.string.common_error_message)
@@ -98,7 +99,7 @@ val Context.activity: AppCompatActivity get() = when (this) {
 // Color functions
 
 fun String.toColor(): Color = try {
-    Color(android.graphics.Color.parseColor(this))
+    Color(this.toColorInt())
 } catch (e: Exception) {
     Timber.w("'$this' $e")
     Color.Transparent

@@ -35,7 +35,7 @@ import com.luminaapps.taigamobile.ui.theme.commonVerticalPadding
 import com.luminaapps.taigamobile.ui.theme.mainHorizontalScreenPadding
 import com.luminaapps.taigamobile.ui.utils.LoadingResult
 import com.luminaapps.taigamobile.ui.utils.navigateToTaskScreen
-import com.luminaapps.taigamobile.ui.utils.subscribeOnError
+import com.luminaapps.taigamobile.ui.utils.SubscribeOnError
 
 @Composable
 fun DashboardScreen(
@@ -48,13 +48,13 @@ fun DashboardScreen(
     }
 
     val workingOn by viewModel.workingOn.collectAsState()
-    workingOn.subscribeOnError(showMessage)
+    workingOn.SubscribeOnError(showMessage)
 
     val watching by viewModel.watching.collectAsState()
-    watching.subscribeOnError(showMessage)
+    watching.SubscribeOnError(showMessage)
 
     val myProjects by viewModel.myProjects.collectAsState()
-    myProjects.subscribeOnError(showMessage)
+    myProjects.SubscribeOnError(showMessage)
 
     val currentProjectId by viewModel.currentProjectId.collectAsState()
 

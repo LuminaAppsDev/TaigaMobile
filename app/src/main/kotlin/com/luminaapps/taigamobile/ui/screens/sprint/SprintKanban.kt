@@ -62,6 +62,7 @@ import com.luminaapps.taigamobile.ui.utils.clickableUnindicated
 import com.luminaapps.taigamobile.ui.utils.surfaceColorAtElevation
 import com.luminaapps.taigamobile.ui.utils.toColor
 import java.time.LocalDateTime
+import androidx.compose.ui.platform.LocalConfiguration
 
 @Composable
 fun SprintKanban(
@@ -80,7 +81,7 @@ fun SprintKanban(
     val userStoryHeadingWidth = cellWidth - 20.dp
     val minCellHeight = 80.dp
     val backgroundCellColor = MaterialTheme.colorScheme.surfaceColorAtElevation(kanbanBoardTonalElevation)
-    val screenWidth = LocalContext.current.resources.configuration.screenWidthDp.dp
+    val screenWidth = LocalConfiguration.current.screenWidthDp.dp
     val totalWidth = cellWidth * statuses.size + userStoryHeadingWidth + cellPadding * statuses.size
 
     Row(Modifier.padding(start = cellPadding, top = cellPadding)) {

@@ -40,7 +40,7 @@ import com.luminaapps.taigamobile.ui.components.lists.ProjectCard
 import com.luminaapps.taigamobile.ui.components.loaders.CircularLoader
 import com.luminaapps.taigamobile.ui.utils.ErrorResult
 import com.luminaapps.taigamobile.ui.utils.LoadingResult
-import com.luminaapps.taigamobile.ui.utils.subscribeOnError
+import com.luminaapps.taigamobile.ui.utils.SubscribeOnError
 
 @Composable
 fun ProfileScreen(
@@ -55,11 +55,11 @@ fun ProfileScreen(
     }
 
     val currentUser by viewModel.currentUser.collectAsState()
-    currentUser.subscribeOnError(showMessage)
+    currentUser.SubscribeOnError(showMessage)
     val currentUserStats by viewModel.currentUserStats.collectAsState()
-    currentUserStats.subscribeOnError(showMessage)
+    currentUserStats.SubscribeOnError(showMessage)
     val currentUserProjects by viewModel.currentUserProjects.collectAsState()
-    currentUserProjects.subscribeOnError(showMessage)
+    currentUserProjects.SubscribeOnError(showMessage)
     val currentProjectId by viewModel.currentProjectId.collectAsState()
 
     ProfileScreenContent(

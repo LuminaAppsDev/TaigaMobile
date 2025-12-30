@@ -26,7 +26,7 @@ import com.luminaapps.taigamobile.ui.theme.mainHorizontalScreenPadding
 import com.luminaapps.taigamobile.ui.utils.NavigateToTask
 import com.luminaapps.taigamobile.ui.utils.navigateToCreateTaskScreen
 import com.luminaapps.taigamobile.ui.utils.navigateToTaskScreen
-import com.luminaapps.taigamobile.ui.utils.subscribeOnError
+import com.luminaapps.taigamobile.ui.utils.SubscribeOnError
 
 @Composable
 fun EpicsScreen(
@@ -41,10 +41,10 @@ fun EpicsScreen(
     val projectName by viewModel.projectName.collectAsState()
 
     val epics = viewModel.epics
-    epics.subscribeOnError(showMessage)
+    epics.SubscribeOnError(showMessage)
 
     val filters by viewModel.filters.collectAsState()
-    filters.subscribeOnError(showMessage)
+    filters.SubscribeOnError(showMessage)
 
     val activeFilters by viewModel.activeFilters.collectAsState()
 

@@ -60,7 +60,7 @@ import com.luminaapps.taigamobile.ui.utils.NavigateToTask
 import com.luminaapps.taigamobile.ui.utils.navigateToCreateTaskScreen
 import com.luminaapps.taigamobile.ui.utils.navigateToSprint
 import com.luminaapps.taigamobile.ui.utils.navigateToTaskScreen
-import com.luminaapps.taigamobile.ui.utils.subscribeOnError
+import com.luminaapps.taigamobile.ui.utils.SubscribeOnError
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
@@ -79,21 +79,21 @@ fun ScrumScreen(
     val projectName by viewModel.projectName.collectAsState()
 
     val stories = viewModel.stories
-    stories.subscribeOnError {
+    stories.SubscribeOnError {
         showMessage(R.string.common_error_message)
     }
 
     val openSprints = viewModel.openSprints
-    openSprints.subscribeOnError(showMessage)
+    openSprints.SubscribeOnError(showMessage)
 
     val closedSprints = viewModel.closedSprints
-    closedSprints.subscribeOnError(showMessage)
+    closedSprints.SubscribeOnError(showMessage)
 
     val createSprintResult by viewModel.createSprintResult.collectAsState()
-    createSprintResult.subscribeOnError(showMessage)
+    createSprintResult.SubscribeOnError(showMessage)
 
     val filters by viewModel.filters.collectAsState()
-    filters.subscribeOnError(showMessage)
+    filters.SubscribeOnError(showMessage)
 
     val activeFilters by viewModel.activeFilters.collectAsState()
 

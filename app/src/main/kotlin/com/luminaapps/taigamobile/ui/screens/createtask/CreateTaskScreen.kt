@@ -19,7 +19,7 @@ import com.luminaapps.taigamobile.ui.theme.TaigaMobileTheme
 import com.luminaapps.taigamobile.ui.utils.LoadingResult
 import com.luminaapps.taigamobile.ui.utils.SuccessResult
 import com.luminaapps.taigamobile.ui.utils.navigateToTaskScreen
-import com.luminaapps.taigamobile.ui.utils.subscribeOnError
+import com.luminaapps.taigamobile.ui.utils.SubscribeOnError
 
 @Composable
 fun CreateTaskScreen(
@@ -34,7 +34,7 @@ fun CreateTaskScreen(
     val viewModel: CreateTaskViewModel = viewModel()
 
     val creationResult by viewModel.creationResult.collectAsState()
-    creationResult.subscribeOnError(showMessage)
+    creationResult.SubscribeOnError(showMessage)
 
     creationResult.takeIf { it is SuccessResult }?.data?.let {
         LaunchedEffect(Unit) {

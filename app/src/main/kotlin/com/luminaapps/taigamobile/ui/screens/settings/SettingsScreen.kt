@@ -63,7 +63,7 @@ import com.luminaapps.taigamobile.ui.theme.TaigaMobileTheme
 import com.luminaapps.taigamobile.ui.theme.mainHorizontalScreenPadding
 import com.luminaapps.taigamobile.ui.utils.activity
 import com.luminaapps.taigamobile.ui.utils.clickableUnindicated
-import com.luminaapps.taigamobile.ui.utils.subscribeOnError
+import com.luminaapps.taigamobile.ui.utils.SubscribeOnError
 import timber.log.Timber
 
 @Composable
@@ -79,7 +79,7 @@ fun SettingsScreen(
     val serverUrl by viewModel.serverUrl.collectAsState()
 
     val user by viewModel.user.collectAsState()
-    user.subscribeOnError(showMessage)
+    user.SubscribeOnError(showMessage)
 
     val themeSetting by viewModel.themeSetting.collectAsState()
 

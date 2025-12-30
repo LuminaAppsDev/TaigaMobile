@@ -42,7 +42,7 @@ import com.luminaapps.taigamobile.ui.utils.NavigateToTask
 import com.luminaapps.taigamobile.ui.utils.SuccessResult
 import com.luminaapps.taigamobile.ui.utils.navigateToCreateTaskScreen
 import com.luminaapps.taigamobile.ui.utils.navigateToTaskScreen
-import com.luminaapps.taigamobile.ui.utils.subscribeOnError
+import com.luminaapps.taigamobile.ui.utils.SubscribeOnError
 import com.luminaapps.taigamobile.ui.utils.surfaceColorAtElevation
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -60,25 +60,25 @@ fun SprintScreen(
     }
 
     val sprint by viewModel.sprint.collectAsState()
-    sprint.subscribeOnError(showMessage)
+    sprint.SubscribeOnError(showMessage)
 
     val statuses by viewModel.statuses.collectAsState()
-    statuses.subscribeOnError(showMessage)
+    statuses.SubscribeOnError(showMessage)
 
     val storiesWithTasks by viewModel.storiesWithTasks.collectAsState()
-    storiesWithTasks.subscribeOnError(showMessage)
+    storiesWithTasks.SubscribeOnError(showMessage)
 
     val storylessTasks by viewModel.storylessTasks.collectAsState()
-    storylessTasks.subscribeOnError(showMessage)
+    storylessTasks.SubscribeOnError(showMessage)
 
     val issues by viewModel.issues.collectAsState()
-    issues.subscribeOnError(showMessage)
+    issues.SubscribeOnError(showMessage)
 
     val editResult by viewModel.editResult.collectAsState()
-    editResult.subscribeOnError(showMessage)
+    editResult.SubscribeOnError(showMessage)
 
     val deleteResult by viewModel.deleteResult.collectAsState()
-    deleteResult.subscribeOnError(showMessage)
+    deleteResult.SubscribeOnError(showMessage)
     deleteResult.takeIf { it is SuccessResult }?.let {
         LaunchedEffect(Unit) {
             navController.popBackStack()

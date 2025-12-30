@@ -17,7 +17,7 @@ import com.luminaapps.taigamobile.ui.components.editors.Editor
 import com.luminaapps.taigamobile.ui.utils.LoadingResult
 import com.luminaapps.taigamobile.ui.utils.SuccessResult
 import com.luminaapps.taigamobile.ui.utils.navigateToWikiPageScreen
-import com.luminaapps.taigamobile.ui.utils.subscribeOnError
+import com.luminaapps.taigamobile.ui.utils.SubscribeOnError
 
 @Composable
 fun WikiCreatePageScreen(
@@ -27,7 +27,7 @@ fun WikiCreatePageScreen(
     val viewModel: WikiCreatePageViewModel = viewModel()
 
     val creationResult by viewModel.creationResult.collectAsState()
-    creationResult.subscribeOnError(showMessage)
+    creationResult.SubscribeOnError(showMessage)
 
     creationResult.takeIf { it is SuccessResult }?.data?.let {
         LaunchedEffect(Unit) {

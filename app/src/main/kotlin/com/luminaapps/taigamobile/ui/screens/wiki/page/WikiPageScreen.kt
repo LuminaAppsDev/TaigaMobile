@@ -47,7 +47,7 @@ import com.luminaapps.taigamobile.ui.theme.mainHorizontalScreenPadding
 import com.luminaapps.taigamobile.ui.utils.LoadingResult
 import com.luminaapps.taigamobile.ui.utils.SuccessResult
 import com.luminaapps.taigamobile.ui.utils.navigateToProfileScreen
-import com.luminaapps.taigamobile.ui.utils.subscribeOnError
+import com.luminaapps.taigamobile.ui.utils.SubscribeOnError
 import com.luminaapps.taigamobile.ui.utils.surfaceColorAtElevation
 import java.io.InputStream
 import java.time.LocalDateTime
@@ -61,19 +61,19 @@ fun WikiPageScreen(
     val viewModel: WikiPageViewModel = viewModel()
 
     val page by viewModel.page.collectAsState()
-    page.subscribeOnError(showMessage)
+    page.SubscribeOnError(showMessage)
 
     val link by viewModel.link.collectAsState()
-    link.subscribeOnError(showMessage)
+    link.SubscribeOnError(showMessage)
 
     val editWikiPageResult by viewModel.editWikiPageResult.collectAsState()
-    editWikiPageResult.subscribeOnError(showMessage)
+    editWikiPageResult.SubscribeOnError(showMessage)
 
     val deleteWikiPageResult by viewModel.deleteWikiPageResult.collectAsState()
-    deleteWikiPageResult.subscribeOnError(showMessage)
+    deleteWikiPageResult.SubscribeOnError(showMessage)
 
     val attachments by viewModel.attachments.collectAsState()
-    attachments.subscribeOnError(showMessage)
+    attachments.SubscribeOnError(showMessage)
 
     val lastModifierUser by viewModel.lastModifierUser.collectAsState()
 

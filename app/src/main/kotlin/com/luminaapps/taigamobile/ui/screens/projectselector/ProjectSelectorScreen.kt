@@ -32,7 +32,7 @@ import com.luminaapps.taigamobile.ui.components.containers.ContainerBox
 import com.luminaapps.taigamobile.ui.components.editors.SelectorList
 import com.luminaapps.taigamobile.ui.components.editors.SelectorListConstants
 import com.luminaapps.taigamobile.ui.theme.TaigaMobileTheme
-import com.luminaapps.taigamobile.ui.utils.subscribeOnError
+import com.luminaapps.taigamobile.ui.utils.SubscribeOnError
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -48,7 +48,7 @@ fun ProjectSelectorScreen(
     val coroutineScope = rememberCoroutineScope()
 
     val projects = viewModel.projects
-    projects.subscribeOnError(showMessage)
+    projects.SubscribeOnError(showMessage)
 
     val currentProjectId by viewModel.currentProjectId.collectAsState()
 
