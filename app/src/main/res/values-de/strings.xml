@@ -32,11 +32,11 @@
     <string name="project_admin">Admin</string>
     <string name="project_owner">Besitzer</string>
     <string name="projects">Projekte</string>
-    <string name="working_on">Bearbeitet</string>
-    <string name="watching">Beobachtet</string>
+    <string name="working_on">In Bearbeitung</string>
+    <string name="watching">In Beobachtung</string>
     <string name="my_projects">Meine Projekte</string>
     <string name="unassigned">"Nicht zugewiesen "</string>
-    <string name="assignee_pattern">Zuweiser: %s</string>
+    <string name="assignee_pattern">Zugewiesen: %s</string>
     <string name="backlog">Backlog</string>
     <string name="sprints_title">Sprints</string>
     <string name="stories_count_template">Stories: %d</string>
@@ -44,7 +44,7 @@
     <string name="closed">Geschlossen</string>
     <string name="closed_sprint_name_template">%s (Geschlossen)</string>
     <string name="sprint_name_hint">Sprint Name</string>
-    <string name="show_closed_sprints">Zeige geschlossene Sprints</string>
+    <string name="show_closed_sprints">Ggeschlossene Sprints anzeigen</string>
     <string name="hide_closed_sprints">Geschlossene Sprints ausblenden</string>
     <string name="closed_user_story">Geschlossene US</string>
     <string name="tasks_without_story">Aufgaben ohne Story</string>
@@ -58,11 +58,11 @@
     <string name="task">Aufgabe</string>
     <string name="issue">Problem</string>
     <string name="no_sprint">Kein Sprint</string>
-    <string name="link_to_epic">Link zu Epic</string>
+    <string name="link_to_epic">Epic verlinken</string>
     <string name="add_tag">Tag hinzufügen</string>
     <string name="created_by">Erstellt von</string>
     <string name="last_modification">Letzte Änderung</string>
-    <string name="assigned_to">Zugewiesen zu</string>
+    <string name="assigned_to">Zugewiesen</string>
     <string name="watchers">Beobachter</string>
     <string name="userstories">User stories</string>
     <string name="tasks">Aufgaben</string>
@@ -76,7 +76,7 @@
     <string name="unblock">Entsperren</string>
     <string name="blocked">Gesperrt</string>
     <string name="block_reason">Grund für Sperre</string>
-    <string name="add_assignee">Zuweiser hinzufügen</string>
+    <string name="add_assignee">Zuweisen</string>
     <string name="assign_to_me">Mir zuweisen</string>
     <string name="unassign">"Zuweisung aufheben "</string>
     <string name="add_watcher">Beobachter hinzufügen</string>
@@ -105,7 +105,7 @@
     <string name="search_epics">Epics suchen</string>
     <string name="choose_swimlane">Swimlane auswählen</string>
     <string name="power">Rechte</string>
-    <string name="unlink_epic_title">Link zu Epic aufheben</string>
+    <string name="unlink_epic_title">Epic Verlinkung aufheben</string>
     <string name="unlink_epic_text">Verlinkung zu diesem Epic wirklich aufheben?</string>
     <string name="remove_user_title">Benutzer entfernen</string>
     <string name="remove_user_text">Benutzer wirklich entfernen?</string>
@@ -131,9 +131,9 @@
     <string name="create_epic">Neues Epic</string>
     <string name="create_issue">Neues Problem</string>
     <string name="loading">Lade...</string>
-    <string name="tasks_search_hint">Suche nach ref oder subject</string>
+    <string name="tasks_search_hint">ref oder subject suchen</string>
     <string name="filters">Filter</string>
-    <string name="show_filters">Filter zeigen</string>
+    <string name="show_filters">Filtern</string>
     <string name="type_title">Typ</string>
     <string name="severity_title">Gewichtung</string>
     <string name="priority_title">Priorität</string>
@@ -144,7 +144,7 @@
     <string name="logout_text">Wirklich abmelden?</string>
     <string name="appearance">Darstellung</string>
     <string name="tags_title">Tags</string>
-    <string name="assignees_title">Zuweiser</string>
+    <string name="assignees_title">Zugewiesen</string>
     <string name="profile">Profil</string>
     <string name="contacts">Kontakte</string>
     <string name="empty_wiki_dialog_title">Es existieren keine Wiki Seiten...</string>
@@ -154,7 +154,7 @@
     <string name="created_by_title">Erstellt von</string>
     <string name="credits_message">"Mit ❤ realisiert von EugeneTheDev. Wenn Ihnen die App gefällt, bewerten Sie sie bitte bei Google Play und markieren Sie das Projekt auf GitHub mit einem Stern. "</string>
     <string name="epic_title">Epic</string>
-    <string name="theme_title">Darstellung</string>
+    <string name="theme_title">Design</string>
     <string name="theme_system">System</string>
     <string name="theme_light">Hell</string>
     <string name="theme_dark">Dunkel</string>
