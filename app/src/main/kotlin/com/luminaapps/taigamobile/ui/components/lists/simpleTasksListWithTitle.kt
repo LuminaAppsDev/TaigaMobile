@@ -25,7 +25,7 @@ import androidx.paging.compose.itemsIndexed as itemsIndexedLazy
 /**
  * List of tasks with optional title.
  */
-fun LazyListScope.SimpleTasksListWithTitle(
+fun LazyListScope.simpleTasksListWithTitle(
     navigateToTask: NavigateToTask,
     commonTasks: List<CommonTask> = emptyList(),
     commonTasksLazy: LazyPagingItems<CommonTask>? = null,
