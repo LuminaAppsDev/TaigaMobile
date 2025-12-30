@@ -1,13 +1,30 @@
 package com.luminaapps.taigamobile.ui.screens.commontask.components
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.CircularProgressIndicator
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -18,7 +35,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.PopupProperties
 import com.google.accompanist.flowlayout.FlowCrossAxisAlignment
 import com.google.accompanist.flowlayout.FlowRow
-import com.vanpra.composematerialdialogs.color.ColorPalette
 import com.luminaapps.taigamobile.R
 import com.luminaapps.taigamobile.domain.entities.CommonTaskExtended
 import com.luminaapps.taigamobile.domain.entities.Tag
@@ -32,6 +48,7 @@ import com.luminaapps.taigamobile.ui.utils.surfaceColorAtElevation
 import com.luminaapps.taigamobile.ui.utils.textColor
 import com.luminaapps.taigamobile.ui.utils.toColor
 import com.luminaapps.taigamobile.ui.utils.toHex
+import com.vanpra.composematerialdialogs.color.ColorPalette
 
 @Suppress("FunctionName")
 fun LazyListScope.CommonTaskTags(

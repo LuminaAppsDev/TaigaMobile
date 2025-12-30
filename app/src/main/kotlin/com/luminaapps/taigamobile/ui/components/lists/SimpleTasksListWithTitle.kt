@@ -16,11 +16,11 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
-import androidx.paging.compose.itemsIndexed as itemsIndexedLazy
 import com.luminaapps.taigamobile.domain.entities.CommonTask
 import com.luminaapps.taigamobile.ui.components.loaders.DotsLoader
 import com.luminaapps.taigamobile.ui.components.texts.SectionTitle
 import com.luminaapps.taigamobile.ui.utils.NavigateToTask
+import androidx.paging.compose.itemsIndexed as itemsIndexedLazy
 
 /**
  * List of tasks with optional title.

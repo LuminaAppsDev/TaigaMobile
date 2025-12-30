@@ -1,10 +1,10 @@
 package com.luminaapps.taigamobile.ui.screens.main
 
-import androidx.lifecycle.*
-import com.luminaapps.taigamobile.state.Session
-import com.luminaapps.taigamobile.state.Settings
+import androidx.lifecycle.ViewModel
 import com.luminaapps.taigamobile.TaigaApp
 import com.luminaapps.taigamobile.dagger.AppComponent
+import com.luminaapps.taigamobile.state.Session
+import com.luminaapps.taigamobile.state.Settings
 import javax.inject.Inject
 
 class MainViewModel(appComponent: AppComponent = TaigaApp.appComponent) : ViewModel() {

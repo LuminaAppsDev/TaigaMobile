@@ -1,5 +1,5 @@
-import java.util.Properties
 import com.android.build.api.dsl.AndroidSourceSet
+import java.util.Properties
 
 plugins {
     id("com.android.application")

@@ -1,7 +1,7 @@
 package com.luminaapps.taigamobile.viewmodels
 
-import com.luminaapps.taigamobile.ui.screens.dashboard.DashboardViewModel
 import com.luminaapps.taigamobile.domain.entities.CommonTask
+import com.luminaapps.taigamobile.ui.screens.dashboard.DashboardViewModel
 import com.luminaapps.taigamobile.ui.utils.ErrorResult
 import com.luminaapps.taigamobile.ui.utils.SuccessResult
 import com.luminaapps.taigamobile.viewmodels.utils.assertResultEquals

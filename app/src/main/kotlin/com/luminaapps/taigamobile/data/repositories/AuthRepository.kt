@@ -1,10 +1,10 @@
 package com.luminaapps.taigamobile.data.repositories
 
-import com.luminaapps.taigamobile.state.Session
 import com.luminaapps.taigamobile.data.api.AuthRequest
 import com.luminaapps.taigamobile.data.api.TaigaApi
 import com.luminaapps.taigamobile.domain.entities.AuthType
 import com.luminaapps.taigamobile.domain.repositories.IAuthRepository
+import com.luminaapps.taigamobile.state.Session
 import javax.inject.Inject
 
 class AuthRepository @Inject constructor(

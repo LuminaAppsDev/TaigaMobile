@@ -4,12 +4,13 @@ import com.luminaapps.taigamobile.domain.entities.User
 import com.luminaapps.taigamobile.state.ThemeSetting
 import com.luminaapps.taigamobile.ui.screens.settings.SettingsViewModel
 import com.luminaapps.taigamobile.ui.utils.ErrorResult
-import kotlinx.coroutines.runBlocking
 import com.luminaapps.taigamobile.ui.utils.SuccessResult
 import com.luminaapps.taigamobile.viewmodels.utils.assertResultEquals
 import com.luminaapps.taigamobile.viewmodels.utils.notFoundException
-import io.mockk.*
+import io.mockk.coEvery
 import io.mockk.coVerify
+import io.mockk.mockk
+import kotlinx.coroutines.runBlocking
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertIs

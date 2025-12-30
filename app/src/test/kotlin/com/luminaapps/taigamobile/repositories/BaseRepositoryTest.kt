@@ -2,14 +2,14 @@ package com.luminaapps.taigamobile.repositories
 
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.luminaapps.taigamobile.state.Session
 import com.luminaapps.taigamobile.dagger.DataModule
 import com.luminaapps.taigamobile.data.api.TaigaApi
 import com.luminaapps.taigamobile.manager.TaigaTestInstanceManager
 import com.luminaapps.taigamobile.manager.UserInfo
-import kotlin.test.BeforeTest
+import com.luminaapps.taigamobile.state.Session
 import org.junit.runner.RunWith
 import kotlin.test.AfterTest
+import kotlin.test.BeforeTest
 
 @RunWith(AndroidJUnit4::class)
 abstract class BaseRepositoryTest {

@@ -2,7 +2,10 @@ package com.luminaapps.taigamobile.dagger
 
 import com.squareup.moshi.FromJson
 import com.squareup.moshi.ToJson
-import java.time.*
+import java.time.Instant
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
 class LocalDateTypeAdapter {

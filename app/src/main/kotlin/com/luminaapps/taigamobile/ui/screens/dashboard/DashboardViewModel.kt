@@ -2,13 +2,13 @@ package com.luminaapps.taigamobile.ui.screens.dashboard
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.luminaapps.taigamobile.state.Session
 import com.luminaapps.taigamobile.TaigaApp
 import com.luminaapps.taigamobile.dagger.AppComponent
 import com.luminaapps.taigamobile.domain.entities.CommonTask
 import com.luminaapps.taigamobile.domain.entities.Project
 import com.luminaapps.taigamobile.domain.repositories.IProjectsRepository
 import com.luminaapps.taigamobile.domain.repositories.ITasksRepository
+import com.luminaapps.taigamobile.state.Session
 import com.luminaapps.taigamobile.ui.utils.MutableResultFlow
 import com.luminaapps.taigamobile.ui.utils.NothingResult
 import com.luminaapps.taigamobile.ui.utils.loadOrError

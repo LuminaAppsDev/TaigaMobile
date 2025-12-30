@@ -1,6 +1,17 @@
 package com.luminaapps.taigamobile.domain.repositories
 
-import com.luminaapps.taigamobile.domain.entities.*
+import com.luminaapps.taigamobile.domain.entities.Attachment
+import com.luminaapps.taigamobile.domain.entities.Comment
+import com.luminaapps.taigamobile.domain.entities.CommonTask
+import com.luminaapps.taigamobile.domain.entities.CommonTaskExtended
+import com.luminaapps.taigamobile.domain.entities.CommonTaskType
+import com.luminaapps.taigamobile.domain.entities.CustomFieldValue
+import com.luminaapps.taigamobile.domain.entities.CustomFields
+import com.luminaapps.taigamobile.domain.entities.FiltersData
+import com.luminaapps.taigamobile.domain.entities.Status
+import com.luminaapps.taigamobile.domain.entities.StatusType
+import com.luminaapps.taigamobile.domain.entities.Swimlane
+import com.luminaapps.taigamobile.domain.entities.Tag
 import java.io.InputStream
 import java.time.LocalDate
 

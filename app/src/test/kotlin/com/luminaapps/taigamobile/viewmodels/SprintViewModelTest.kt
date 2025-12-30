@@ -1,13 +1,15 @@
 package com.luminaapps.taigamobile.viewmodels
 
-import com.luminaapps.taigamobile.domain.entities.*
+import com.luminaapps.taigamobile.domain.entities.CommonTask
+import com.luminaapps.taigamobile.domain.entities.Sprint
+import com.luminaapps.taigamobile.domain.entities.Status
 import com.luminaapps.taigamobile.ui.screens.sprint.SprintViewModel
 import com.luminaapps.taigamobile.ui.utils.ErrorResult
 import com.luminaapps.taigamobile.ui.utils.SuccessResult
 import com.luminaapps.taigamobile.viewmodels.utils.assertResultEquals
 import com.luminaapps.taigamobile.viewmodels.utils.notFoundException
-import io.mockk.mockk
 import io.mockk.coEvery
+import io.mockk.mockk
 import kotlinx.coroutines.runBlocking
 import java.time.LocalDate
 import kotlin.test.BeforeTest

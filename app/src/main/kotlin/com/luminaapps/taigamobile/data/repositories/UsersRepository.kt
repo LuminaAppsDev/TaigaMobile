@@ -1,10 +1,10 @@
 package com.luminaapps.taigamobile.data.repositories
 
-import com.luminaapps.taigamobile.state.Session
 import com.luminaapps.taigamobile.data.api.TaigaApi
 import com.luminaapps.taigamobile.domain.entities.Stats
 import com.luminaapps.taigamobile.domain.entities.TeamMember
 import com.luminaapps.taigamobile.domain.repositories.IUsersRepository
+import com.luminaapps.taigamobile.state.Session
 import kotlinx.coroutines.async
 import javax.inject.Inject
 

@@ -4,13 +4,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
-import com.luminaapps.taigamobile.state.Session
 import com.luminaapps.taigamobile.TaigaApp
 import com.luminaapps.taigamobile.dagger.AppComponent
 import com.luminaapps.taigamobile.domain.entities.CommonTaskType
 import com.luminaapps.taigamobile.domain.entities.FiltersData
 import com.luminaapps.taigamobile.domain.paging.CommonPagingSource
 import com.luminaapps.taigamobile.domain.repositories.ITasksRepository
+import com.luminaapps.taigamobile.state.Session
 import com.luminaapps.taigamobile.ui.utils.MutableResultFlow
 import com.luminaapps.taigamobile.ui.utils.asLazyPagingItems
 import com.luminaapps.taigamobile.ui.utils.loadOrError

@@ -1,7 +1,12 @@
 package com.luminaapps.taigamobile.data.api
 
+import com.luminaapps.taigamobile.domain.entities.CustomFieldType
+import com.luminaapps.taigamobile.domain.entities.DueDateStatus
+import com.luminaapps.taigamobile.domain.entities.EpicShortInfo
+import com.luminaapps.taigamobile.domain.entities.Project
+import com.luminaapps.taigamobile.domain.entities.User
+import com.luminaapps.taigamobile.domain.entities.UserStoryShortInfo
 import com.squareup.moshi.JsonClass
-import com.luminaapps.taigamobile.domain.entities.*
 import java.time.LocalDate
 import java.time.LocalDateTime
 

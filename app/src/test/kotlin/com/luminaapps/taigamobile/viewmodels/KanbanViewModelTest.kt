@@ -1,6 +1,10 @@
 package com.luminaapps.taigamobile.viewmodels
 
-import com.luminaapps.taigamobile.domain.entities.*
+import com.luminaapps.taigamobile.domain.entities.CommonTaskExtended
+import com.luminaapps.taigamobile.domain.entities.Status
+import com.luminaapps.taigamobile.domain.entities.Swimlane
+import com.luminaapps.taigamobile.domain.entities.TeamMember
+import com.luminaapps.taigamobile.domain.entities.User
 import com.luminaapps.taigamobile.ui.screens.kanban.KanbanViewModel
 import com.luminaapps.taigamobile.ui.utils.ErrorResult
 import com.luminaapps.taigamobile.ui.utils.SuccessResult

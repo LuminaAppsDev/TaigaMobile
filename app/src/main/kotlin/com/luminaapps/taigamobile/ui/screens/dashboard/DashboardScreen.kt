@@ -1,11 +1,18 @@
 package com.luminaapps.taigamobile.ui.screens.dashboard
 
 import androidx.annotation.StringRes
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -17,14 +24,16 @@ import com.google.accompanist.pager.ExperimentalPagerApi
 import com.luminaapps.taigamobile.R
 import com.luminaapps.taigamobile.domain.entities.CommonTask
 import com.luminaapps.taigamobile.domain.entities.Project
-import com.luminaapps.taigamobile.ui.utils.LoadingResult
+import com.luminaapps.taigamobile.ui.components.appbars.AppBarWithBackButton
 import com.luminaapps.taigamobile.ui.components.containers.HorizontalTabbedPager
 import com.luminaapps.taigamobile.ui.components.containers.Tab
-import com.luminaapps.taigamobile.ui.components.appbars.AppBarWithBackButton
 import com.luminaapps.taigamobile.ui.components.lists.ProjectCard
 import com.luminaapps.taigamobile.ui.components.lists.SimpleTasksListWithTitle
 import com.luminaapps.taigamobile.ui.components.loaders.CircularLoader
-import com.luminaapps.taigamobile.ui.theme.*
+import com.luminaapps.taigamobile.ui.theme.TaigaMobileTheme
+import com.luminaapps.taigamobile.ui.theme.commonVerticalPadding
+import com.luminaapps.taigamobile.ui.theme.mainHorizontalScreenPadding
+import com.luminaapps.taigamobile.ui.utils.LoadingResult
 import com.luminaapps.taigamobile.ui.utils.navigateToTaskScreen
 import com.luminaapps.taigamobile.ui.utils.subscribeOnError
 

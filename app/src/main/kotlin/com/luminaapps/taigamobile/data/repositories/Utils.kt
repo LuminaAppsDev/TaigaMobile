@@ -2,7 +2,12 @@ package com.luminaapps.taigamobile.data.repositories
 
 import com.luminaapps.taigamobile.data.api.CommonTaskResponse
 import com.luminaapps.taigamobile.data.api.SprintResponse
-import com.luminaapps.taigamobile.domain.entities.*
+import com.luminaapps.taigamobile.domain.entities.CommonTask
+import com.luminaapps.taigamobile.domain.entities.CommonTaskType
+import com.luminaapps.taigamobile.domain.entities.Sprint
+import com.luminaapps.taigamobile.domain.entities.Status
+import com.luminaapps.taigamobile.domain.entities.StatusType
+import com.luminaapps.taigamobile.domain.entities.Tag
 import com.luminaapps.taigamobile.ui.theme.taigaGray
 import com.luminaapps.taigamobile.ui.utils.toHex
 import kotlinx.coroutines.CoroutineScope

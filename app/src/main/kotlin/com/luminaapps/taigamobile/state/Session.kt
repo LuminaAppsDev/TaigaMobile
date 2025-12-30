@@ -2,13 +2,20 @@ package com.luminaapps.taigamobile.state
 
 import android.content.Context
 import androidx.core.content.edit
-import com.squareup.moshi.Moshi
 import com.luminaapps.taigamobile.domain.entities.FiltersData
 import com.luminaapps.taigamobile.domain.entities.FiltersDataJsonAdapter
+import com.squareup.moshi.Moshi
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
 /**

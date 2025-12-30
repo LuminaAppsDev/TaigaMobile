@@ -1,10 +1,26 @@
 package com.luminaapps.taigamobile.data.api
 
-import com.luminaapps.taigamobile.domain.entities.*
+import com.luminaapps.taigamobile.domain.entities.Attachment
+import com.luminaapps.taigamobile.domain.entities.Comment
+import com.luminaapps.taigamobile.domain.entities.Project
+import com.luminaapps.taigamobile.domain.entities.Stats
+import com.luminaapps.taigamobile.domain.entities.Swimlane
+import com.luminaapps.taigamobile.domain.entities.User
+import com.luminaapps.taigamobile.domain.entities.WikiLink
+import com.luminaapps.taigamobile.domain.entities.WikiPage
 import com.luminaapps.taigamobile.domain.paging.CommonPagingSource
 import okhttp3.MultipartBody
 import retrofit2.Response
-import retrofit2.http.*
+import retrofit2.http.Body
+import retrofit2.http.DELETE
+import retrofit2.http.GET
+import retrofit2.http.Header
+import retrofit2.http.Multipart
+import retrofit2.http.PATCH
+import retrofit2.http.POST
+import retrofit2.http.Part
+import retrofit2.http.Path
+import retrofit2.http.Query
 
 /**
  * All API endpoints

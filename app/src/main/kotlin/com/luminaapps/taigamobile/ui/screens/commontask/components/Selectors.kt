@@ -9,10 +9,14 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.luminaapps.taigamobile.R
-import com.luminaapps.taigamobile.domain.entities.*
+import com.luminaapps.taigamobile.domain.entities.CommonTask
+import com.luminaapps.taigamobile.domain.entities.Sprint
+import com.luminaapps.taigamobile.domain.entities.Status
+import com.luminaapps.taigamobile.domain.entities.Swimlane
+import com.luminaapps.taigamobile.domain.entities.User
 import com.luminaapps.taigamobile.ui.components.containers.ContainerBox
-import com.luminaapps.taigamobile.ui.components.lists.UserItem
 import com.luminaapps.taigamobile.ui.components.editors.SelectorList
+import com.luminaapps.taigamobile.ui.components.lists.UserItem
 import com.luminaapps.taigamobile.ui.components.texts.CommonTaskTitle
 import com.luminaapps.taigamobile.ui.screens.commontask.CommonTaskViewModel
 import com.luminaapps.taigamobile.ui.screens.commontask.EditAction

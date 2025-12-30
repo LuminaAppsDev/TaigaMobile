@@ -9,14 +9,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
+import com.luminaapps.taigamobile.R
+import com.luminaapps.taigamobile.ui.utils.clickableUnindicated
 import com.vanpra.composematerialdialogs.MaterialDialog
 import com.vanpra.composematerialdialogs.color.ARGBPickerState
 import com.vanpra.composematerialdialogs.color.ColorPalette
 import com.vanpra.composematerialdialogs.color.colorChooser
 import com.vanpra.composematerialdialogs.rememberMaterialDialogState
 import com.vanpra.composematerialdialogs.title
-import com.luminaapps.taigamobile.R
-import com.luminaapps.taigamobile.ui.utils.clickableUnindicated
 
 /**
  * Color picker with material dialog

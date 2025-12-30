@@ -1,6 +1,11 @@
 package com.luminaapps.taigamobile.manager
 
-import com.luminaapps.taigamobile.testdata.*
+import com.luminaapps.taigamobile.testdata.Epic
+import com.luminaapps.taigamobile.testdata.Issue
+import com.luminaapps.taigamobile.testdata.Project
+import com.luminaapps.taigamobile.testdata.Sprint
+import com.luminaapps.taigamobile.testdata.User
+import com.luminaapps.taigamobile.testdata.UserStory
 
 class UserData(
     val id: Long,

@@ -1,7 +1,11 @@
 package com.luminaapps.taigamobile.ui.screens.issues
 
-import androidx.compose.foundation.layout.*
-import androidx.compose.runtime.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -12,14 +16,17 @@ import com.luminaapps.taigamobile.domain.entities.CommonTask
 import com.luminaapps.taigamobile.domain.entities.CommonTaskType
 import com.luminaapps.taigamobile.domain.entities.FiltersData
 import com.luminaapps.taigamobile.ui.components.TasksFiltersWithLazyList
-import com.luminaapps.taigamobile.ui.components.buttons.PlusButton
 import com.luminaapps.taigamobile.ui.components.appbars.ClickableAppBar
+import com.luminaapps.taigamobile.ui.components.buttons.PlusButton
 import com.luminaapps.taigamobile.ui.components.lists.SimpleTasksListWithTitle
 import com.luminaapps.taigamobile.ui.screens.main.Routes
 import com.luminaapps.taigamobile.ui.theme.TaigaMobileTheme
 import com.luminaapps.taigamobile.ui.theme.commonVerticalPadding
 import com.luminaapps.taigamobile.ui.theme.mainHorizontalScreenPadding
-import com.luminaapps.taigamobile.ui.utils.*
+import com.luminaapps.taigamobile.ui.utils.NavigateToTask
+import com.luminaapps.taigamobile.ui.utils.navigateToCreateTaskScreen
+import com.luminaapps.taigamobile.ui.utils.navigateToTaskScreen
+import com.luminaapps.taigamobile.ui.utils.subscribeOnError
 
 @Composable
 fun IssuesScreen(

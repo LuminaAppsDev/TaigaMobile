@@ -37,11 +37,11 @@ import com.luminaapps.taigamobile.domain.entities.User
 import com.luminaapps.taigamobile.ui.components.appbars.AppBarWithBackButton
 import com.luminaapps.taigamobile.ui.components.dialogs.ConfirmActionDialog
 import com.luminaapps.taigamobile.ui.components.editors.Editor
+import com.luminaapps.taigamobile.ui.components.lists.Attachments
+import com.luminaapps.taigamobile.ui.components.lists.Description
 import com.luminaapps.taigamobile.ui.components.lists.UserItem
 import com.luminaapps.taigamobile.ui.components.loaders.CircularLoader
 import com.luminaapps.taigamobile.ui.screens.commontask.EditAction
-import com.luminaapps.taigamobile.ui.components.lists.Attachments
-import com.luminaapps.taigamobile.ui.components.lists.Description
 import com.luminaapps.taigamobile.ui.theme.dialogTonalElevation
 import com.luminaapps.taigamobile.ui.theme.mainHorizontalScreenPadding
 import com.luminaapps.taigamobile.ui.utils.LoadingResult

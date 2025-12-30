@@ -14,7 +14,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.luminaapps.taigamobile.R
-import com.luminaapps.taigamobile.domain.entities.*
+import com.luminaapps.taigamobile.domain.entities.CommonTask
+import com.luminaapps.taigamobile.domain.entities.CommonTaskType
+import com.luminaapps.taigamobile.domain.entities.Project
+import com.luminaapps.taigamobile.domain.entities.Status
+import com.luminaapps.taigamobile.domain.entities.StatusType
 import com.luminaapps.taigamobile.ui.components.containers.ContainerBox
 import com.luminaapps.taigamobile.ui.components.texts.CommonTaskTitle
 import com.luminaapps.taigamobile.ui.theme.TaigaMobileTheme

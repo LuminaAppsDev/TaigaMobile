@@ -5,7 +5,6 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import com.luminaapps.taigamobile.R
-import com.luminaapps.taigamobile.state.Session
 import com.luminaapps.taigamobile.TaigaApp
 import com.luminaapps.taigamobile.dagger.AppComponent
 import com.luminaapps.taigamobile.domain.entities.CommonTaskType
@@ -13,12 +12,15 @@ import com.luminaapps.taigamobile.domain.entities.FiltersData
 import com.luminaapps.taigamobile.domain.paging.CommonPagingSource
 import com.luminaapps.taigamobile.domain.repositories.ISprintsRepository
 import com.luminaapps.taigamobile.domain.repositories.ITasksRepository
+import com.luminaapps.taigamobile.state.Session
 import com.luminaapps.taigamobile.ui.utils.MutableResultFlow
 import com.luminaapps.taigamobile.ui.utils.NothingResult
 import com.luminaapps.taigamobile.ui.utils.asLazyPagingItems
 import com.luminaapps.taigamobile.ui.utils.loadOrError
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import java.time.LocalDate
 import javax.inject.Inject

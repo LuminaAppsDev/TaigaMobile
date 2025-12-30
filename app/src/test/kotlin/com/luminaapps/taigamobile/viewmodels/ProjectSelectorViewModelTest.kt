@@ -1,12 +1,12 @@
 package com.luminaapps.taigamobile.viewmodels
 
-import com.luminaapps.taigamobile.domain.entities.*
+import com.luminaapps.taigamobile.domain.entities.Project
 import com.luminaapps.taigamobile.ui.screens.projectselector.ProjectSelectorViewModel
+import com.luminaapps.taigamobile.viewmodels.utils.testLazyPagingItems
+import io.mockk.coVerify
 import io.mockk.mockk
 import kotlinx.coroutines.runBlocking
 import kotlin.test.BeforeTest
-import com.luminaapps.taigamobile.viewmodels.utils.testLazyPagingItems
-import io.mockk.coVerify
 import kotlin.test.Test
 
 class ProjectSelectorViewModelTest : BaseViewModelTest() {

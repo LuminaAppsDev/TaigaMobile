@@ -1,16 +1,38 @@
 package com.luminaapps.taigamobile.viewmodels
 
-import com.luminaapps.taigamobile.domain.entities.*
+import com.luminaapps.taigamobile.domain.entities.Attachment
+import com.luminaapps.taigamobile.domain.entities.Comment
+import com.luminaapps.taigamobile.domain.entities.CommonTask
+import com.luminaapps.taigamobile.domain.entities.CommonTaskExtended
+import com.luminaapps.taigamobile.domain.entities.CommonTaskType
+import com.luminaapps.taigamobile.domain.entities.CustomField
+import com.luminaapps.taigamobile.domain.entities.CustomFieldValue
+import com.luminaapps.taigamobile.domain.entities.CustomFields
+import com.luminaapps.taigamobile.domain.entities.EpicShortInfo
+import com.luminaapps.taigamobile.domain.entities.FiltersData
+import com.luminaapps.taigamobile.domain.entities.Sprint
+import com.luminaapps.taigamobile.domain.entities.Status
+import com.luminaapps.taigamobile.domain.entities.StatusType
+import com.luminaapps.taigamobile.domain.entities.Swimlane
+import com.luminaapps.taigamobile.domain.entities.Tag
+import com.luminaapps.taigamobile.domain.entities.TeamMember
+import com.luminaapps.taigamobile.domain.entities.User
 import com.luminaapps.taigamobile.ui.screens.commontask.CommonTaskViewModel
 import com.luminaapps.taigamobile.ui.utils.ErrorResult
 import com.luminaapps.taigamobile.ui.utils.SuccessResult
-import com.luminaapps.taigamobile.viewmodels.utils.*
+import com.luminaapps.taigamobile.viewmodels.utils.accessDeniedException
+import com.luminaapps.taigamobile.viewmodels.utils.assertResultEquals
+import com.luminaapps.taigamobile.viewmodels.utils.notFoundException
+import com.luminaapps.taigamobile.viewmodels.utils.testLazyPagingItems
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.runBlocking
 import java.io.InputStream
 import java.time.LocalDate
-import kotlin.test.*
+import kotlin.test.BeforeTest
+import kotlin.test.Test
+import kotlin.test.assertEquals
+import kotlin.test.assertIs
 
 class CommonTaskViewModelTest : BaseViewModelTest() {
     private lateinit var viewModel: CommonTaskViewModel

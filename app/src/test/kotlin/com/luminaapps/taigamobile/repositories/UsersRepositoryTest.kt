@@ -4,8 +4,8 @@ import com.luminaapps.taigamobile.data.repositories.UsersRepository
 import com.luminaapps.taigamobile.domain.repositories.IUsersRepository
 import com.luminaapps.taigamobile.testdata.TestData
 import kotlinx.coroutines.runBlocking
-import kotlin.test.BeforeTest
 import org.junit.Test
+import kotlin.test.BeforeTest
 import kotlin.test.assertEquals
 
 class UsersRepositoryTest : BaseRepositoryTest() {

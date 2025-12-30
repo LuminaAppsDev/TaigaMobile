@@ -4,13 +4,13 @@ import androidx.annotation.StringRes
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import androidx.paging.compose.LazyPagingItems
+import com.luminaapps.taigamobile.R
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import kotlin.reflect.full.callSuspend
 import kotlin.reflect.full.declaredFunctions
-import timber.log.Timber
-import com.luminaapps.taigamobile.R
 
 inline fun <T> MutableResultFlow<T>.loadOrError(
     @StringRes messageId: Int = R.string.common_error_message,

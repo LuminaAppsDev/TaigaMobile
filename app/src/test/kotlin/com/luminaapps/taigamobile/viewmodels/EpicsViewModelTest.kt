@@ -10,7 +10,9 @@ import com.luminaapps.taigamobile.viewmodels.utils.notFoundException
 import com.luminaapps.taigamobile.viewmodels.utils.testLazyPagingItems
 import io.mockk.coEvery
 import kotlinx.coroutines.runBlocking
-import kotlin.test.*
+import kotlin.test.BeforeTest
+import kotlin.test.Test
+import kotlin.test.assertIs
 
 class EpicsViewModelTest : BaseViewModelTest() {
     private lateinit var viewModel: EpicsViewModel

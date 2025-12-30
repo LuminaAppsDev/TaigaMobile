@@ -2,12 +2,16 @@ package com.luminaapps.taigamobile.ui.screens.kanban
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.luminaapps.taigamobile.state.Session
 import com.luminaapps.taigamobile.TaigaApp
 import com.luminaapps.taigamobile.dagger.AppComponent
-import com.luminaapps.taigamobile.domain.entities.*
+import com.luminaapps.taigamobile.domain.entities.CommonTaskExtended
+import com.luminaapps.taigamobile.domain.entities.CommonTaskType
+import com.luminaapps.taigamobile.domain.entities.Status
+import com.luminaapps.taigamobile.domain.entities.Swimlane
+import com.luminaapps.taigamobile.domain.entities.User
 import com.luminaapps.taigamobile.domain.repositories.ITasksRepository
 import com.luminaapps.taigamobile.domain.repositories.IUsersRepository
+import com.luminaapps.taigamobile.state.Session
 import com.luminaapps.taigamobile.state.subscribeToAll
 import com.luminaapps.taigamobile.ui.utils.MutableResultFlow
 import com.luminaapps.taigamobile.ui.utils.NothingResult

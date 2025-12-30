@@ -2,11 +2,13 @@ package com.luminaapps.taigamobile.ui.screens.settings
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.luminaapps.taigamobile.*
+import com.luminaapps.taigamobile.TaigaApp
 import com.luminaapps.taigamobile.dagger.AppComponent
 import com.luminaapps.taigamobile.domain.entities.User
 import com.luminaapps.taigamobile.domain.repositories.IUsersRepository
-import com.luminaapps.taigamobile.state.*
+import com.luminaapps.taigamobile.state.Session
+import com.luminaapps.taigamobile.state.Settings
+import com.luminaapps.taigamobile.state.ThemeSetting
 import com.luminaapps.taigamobile.ui.utils.MutableResultFlow
 import com.luminaapps.taigamobile.ui.utils.loadOrError
 import kotlinx.coroutines.launch

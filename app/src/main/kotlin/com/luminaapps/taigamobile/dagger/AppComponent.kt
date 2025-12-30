@@ -1,25 +1,25 @@
 package com.luminaapps.taigamobile.dagger
 
 import android.content.Context
-import dagger.BindsInstance
-import dagger.Component
-import com.luminaapps.taigamobile.ui.screens.login.LoginViewModel
-import com.luminaapps.taigamobile.ui.screens.main.MainViewModel
-import com.luminaapps.taigamobile.ui.screens.projectselector.ProjectSelectorViewModel
-import com.luminaapps.taigamobile.ui.screens.scrum.ScrumViewModel
-import com.luminaapps.taigamobile.ui.screens.sprint.SprintViewModel
 import com.luminaapps.taigamobile.ui.screens.commontask.CommonTaskViewModel
 import com.luminaapps.taigamobile.ui.screens.createtask.CreateTaskViewModel
 import com.luminaapps.taigamobile.ui.screens.dashboard.DashboardViewModel
 import com.luminaapps.taigamobile.ui.screens.epics.EpicsViewModel
 import com.luminaapps.taigamobile.ui.screens.issues.IssuesViewModel
 import com.luminaapps.taigamobile.ui.screens.kanban.KanbanViewModel
+import com.luminaapps.taigamobile.ui.screens.login.LoginViewModel
+import com.luminaapps.taigamobile.ui.screens.main.MainViewModel
 import com.luminaapps.taigamobile.ui.screens.profile.ProfileViewModel
+import com.luminaapps.taigamobile.ui.screens.projectselector.ProjectSelectorViewModel
+import com.luminaapps.taigamobile.ui.screens.scrum.ScrumViewModel
 import com.luminaapps.taigamobile.ui.screens.settings.SettingsViewModel
+import com.luminaapps.taigamobile.ui.screens.sprint.SprintViewModel
 import com.luminaapps.taigamobile.ui.screens.team.TeamViewModel
 import com.luminaapps.taigamobile.ui.screens.wiki.createpage.WikiCreatePageViewModel
-import com.luminaapps.taigamobile.ui.screens.wiki.page.WikiPageViewModel
 import com.luminaapps.taigamobile.ui.screens.wiki.list.WikiListViewModel
+import com.luminaapps.taigamobile.ui.screens.wiki.page.WikiPageViewModel
+import dagger.BindsInstance
+import dagger.Component
 import javax.inject.Singleton
 
 @Singleton

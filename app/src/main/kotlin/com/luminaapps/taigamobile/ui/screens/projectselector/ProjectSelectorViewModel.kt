@@ -4,12 +4,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
-import com.luminaapps.taigamobile.state.Session
 import com.luminaapps.taigamobile.TaigaApp
 import com.luminaapps.taigamobile.dagger.AppComponent
 import com.luminaapps.taigamobile.domain.entities.Project
 import com.luminaapps.taigamobile.domain.paging.CommonPagingSource
 import com.luminaapps.taigamobile.domain.repositories.IProjectsRepository
+import com.luminaapps.taigamobile.state.Session
 import com.luminaapps.taigamobile.ui.utils.asLazyPagingItems
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow

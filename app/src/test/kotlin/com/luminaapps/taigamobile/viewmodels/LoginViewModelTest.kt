@@ -5,7 +5,7 @@ import com.luminaapps.taigamobile.ui.screens.login.LoginViewModel
 import com.luminaapps.taigamobile.ui.utils.ErrorResult
 import com.luminaapps.taigamobile.ui.utils.SuccessResult
 import com.luminaapps.taigamobile.viewmodels.utils.accessDeniedException
-import io.mockk.*
+import io.mockk.coEvery
 import kotlinx.coroutines.runBlocking
 import kotlin.test.BeforeTest
 import kotlin.test.Test
