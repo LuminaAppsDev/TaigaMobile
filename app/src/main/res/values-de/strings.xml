@@ -152,7 +152,7 @@
     <string name="create_new_page">Neue Seite erstellen</string>
     <string name="role_title">Rolle</string>
     <string name="created_by_title">Erstellt von</string>
-    <string name="credits_message">"Mit ❤ realisiert von EugeneTheDev. Wenn Ihnen die App gefällt, bewerten Sie sie bitte bei Google Play und markieren Sie das Projekt auf GitHub mit einem Stern. "</string>
+    <string name="credits_message">"Ursprünglich mit ❤️ von EugeneTheDev erstellt. Fork von LuminaApps. Wenn Ihnen die App gefällt, bewerten Sie sie bitte bei Google Play und markieren Sie das Projekt auf GitHub mit einem Stern. "</string>
     <string name="epic_title">Epic</string>
     <string name="theme_title">Design</string>
     <string name="theme_system">System</string>
@@ -160,6 +160,7 @@
     <string name="theme_dark">Dunkel</string>
     <string name="help">Hilfe</string>
     <string name="not_in_an_epic">Nicht in einem Epic</string>
-    <string name="source_code">Quellcode</string>
+    <string name="source_code">"Original Quellcode "</string>
     <string name="status_title">Status</string>
+    <string name="source_code2">Geforkter Quellcode</string>
 </resources>

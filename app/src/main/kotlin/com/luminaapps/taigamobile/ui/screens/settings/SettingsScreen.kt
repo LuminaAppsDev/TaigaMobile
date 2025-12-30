@@ -314,6 +314,15 @@ fun SettingsScreenContent(
                 githubUrl.toUri())) }
         )
 
+        val activity2 = LocalContext.current.activity
+        val githubUrl2 = stringResource(R.string.github_url2)
+        Text(
+            text = stringResource(R.string.source_code2),
+            style = MaterialTheme.typography.bodyLarge.merge(SpanStyle(color = MaterialTheme.colorScheme.primary, textDecoration = TextDecoration.Underline)),
+            modifier = Modifier.clickableUnindicated { activity2.startActivity(Intent(Intent.ACTION_VIEW,
+                githubUrl2.toUri())) }
+        )
+
         Spacer(Modifier.windowInsetsBottomHeight(WindowInsets.navigationBars))
     }
 }

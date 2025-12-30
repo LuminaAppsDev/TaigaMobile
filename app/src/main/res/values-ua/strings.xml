@@ -203,7 +203,8 @@
     <string name="empty_wiki_dialog_title">Тут немає вікі-сторінок…</string>
     <string name="empty_wiki_dialog_subtitle">Давайте додамо новий?</string>
     <string name="create_new_page">Створити нову сторінку</string>
-    <string name="credits_message">Зроблено ❤️ by EugeneTheDev. Якщо вам подобається додаток незабудьте оцінити його на Google Play та GitHub</string>
-    <string name="source_code">Джерело коду</string>
+    <string name="credits_message">Спочатку створено за допомогою ❤️ від EugeneTheDev. Розширено LuminaApps. Якщо вам подобається додаток незабудьте оцінити його на Google Play та GitHub</string>
+    <string name="source_code">Оригінальний вихідний код</string>
+    <string name="source_code2">Розгалужений вихідний код</string>
 </resources>
 
