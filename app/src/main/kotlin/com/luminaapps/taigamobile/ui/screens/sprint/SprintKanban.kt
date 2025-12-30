@@ -28,17 +28,18 @@ import androidx.compose.ui.unit.dp
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
 import com.google.accompanist.insets.navigationBarsHeight
-import io.eugenethedev.taigamobile.domain.entities.*
-import io.eugenethedev.taigamobile.ui.components.buttons.PlusButton
-import io.eugenethedev.taigamobile.ui.components.lists.CommonTaskItem
-import io.eugenethedev.taigamobile.ui.components.texts.CommonTaskTitle
-import io.eugenethedev.taigamobile.ui.theme.TaigaMobileTheme
-import io.eugenethedev.taigamobile.ui.theme.cardShadowElevation
-import io.eugenethedev.taigamobile.ui.theme.kanbanBoardTonalElevation
-import io.eugenethedev.taigamobile.ui.utils.NavigateToTask
-import io.eugenethedev.taigamobile.ui.utils.clickableUnindicated
-import io.eugenethedev.taigamobile.ui.utils.surfaceColorAtElevation
-import io.eugenethedev.taigamobile.ui.utils.toColor
+import com.luminaapps.taigamobile.R
+import com.luminaapps.taigamobile.domain.entities.*
+import com.luminaapps.taigamobile.ui.components.buttons.PlusButton
+import com.luminaapps.taigamobile.ui.components.lists.CommonTaskItem
+import com.luminaapps.taigamobile.ui.components.texts.CommonTaskTitle
+import com.luminaapps.taigamobile.ui.theme.TaigaMobileTheme
+import com.luminaapps.taigamobile.ui.theme.cardShadowElevation
+import com.luminaapps.taigamobile.ui.theme.kanbanBoardTonalElevation
+import com.luminaapps.taigamobile.ui.utils.NavigateToTask
+import com.luminaapps.taigamobile.ui.utils.clickableUnindicated
+import com.luminaapps.taigamobile.ui.utils.surfaceColorAtElevation
+import com.luminaapps.taigamobile.ui.utils.toColor
 import java.time.LocalDateTime
 
 @Composable

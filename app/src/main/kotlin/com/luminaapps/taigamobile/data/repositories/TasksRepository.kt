@@ -1,10 +1,10 @@
 package com.luminaapps.taigamobile.data.repositories
 
-import io.eugenethedev.taigamobile.state.Session
-import io.eugenethedev.taigamobile.dagger.toLocalDate
-import io.eugenethedev.taigamobile.data.api.*
-import io.eugenethedev.taigamobile.domain.entities.*
-import io.eugenethedev.taigamobile.domain.repositories.ITasksRepository
+import com.luminaapps.taigamobile.state.Session
+import com.luminaapps.taigamobile.dagger.toLocalDate
+import com.luminaapps.taigamobile.data.api.*
+import com.luminaapps.taigamobile.domain.entities.*
+import com.luminaapps.taigamobile.domain.repositories.ITasksRepository
 import kotlinx.coroutines.async
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody

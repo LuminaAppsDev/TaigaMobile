@@ -4,10 +4,10 @@ import com.google.gson.Gson
 import com.google.gson.JsonArray
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject
-import io.eugenethedev.taigamobile.data.api.CommonTaskPathSingular
-import io.eugenethedev.taigamobile.domain.entities.CommonTaskType
-import io.eugenethedev.taigamobile.testdata.Project
-import io.eugenethedev.taigamobile.testdata.User
+import com.luminaapps.taigamobile.data.api.CommonTaskPathSingular
+import com.luminaapps.taigamobile.domain.entities.CommonTaskType
+import com.luminaapps.taigamobile.testdata.Project
+import com.luminaapps.taigamobile.testdata.User
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request

@@ -1,8 +1,8 @@
 package com.luminaapps.taigamobile.repositories
 
-import io.eugenethedev.taigamobile.data.repositories.UsersRepository
-import io.eugenethedev.taigamobile.domain.repositories.IUsersRepository
-import io.eugenethedev.taigamobile.testdata.TestData
+import com.luminaapps.taigamobile.data.repositories.UsersRepository
+import com.luminaapps.taigamobile.domain.repositories.IUsersRepository
+import com.luminaapps.taigamobile.testdata.TestData
 import kotlinx.coroutines.runBlocking
 import kotlin.test.BeforeTest
 import org.junit.Test

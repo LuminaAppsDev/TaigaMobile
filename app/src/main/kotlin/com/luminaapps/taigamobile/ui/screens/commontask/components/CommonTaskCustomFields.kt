@@ -10,12 +10,12 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import io.eugenethedev.taigamobile.R
-import io.eugenethedev.taigamobile.domain.entities.CustomField
-import io.eugenethedev.taigamobile.domain.entities.CustomFieldValue
-import io.eugenethedev.taigamobile.ui.components.loaders.DotsLoader
-import io.eugenethedev.taigamobile.ui.components.texts.SectionTitle
-import io.eugenethedev.taigamobile.ui.screens.commontask.EditActions
+import com.luminaapps.taigamobile.R
+import com.luminaapps.taigamobile.domain.entities.CustomField
+import com.luminaapps.taigamobile.domain.entities.CustomFieldValue
+import com.luminaapps.taigamobile.ui.components.loaders.DotsLoader
+import com.luminaapps.taigamobile.ui.components.texts.SectionTitle
+import com.luminaapps.taigamobile.ui.screens.commontask.EditActions
 
 @Suppress("FunctionName")
 fun LazyListScope.CommonTaskCustomFields(

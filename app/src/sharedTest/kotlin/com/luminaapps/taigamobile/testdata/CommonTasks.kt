@@ -1,6 +1,6 @@
 package com.luminaapps.taigamobile.testdata
 
-import io.eugenethedev.taigamobile.domain.entities.CommonTaskType
+import com.luminaapps.taigamobile.domain.entities.CommonTaskType
 
 class Comment(
     val text: String,

@@ -1,11 +1,11 @@
 package com.luminaapps.taigamobile.manager
 
-import io.eugenethedev.taigamobile.data.api.CommonTaskPathPlural
-import io.eugenethedev.taigamobile.domain.entities.CommonTaskType
-import io.eugenethedev.taigamobile.testdata.Comment
-import io.eugenethedev.taigamobile.testdata.Task
-import io.eugenethedev.taigamobile.testdata.TestData
-import io.eugenethedev.taigamobile.testdata.User
+import com.luminaapps.taigamobile.data.api.CommonTaskPathPlural
+import com.luminaapps.taigamobile.domain.entities.CommonTaskType
+import com.luminaapps.taigamobile.testdata.Comment
+import com.luminaapps.taigamobile.testdata.Task
+import com.luminaapps.taigamobile.testdata.TestData
+import com.luminaapps.taigamobile.testdata.User
 import okhttp3.Request
 
 interface Creations {

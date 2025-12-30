@@ -1,10 +1,10 @@
 package com.luminaapps.taigamobile.viewmodels
 
-import io.eugenethedev.taigamobile.domain.entities.*
-import io.eugenethedev.taigamobile.ui.screens.commontask.CommonTaskViewModel
-import io.eugenethedev.taigamobile.ui.utils.ErrorResult
-import io.eugenethedev.taigamobile.ui.utils.SuccessResult
-import io.eugenethedev.taigamobile.viewmodels.utils.*
+import com.luminaapps.taigamobile.domain.entities.*
+import com.luminaapps.taigamobile.ui.screens.commontask.CommonTaskViewModel
+import com.luminaapps.taigamobile.ui.utils.ErrorResult
+import com.luminaapps.taigamobile.ui.utils.SuccessResult
+import com.luminaapps.taigamobile.viewmodels.utils.*
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.runBlocking

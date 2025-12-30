@@ -3,9 +3,9 @@ package com.luminaapps.taigamobile
 import android.app.Application
 import android.util.Log
 import com.google.android.material.color.DynamicColors
-import io.eugenethedev.taigamobile.dagger.AppComponent
-import io.eugenethedev.taigamobile.dagger.DaggerAppComponent
-import io.eugenethedev.taigamobile.utils.FileLoggingTree
+import com.luminaapps.taigamobile.dagger.AppComponent
+import com.luminaapps.taigamobile.dagger.DaggerAppComponent
+import com.luminaapps.taigamobile.utils.FileLoggingTree
 import timber.log.Timber
 
 class TaigaApp : Application() {

@@ -1,7 +1,7 @@
 package com.luminaapps.taigamobile.domain.repositories
 
-import io.eugenethedev.taigamobile.domain.entities.CommonTask
-import io.eugenethedev.taigamobile.domain.entities.Sprint
+import com.luminaapps.taigamobile.domain.entities.CommonTask
+import com.luminaapps.taigamobile.domain.entities.Sprint
 import java.time.LocalDate
 
 interface ISprintsRepository {

@@ -1,7 +1,7 @@
 package com.luminaapps.taigamobile.data.api
 
-import io.eugenethedev.taigamobile.domain.entities.*
-import io.eugenethedev.taigamobile.domain.paging.CommonPagingSource
+import com.luminaapps.taigamobile.domain.entities.*
+import com.luminaapps.taigamobile.domain.paging.CommonPagingSource
 import okhttp3.MultipartBody
 import retrofit2.Response
 import retrofit2.http.*

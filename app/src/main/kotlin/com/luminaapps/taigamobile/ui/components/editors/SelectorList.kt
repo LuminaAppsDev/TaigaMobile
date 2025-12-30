@@ -23,9 +23,9 @@ import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.itemsIndexed as itemsIndexedLazy
 import com.google.accompanist.insets.navigationBarsHeight
-import io.eugenethedev.taigamobile.ui.components.appbars.AppBarWithBackButton
-import io.eugenethedev.taigamobile.ui.components.loaders.DotsLoader
-import io.eugenethedev.taigamobile.ui.utils.onBackPressed
+import com.luminaapps.taigamobile.ui.components.appbars.AppBarWithBackButton
+import com.luminaapps.taigamobile.ui.components.loaders.DotsLoader
+import com.luminaapps.taigamobile.ui.utils.onBackPressed
 
 /**
  * Selector list, which expands from bottom to top.

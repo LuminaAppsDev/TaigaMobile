@@ -2,11 +2,11 @@ package com.luminaapps.taigamobile.repositories
 
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import io.eugenethedev.taigamobile.state.Session
-import io.eugenethedev.taigamobile.dagger.DataModule
-import io.eugenethedev.taigamobile.data.api.TaigaApi
-import io.eugenethedev.taigamobile.manager.TaigaTestInstanceManager
-import io.eugenethedev.taigamobile.manager.UserInfo
+import com.luminaapps.taigamobile.state.Session
+import com.luminaapps.taigamobile.dagger.DataModule
+import com.luminaapps.taigamobile.data.api.TaigaApi
+import com.luminaapps.taigamobile.manager.TaigaTestInstanceManager
+import com.luminaapps.taigamobile.manager.UserInfo
 import kotlin.test.BeforeTest
 import org.junit.runner.RunWith
 import kotlin.test.AfterTest

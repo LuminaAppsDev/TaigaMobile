@@ -2,15 +2,15 @@ package com.luminaapps.taigamobile.ui.screens.createtask
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import io.eugenethedev.taigamobile.TaigaApp
-import io.eugenethedev.taigamobile.dagger.AppComponent
-import io.eugenethedev.taigamobile.domain.entities.CommonTask
-import io.eugenethedev.taigamobile.domain.entities.CommonTaskType
-import io.eugenethedev.taigamobile.domain.repositories.ITasksRepository
-import io.eugenethedev.taigamobile.state.Session
-import io.eugenethedev.taigamobile.state.postUpdate
-import io.eugenethedev.taigamobile.ui.utils.MutableResultFlow
-import io.eugenethedev.taigamobile.ui.utils.loadOrError
+import com.luminaapps.taigamobile.TaigaApp
+import com.luminaapps.taigamobile.dagger.AppComponent
+import com.luminaapps.taigamobile.domain.entities.CommonTask
+import com.luminaapps.taigamobile.domain.entities.CommonTaskType
+import com.luminaapps.taigamobile.domain.repositories.ITasksRepository
+import com.luminaapps.taigamobile.state.Session
+import com.luminaapps.taigamobile.state.postUpdate
+import com.luminaapps.taigamobile.ui.utils.MutableResultFlow
+import com.luminaapps.taigamobile.ui.utils.loadOrError
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

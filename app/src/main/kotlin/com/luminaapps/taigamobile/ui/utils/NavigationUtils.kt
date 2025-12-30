@@ -1,8 +1,8 @@
 package com.luminaapps.taigamobile.ui.utils
 
 import androidx.navigation.NavController
-import io.eugenethedev.taigamobile.domain.entities.CommonTaskType
-import io.eugenethedev.taigamobile.ui.screens.main.Routes
+import com.luminaapps.taigamobile.domain.entities.CommonTaskType
+import com.luminaapps.taigamobile.ui.screens.main.Routes
 
 /**
  * Since navigating to some screens requires several arguments, here are some utils

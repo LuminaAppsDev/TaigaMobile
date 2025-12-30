@@ -15,14 +15,15 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.flowlayout.FlowCrossAxisAlignment
 import com.google.accompanist.flowlayout.FlowRow
-import io.eugenethedev.taigamobile.domain.entities.CommonTaskExtended
-import io.eugenethedev.taigamobile.domain.entities.CommonTaskType
-import io.eugenethedev.taigamobile.ui.components.badges.ClickableBadge
-import io.eugenethedev.taigamobile.ui.components.pickers.ColorPicker
-import io.eugenethedev.taigamobile.ui.screens.commontask.EditActions
-import io.eugenethedev.taigamobile.ui.theme.taigaRed
-import io.eugenethedev.taigamobile.ui.utils.toColor
-import io.eugenethedev.taigamobile.ui.utils.toHex
+import com.luminaapps.taigamobile.R
+import com.luminaapps.taigamobile.domain.entities.CommonTaskExtended
+import com.luminaapps.taigamobile.domain.entities.CommonTaskType
+import com.luminaapps.taigamobile.ui.components.badges.ClickableBadge
+import com.luminaapps.taigamobile.ui.components.pickers.ColorPicker
+import com.luminaapps.taigamobile.ui.screens.commontask.EditActions
+import com.luminaapps.taigamobile.ui.theme.taigaRed
+import com.luminaapps.taigamobile.ui.utils.toColor
+import com.luminaapps.taigamobile.ui.utils.toHex
 
 @Suppress("FunctionName")
 fun LazyListScope.CommonTaskHeader(

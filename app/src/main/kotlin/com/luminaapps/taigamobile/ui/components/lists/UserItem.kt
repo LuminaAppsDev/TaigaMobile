@@ -18,10 +18,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
-import io.eugenethedev.taigamobile.domain.entities.User
-import io.eugenethedev.taigamobile.ui.components.dialogs.ConfirmActionDialog
-import io.eugenethedev.taigamobile.ui.theme.TaigaMobileTheme
-import io.eugenethedev.taigamobile.ui.utils.clickableUnindicated
+import com.luminaapps.taigamobile.R
+import com.luminaapps.taigamobile.domain.entities.User
+import com.luminaapps.taigamobile.ui.components.dialogs.ConfirmActionDialog
+import com.luminaapps.taigamobile.ui.theme.TaigaMobileTheme
+import com.luminaapps.taigamobile.ui.utils.clickableUnindicated
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle

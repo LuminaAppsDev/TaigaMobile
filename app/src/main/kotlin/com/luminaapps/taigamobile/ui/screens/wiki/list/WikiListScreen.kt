@@ -26,17 +26,17 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.rememberPagerState
-import io.eugenethedev.taigamobile.R
-import io.eugenethedev.taigamobile.ui.components.appbars.ClickableAppBar
-import io.eugenethedev.taigamobile.ui.components.buttons.PlusButton
-import io.eugenethedev.taigamobile.ui.components.containers.ContainerBox
-import io.eugenethedev.taigamobile.ui.components.containers.HorizontalTabbedPager
-import io.eugenethedev.taigamobile.ui.components.containers.Tab
-import io.eugenethedev.taigamobile.ui.components.loaders.CircularLoader
-import io.eugenethedev.taigamobile.ui.screens.main.Routes
-import io.eugenethedev.taigamobile.ui.utils.LoadingResult
-import io.eugenethedev.taigamobile.ui.utils.navigateToWikiPageScreen
-import io.eugenethedev.taigamobile.ui.utils.subscribeOnError
+import com.luminaapps.taigamobile.R
+import com.luminaapps.taigamobile.ui.components.appbars.ClickableAppBar
+import com.luminaapps.taigamobile.ui.components.buttons.PlusButton
+import com.luminaapps.taigamobile.ui.components.containers.ContainerBox
+import com.luminaapps.taigamobile.ui.components.containers.HorizontalTabbedPager
+import com.luminaapps.taigamobile.ui.components.containers.Tab
+import com.luminaapps.taigamobile.ui.components.loaders.CircularLoader
+import com.luminaapps.taigamobile.ui.screens.main.Routes
+import com.luminaapps.taigamobile.ui.utils.LoadingResult
+import com.luminaapps.taigamobile.ui.utils.navigateToWikiPageScreen
+import com.luminaapps.taigamobile.ui.utils.subscribeOnError
 
 @Composable
 fun WikiListScreen(

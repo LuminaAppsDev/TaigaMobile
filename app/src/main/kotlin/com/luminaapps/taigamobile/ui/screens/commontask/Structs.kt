@@ -5,8 +5,8 @@ package com.luminaapps.taigamobile.ui.screens.commontask
  */
 
 import androidx.paging.compose.LazyPagingItems
-import io.eugenethedev.taigamobile.domain.entities.*
-import io.eugenethedev.taigamobile.ui.utils.NavigateToTask
+import com.luminaapps.taigamobile.domain.entities.*
+import com.luminaapps.taigamobile.ui.utils.NavigateToTask
 import java.io.InputStream
 import java.time.LocalDate
 

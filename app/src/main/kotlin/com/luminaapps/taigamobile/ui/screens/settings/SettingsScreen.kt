@@ -31,19 +31,20 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
-import io.eugenethedev.taigamobile.BuildConfig
-import io.eugenethedev.taigamobile.TaigaApp
-import io.eugenethedev.taigamobile.state.ThemeSetting
-import io.eugenethedev.taigamobile.ui.components.dialogs.ConfirmActionDialog
-import io.eugenethedev.taigamobile.ui.components.DropdownSelector
-import io.eugenethedev.taigamobile.ui.components.containers.ContainerBox
-import io.eugenethedev.taigamobile.ui.components.appbars.AppBarWithBackButton
-import io.eugenethedev.taigamobile.ui.screens.main.Routes
-import io.eugenethedev.taigamobile.ui.theme.TaigaMobileTheme
-import io.eugenethedev.taigamobile.ui.theme.mainHorizontalScreenPadding
-import io.eugenethedev.taigamobile.ui.utils.activity
-import io.eugenethedev.taigamobile.ui.utils.clickableUnindicated
-import io.eugenethedev.taigamobile.ui.utils.subscribeOnError
+import com.luminaapps.taigamobile.R
+import com.luminaapps.taigamobile.BuildConfig
+import com.luminaapps.taigamobile.TaigaApp
+import com.luminaapps.taigamobile.state.ThemeSetting
+import com.luminaapps.taigamobile.ui.components.dialogs.ConfirmActionDialog
+import com.luminaapps.taigamobile.ui.components.DropdownSelector
+import com.luminaapps.taigamobile.ui.components.containers.ContainerBox
+import com.luminaapps.taigamobile.ui.components.appbars.AppBarWithBackButton
+import com.luminaapps.taigamobile.ui.screens.main.Routes
+import com.luminaapps.taigamobile.ui.theme.TaigaMobileTheme
+import com.luminaapps.taigamobile.ui.theme.mainHorizontalScreenPadding
+import com.luminaapps.taigamobile.ui.utils.activity
+import com.luminaapps.taigamobile.ui.utils.clickableUnindicated
+import com.luminaapps.taigamobile.ui.utils.subscribeOnError
 import timber.log.Timber
 
 @Composable

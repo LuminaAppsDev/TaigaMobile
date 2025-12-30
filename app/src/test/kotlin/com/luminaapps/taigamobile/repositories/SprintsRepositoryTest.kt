@@ -1,8 +1,8 @@
 package com.luminaapps.taigamobile.repositories
 
-import io.eugenethedev.taigamobile.data.repositories.SprintsRepository
-import io.eugenethedev.taigamobile.domain.repositories.ISprintsRepository
-import io.eugenethedev.taigamobile.testdata.TestData
+import com.luminaapps.taigamobile.data.repositories.SprintsRepository
+import com.luminaapps.taigamobile.domain.repositories.ISprintsRepository
+import com.luminaapps.taigamobile.testdata.TestData
 import kotlinx.coroutines.runBlocking
 import org.junit.Test
 import java.time.LocalDate

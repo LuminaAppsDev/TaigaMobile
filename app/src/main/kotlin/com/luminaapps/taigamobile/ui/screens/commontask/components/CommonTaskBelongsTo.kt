@@ -14,17 +14,18 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import io.eugenethedev.taigamobile.domain.entities.CommonTaskExtended
-import io.eugenethedev.taigamobile.domain.entities.CommonTaskType
-import io.eugenethedev.taigamobile.domain.entities.EpicShortInfo
-import io.eugenethedev.taigamobile.domain.entities.UserStoryShortInfo
-import io.eugenethedev.taigamobile.ui.components.dialogs.ConfirmActionDialog
-import io.eugenethedev.taigamobile.ui.components.buttons.AddButton
-import io.eugenethedev.taigamobile.ui.components.loaders.DotsLoader
-import io.eugenethedev.taigamobile.ui.components.texts.CommonTaskTitle
-import io.eugenethedev.taigamobile.ui.screens.commontask.EditActions
-import io.eugenethedev.taigamobile.ui.screens.commontask.NavigationActions
-import io.eugenethedev.taigamobile.ui.utils.clickableUnindicated
+import com.luminaapps.taigamobile.R
+import com.luminaapps.taigamobile.domain.entities.CommonTaskExtended
+import com.luminaapps.taigamobile.domain.entities.CommonTaskType
+import com.luminaapps.taigamobile.domain.entities.EpicShortInfo
+import com.luminaapps.taigamobile.domain.entities.UserStoryShortInfo
+import com.luminaapps.taigamobile.ui.components.dialogs.ConfirmActionDialog
+import com.luminaapps.taigamobile.ui.components.buttons.AddButton
+import com.luminaapps.taigamobile.ui.components.loaders.DotsLoader
+import com.luminaapps.taigamobile.ui.components.texts.CommonTaskTitle
+import com.luminaapps.taigamobile.ui.screens.commontask.EditActions
+import com.luminaapps.taigamobile.ui.screens.commontask.NavigationActions
+import com.luminaapps.taigamobile.ui.utils.clickableUnindicated
 
 @Suppress("FunctionName")
 fun LazyListScope.CommonTaskBelongsTo(

@@ -1,7 +1,7 @@
 package com.luminaapps.taigamobile.data.api
 
 import com.squareup.moshi.JsonClass
-import io.eugenethedev.taigamobile.domain.entities.*
+import com.luminaapps.taigamobile.domain.entities.*
 import java.time.LocalDate
 import java.time.LocalDateTime
 

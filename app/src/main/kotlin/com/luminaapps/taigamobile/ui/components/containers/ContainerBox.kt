@@ -11,7 +11,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import io.eugenethedev.taigamobile.ui.theme.mainHorizontalScreenPadding
+import com.luminaapps.taigamobile.ui.theme.mainHorizontalScreenPadding
 
 /**
  * Common for app view which is used as container for different items (for example list items).

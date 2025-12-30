@@ -15,13 +15,13 @@ import androidx.compose.material3.Text
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import io.eugenethedev.taigamobile.R
-import io.eugenethedev.taigamobile.domain.entities.User
-import io.eugenethedev.taigamobile.ui.components.buttons.AddButton
-import io.eugenethedev.taigamobile.ui.components.buttons.TextButton
-import io.eugenethedev.taigamobile.ui.components.lists.UserItemWithAction
-import io.eugenethedev.taigamobile.ui.components.loaders.DotsLoader
-import io.eugenethedev.taigamobile.ui.screens.commontask.EditActions
+import com.luminaapps.taigamobile.R
+import com.luminaapps.taigamobile.domain.entities.User
+import com.luminaapps.taigamobile.ui.components.buttons.AddButton
+import com.luminaapps.taigamobile.ui.components.buttons.TextButton
+import com.luminaapps.taigamobile.ui.components.lists.UserItemWithAction
+import com.luminaapps.taigamobile.ui.components.loaders.DotsLoader
+import com.luminaapps.taigamobile.ui.screens.commontask.EditActions
 
 @Suppress("FunctionName")
 fun LazyListScope.CommonTaskWatchers(

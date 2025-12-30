@@ -1,13 +1,13 @@
 package com.luminaapps.taigamobile.viewmodels
 
-import io.eugenethedev.taigamobile.domain.entities.User
-import io.eugenethedev.taigamobile.state.ThemeSetting
-import io.eugenethedev.taigamobile.ui.screens.settings.SettingsViewModel
-import io.eugenethedev.taigamobile.ui.utils.ErrorResult
+import com.luminaapps.taigamobile.domain.entities.User
+import com.luminaapps.taigamobile.state.ThemeSetting
+import com.luminaapps.taigamobile.ui.screens.settings.SettingsViewModel
+import com.luminaapps.taigamobile.ui.utils.ErrorResult
 import kotlinx.coroutines.runBlocking
-import io.eugenethedev.taigamobile.ui.utils.SuccessResult
-import io.eugenethedev.taigamobile.viewmodels.utils.assertResultEquals
-import io.eugenethedev.taigamobile.viewmodels.utils.notFoundException
+import com.luminaapps.taigamobile.ui.utils.SuccessResult
+import com.luminaapps.taigamobile.viewmodels.utils.assertResultEquals
+import com.luminaapps.taigamobile.viewmodels.utils.notFoundException
 import io.mockk.*
 import io.mockk.coVerify
 import kotlin.test.BeforeTest

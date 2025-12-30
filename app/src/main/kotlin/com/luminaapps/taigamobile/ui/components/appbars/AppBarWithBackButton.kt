@@ -8,6 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.insets.statusBarsPadding
+import com.luminaapps.taigamobile.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

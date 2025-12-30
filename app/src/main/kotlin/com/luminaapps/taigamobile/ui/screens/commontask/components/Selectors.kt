@@ -8,16 +8,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import io.eugenethedev.taigamobile.R
-import io.eugenethedev.taigamobile.domain.entities.*
-import io.eugenethedev.taigamobile.ui.components.containers.ContainerBox
-import io.eugenethedev.taigamobile.ui.components.lists.UserItem
-import io.eugenethedev.taigamobile.ui.components.editors.SelectorList
-import io.eugenethedev.taigamobile.ui.components.texts.CommonTaskTitle
-import io.eugenethedev.taigamobile.ui.screens.commontask.CommonTaskViewModel
-import io.eugenethedev.taigamobile.ui.screens.commontask.EditAction
-import io.eugenethedev.taigamobile.ui.screens.commontask.SimpleEditAction
-import io.eugenethedev.taigamobile.ui.utils.toColor
+import com.luminaapps.taigamobile.R
+import com.luminaapps.taigamobile.domain.entities.*
+import com.luminaapps.taigamobile.ui.components.containers.ContainerBox
+import com.luminaapps.taigamobile.ui.components.lists.UserItem
+import com.luminaapps.taigamobile.ui.components.editors.SelectorList
+import com.luminaapps.taigamobile.ui.components.texts.CommonTaskTitle
+import com.luminaapps.taigamobile.ui.screens.commontask.CommonTaskViewModel
+import com.luminaapps.taigamobile.ui.screens.commontask.EditAction
+import com.luminaapps.taigamobile.ui.screens.commontask.SimpleEditAction
+import com.luminaapps.taigamobile.ui.utils.toColor
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 

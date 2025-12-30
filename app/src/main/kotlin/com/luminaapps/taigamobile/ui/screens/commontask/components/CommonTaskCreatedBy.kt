@@ -4,10 +4,10 @@ import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.ui.res.stringResource
-import io.eugenethedev.taigamobile.R
-import io.eugenethedev.taigamobile.domain.entities.CommonTaskExtended
-import io.eugenethedev.taigamobile.domain.entities.User
-import io.eugenethedev.taigamobile.ui.components.lists.UserItem
+import com.luminaapps.taigamobile.R
+import com.luminaapps.taigamobile.domain.entities.CommonTaskExtended
+import com.luminaapps.taigamobile.domain.entities.User
+import com.luminaapps.taigamobile.ui.components.lists.UserItem
 
 @Suppress("FunctionName")
 fun LazyListScope.CommonTaskCreatedBy(

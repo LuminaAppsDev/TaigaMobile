@@ -23,7 +23,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import io.eugenethedev.taigamobile.ui.theme.mainHorizontalScreenPadding
+import com.luminaapps.taigamobile.ui.theme.mainHorizontalScreenPadding
 
 /**
  * You've read it right. Text field. With hint.

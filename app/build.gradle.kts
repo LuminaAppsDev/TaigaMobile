@@ -12,7 +12,7 @@ val composeVersion = "1.1.1"
 
 android {
     compileSdk = 36
-    namespace = "io.eugenethedev.taigamobile"
+    namespace = "com.luminaapps.taigamobile"
 
     defaultConfig {
         applicationId = namespace!!

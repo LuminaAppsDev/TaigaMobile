@@ -26,13 +26,14 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.google.accompanist.insets.imePadding
-import io.eugenethedev.taigamobile.domain.entities.AuthType
-import io.eugenethedev.taigamobile.ui.utils.ErrorResult
-import io.eugenethedev.taigamobile.ui.utils.LoadingResult
-import io.eugenethedev.taigamobile.ui.utils.SuccessResult
-import io.eugenethedev.taigamobile.ui.components.dialogs.ConfirmActionDialog
-import io.eugenethedev.taigamobile.ui.screens.main.Routes
-import io.eugenethedev.taigamobile.ui.theme.TaigaMobileTheme
+import com.luminaapps.taigamobile.R
+import com.luminaapps.taigamobile.domain.entities.AuthType
+import com.luminaapps.taigamobile.ui.utils.ErrorResult
+import com.luminaapps.taigamobile.ui.utils.LoadingResult
+import com.luminaapps.taigamobile.ui.utils.SuccessResult
+import com.luminaapps.taigamobile.ui.components.dialogs.ConfirmActionDialog
+import com.luminaapps.taigamobile.ui.screens.main.Routes
+import com.luminaapps.taigamobile.ui.theme.TaigaMobileTheme
 
 @Composable
 fun LoginScreen(

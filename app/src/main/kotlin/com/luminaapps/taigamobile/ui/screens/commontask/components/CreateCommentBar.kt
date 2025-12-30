@@ -17,8 +17,9 @@ import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
-import io.eugenethedev.taigamobile.ui.components.editors.TextFieldWithHint
-import io.eugenethedev.taigamobile.ui.theme.mainHorizontalScreenPadding
+import com.luminaapps.taigamobile.R
+import com.luminaapps.taigamobile.ui.components.editors.TextFieldWithHint
+import com.luminaapps.taigamobile.ui.theme.mainHorizontalScreenPadding
 
 @OptIn(ExperimentalComposeUiApi::class, ExperimentalMaterial3Api::class)
 @Composable

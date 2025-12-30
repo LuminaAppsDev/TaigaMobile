@@ -10,12 +10,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import io.eugenethedev.taigamobile.domain.entities.CommonTaskExtended
-import io.eugenethedev.taigamobile.domain.entities.DueDateStatus
-import io.eugenethedev.taigamobile.ui.components.pickers.DatePicker
-import io.eugenethedev.taigamobile.ui.screens.commontask.EditActions
-import io.eugenethedev.taigamobile.ui.theme.*
-import io.eugenethedev.taigamobile.ui.utils.surfaceColorAtElevation
+import com.luminaapps.taigamobile.R
+import com.luminaapps.taigamobile.domain.entities.CommonTaskExtended
+import com.luminaapps.taigamobile.domain.entities.DueDateStatus
+import com.luminaapps.taigamobile.ui.components.pickers.DatePicker
+import com.luminaapps.taigamobile.ui.screens.commontask.EditActions
+import com.luminaapps.taigamobile.ui.theme.*
+import com.luminaapps.taigamobile.ui.utils.surfaceColorAtElevation
 
 @Suppress("FunctionName")
 fun LazyListScope.CommonTaskDueDate(

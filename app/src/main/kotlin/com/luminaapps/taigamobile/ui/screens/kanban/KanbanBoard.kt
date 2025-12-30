@@ -27,13 +27,14 @@ import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
 import com.google.accompanist.flowlayout.FlowRow
 import com.google.accompanist.insets.navigationBarsHeight
-import io.eugenethedev.taigamobile.domain.entities.*
-import io.eugenethedev.taigamobile.ui.components.DropdownSelector
-import io.eugenethedev.taigamobile.ui.components.buttons.PlusButton
-import io.eugenethedev.taigamobile.ui.components.texts.CommonTaskTitle
-import io.eugenethedev.taigamobile.ui.theme.*
-import io.eugenethedev.taigamobile.ui.utils.surfaceColorAtElevation
-import io.eugenethedev.taigamobile.ui.utils.toColor
+import com.luminaapps.taigamobile.R
+import com.luminaapps.taigamobile.domain.entities.*
+import com.luminaapps.taigamobile.ui.components.DropdownSelector
+import com.luminaapps.taigamobile.ui.components.buttons.PlusButton
+import com.luminaapps.taigamobile.ui.components.texts.CommonTaskTitle
+import com.luminaapps.taigamobile.ui.theme.*
+import com.luminaapps.taigamobile.ui.utils.surfaceColorAtElevation
+import com.luminaapps.taigamobile.ui.utils.toColor
 import java.time.LocalDateTime
 
 @Composable

@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 import kotlin.reflect.full.callSuspend
 import kotlin.reflect.full.declaredFunctions
 import timber.log.Timber
-import io.eugenethedev.taigamobile.R
+import com.luminaapps.taigamobile.R
 
 inline fun <T> MutableResultFlow<T>.loadOrError(
     @StringRes messageId: Int = R.string.common_error_message,

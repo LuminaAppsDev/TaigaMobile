@@ -31,16 +31,16 @@ import androidx.navigation.NavController
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
 import com.google.accompanist.insets.navigationBarsHeight
-import io.eugenethedev.taigamobile.R
-import io.eugenethedev.taigamobile.domain.entities.Project
-import io.eugenethedev.taigamobile.domain.entities.Stats
-import io.eugenethedev.taigamobile.domain.entities.User
-import io.eugenethedev.taigamobile.ui.components.appbars.AppBarWithBackButton
-import io.eugenethedev.taigamobile.ui.components.lists.ProjectCard
-import io.eugenethedev.taigamobile.ui.components.loaders.CircularLoader
-import io.eugenethedev.taigamobile.ui.utils.ErrorResult
-import io.eugenethedev.taigamobile.ui.utils.LoadingResult
-import io.eugenethedev.taigamobile.ui.utils.subscribeOnError
+import com.luminaapps.taigamobile.R
+import com.luminaapps.taigamobile.domain.entities.Project
+import com.luminaapps.taigamobile.domain.entities.Stats
+import com.luminaapps.taigamobile.domain.entities.User
+import com.luminaapps.taigamobile.ui.components.appbars.AppBarWithBackButton
+import com.luminaapps.taigamobile.ui.components.lists.ProjectCard
+import com.luminaapps.taigamobile.ui.components.loaders.CircularLoader
+import com.luminaapps.taigamobile.ui.utils.ErrorResult
+import com.luminaapps.taigamobile.ui.utils.LoadingResult
+import com.luminaapps.taigamobile.ui.utils.subscribeOnError
 
 @Composable
 fun ProfileScreen(

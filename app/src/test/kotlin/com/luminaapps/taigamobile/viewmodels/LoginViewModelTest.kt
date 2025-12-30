@@ -1,10 +1,10 @@
 package com.luminaapps.taigamobile.viewmodels
 
-import io.eugenethedev.taigamobile.domain.entities.AuthType
-import io.eugenethedev.taigamobile.ui.screens.login.LoginViewModel
-import io.eugenethedev.taigamobile.ui.utils.ErrorResult
-import io.eugenethedev.taigamobile.ui.utils.SuccessResult
-import io.eugenethedev.taigamobile.viewmodels.utils.accessDeniedException
+import com.luminaapps.taigamobile.domain.entities.AuthType
+import com.luminaapps.taigamobile.ui.screens.login.LoginViewModel
+import com.luminaapps.taigamobile.ui.utils.ErrorResult
+import com.luminaapps.taigamobile.ui.utils.SuccessResult
+import com.luminaapps.taigamobile.viewmodels.utils.accessDeniedException
 import io.mockk.*
 import kotlinx.coroutines.runBlocking
 import kotlin.test.BeforeTest

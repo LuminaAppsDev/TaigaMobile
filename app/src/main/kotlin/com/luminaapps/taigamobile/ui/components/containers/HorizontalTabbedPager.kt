@@ -14,7 +14,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.pager.*
-import io.eugenethedev.taigamobile.ui.theme.mainHorizontalScreenPadding
+import com.luminaapps.taigamobile.ui.theme.mainHorizontalScreenPadding
 import kotlinx.coroutines.launch
 
 /**

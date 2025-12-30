@@ -14,12 +14,13 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.paging.compose.LazyPagingItems
-import io.eugenethedev.taigamobile.domain.entities.Project
-import io.eugenethedev.taigamobile.ui.components.editors.SelectorList
-import io.eugenethedev.taigamobile.ui.components.editors.SelectorListConstants
-import io.eugenethedev.taigamobile.ui.theme.TaigaMobileTheme
-import io.eugenethedev.taigamobile.ui.components.containers.ContainerBox
-import io.eugenethedev.taigamobile.ui.utils.subscribeOnError
+import com.luminaapps.taigamobile.R
+import com.luminaapps.taigamobile.domain.entities.Project
+import com.luminaapps.taigamobile.ui.components.editors.SelectorList
+import com.luminaapps.taigamobile.ui.components.editors.SelectorListConstants
+import com.luminaapps.taigamobile.ui.theme.TaigaMobileTheme
+import com.luminaapps.taigamobile.ui.components.containers.ContainerBox
+import com.luminaapps.taigamobile.ui.utils.subscribeOnError
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 

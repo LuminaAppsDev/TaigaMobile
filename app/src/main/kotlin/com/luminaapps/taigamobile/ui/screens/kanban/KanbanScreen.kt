@@ -12,15 +12,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import io.eugenethedev.taigamobile.domain.entities.*
-import io.eugenethedev.taigamobile.ui.utils.LoadingResult
-import io.eugenethedev.taigamobile.ui.components.appbars.ClickableAppBar
-import io.eugenethedev.taigamobile.ui.components.loaders.CircularLoader
-import io.eugenethedev.taigamobile.ui.screens.main.Routes
-import io.eugenethedev.taigamobile.ui.theme.TaigaMobileTheme
-import io.eugenethedev.taigamobile.ui.utils.navigateToCreateTaskScreen
-import io.eugenethedev.taigamobile.ui.utils.navigateToTaskScreen
-import io.eugenethedev.taigamobile.ui.utils.subscribeOnError
+import com.luminaapps.taigamobile.domain.entities.*
+import com.luminaapps.taigamobile.ui.utils.LoadingResult
+import com.luminaapps.taigamobile.ui.components.appbars.ClickableAppBar
+import com.luminaapps.taigamobile.ui.components.loaders.CircularLoader
+import com.luminaapps.taigamobile.ui.screens.main.Routes
+import com.luminaapps.taigamobile.ui.theme.TaigaMobileTheme
+import com.luminaapps.taigamobile.ui.utils.navigateToCreateTaskScreen
+import com.luminaapps.taigamobile.ui.utils.navigateToTaskScreen
+import com.luminaapps.taigamobile.ui.utils.subscribeOnError
 
 @Composable
 fun KanbanScreen(

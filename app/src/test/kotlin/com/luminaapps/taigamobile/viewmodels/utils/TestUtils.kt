@@ -1,8 +1,8 @@
 package com.luminaapps.taigamobile.viewmodels.utils
 
 import androidx.paging.compose.LazyPagingItems
-import io.eugenethedev.taigamobile.domain.paging.CommonPagingSource
-import io.eugenethedev.taigamobile.ui.utils.Result
+import com.luminaapps.taigamobile.domain.paging.CommonPagingSource
+import com.luminaapps.taigamobile.ui.utils.Result
 import io.mockk.MockKAnswerScope
 import io.mockk.MockKMatcherScope
 import io.mockk.coEvery

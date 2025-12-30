@@ -19,18 +19,19 @@ import androidx.compose.ui.window.PopupProperties
 import com.google.accompanist.flowlayout.FlowCrossAxisAlignment
 import com.google.accompanist.flowlayout.FlowRow
 import com.vanpra.composematerialdialogs.color.ColorPalette
-import io.eugenethedev.taigamobile.domain.entities.CommonTaskExtended
-import io.eugenethedev.taigamobile.domain.entities.Tag
-import io.eugenethedev.taigamobile.ui.components.Chip
-import io.eugenethedev.taigamobile.ui.components.buttons.AddButton
-import io.eugenethedev.taigamobile.ui.components.editors.TextFieldWithHint
-import io.eugenethedev.taigamobile.ui.components.pickers.ColorPicker
-import io.eugenethedev.taigamobile.ui.screens.commontask.EditActions
-import io.eugenethedev.taigamobile.ui.theme.dialogTonalElevation
-import io.eugenethedev.taigamobile.ui.utils.surfaceColorAtElevation
-import io.eugenethedev.taigamobile.ui.utils.textColor
-import io.eugenethedev.taigamobile.ui.utils.toColor
-import io.eugenethedev.taigamobile.ui.utils.toHex
+import com.luminaapps.taigamobile.R
+import com.luminaapps.taigamobile.domain.entities.CommonTaskExtended
+import com.luminaapps.taigamobile.domain.entities.Tag
+import com.luminaapps.taigamobile.ui.components.Chip
+import com.luminaapps.taigamobile.ui.components.buttons.AddButton
+import com.luminaapps.taigamobile.ui.components.editors.TextFieldWithHint
+import com.luminaapps.taigamobile.ui.components.pickers.ColorPicker
+import com.luminaapps.taigamobile.ui.screens.commontask.EditActions
+import com.luminaapps.taigamobile.ui.theme.dialogTonalElevation
+import com.luminaapps.taigamobile.ui.utils.surfaceColorAtElevation
+import com.luminaapps.taigamobile.ui.utils.textColor
+import com.luminaapps.taigamobile.ui.utils.toColor
+import com.luminaapps.taigamobile.ui.utils.toHex
 
 @Suppress("FunctionName")
 fun LazyListScope.CommonTaskTags(

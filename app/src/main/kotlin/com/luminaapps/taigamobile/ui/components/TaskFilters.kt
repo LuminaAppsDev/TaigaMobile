@@ -36,15 +36,16 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import com.google.accompanist.flowlayout.FlowRow
-import io.eugenethedev.taigamobile.domain.entities.*
-import io.eugenethedev.taigamobile.ui.components.badges.Badge
-import io.eugenethedev.taigamobile.ui.components.editors.TextFieldWithHint
-import io.eugenethedev.taigamobile.ui.components.editors.searchFieldHorizontalPadding
-import io.eugenethedev.taigamobile.ui.components.editors.searchFieldVerticalPadding
-import io.eugenethedev.taigamobile.ui.theme.TaigaMobileTheme
-import io.eugenethedev.taigamobile.ui.theme.dialogTonalElevation
-import io.eugenethedev.taigamobile.ui.utils.clickableUnindicated
-import io.eugenethedev.taigamobile.ui.utils.toColor
+import com.luminaapps.taigamobile.R
+import com.luminaapps.taigamobile.domain.entities.*
+import com.luminaapps.taigamobile.ui.components.badges.Badge
+import com.luminaapps.taigamobile.ui.components.editors.TextFieldWithHint
+import com.luminaapps.taigamobile.ui.components.editors.searchFieldHorizontalPadding
+import com.luminaapps.taigamobile.ui.components.editors.searchFieldVerticalPadding
+import com.luminaapps.taigamobile.ui.theme.TaigaMobileTheme
+import com.luminaapps.taigamobile.ui.theme.dialogTonalElevation
+import com.luminaapps.taigamobile.ui.utils.clickableUnindicated
+import com.luminaapps.taigamobile.ui.utils.toColor
 import kotlinx.coroutines.launch
 
 /**

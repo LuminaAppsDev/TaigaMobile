@@ -1,8 +1,8 @@
 package com.luminaapps.taigamobile.repositories
 
-import io.eugenethedev.taigamobile.data.repositories.AuthRepository
-import io.eugenethedev.taigamobile.domain.entities.AuthType
-import io.eugenethedev.taigamobile.domain.repositories.IAuthRepository
+import com.luminaapps.taigamobile.data.repositories.AuthRepository
+import com.luminaapps.taigamobile.domain.entities.AuthType
+import com.luminaapps.taigamobile.domain.repositories.IAuthRepository
 import kotlinx.coroutines.runBlocking
 import kotlin.test.BeforeTest
 import kotlin.test.Test

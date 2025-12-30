@@ -2,16 +2,16 @@ package com.luminaapps.taigamobile.ui.screens.profile
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import io.eugenethedev.taigamobile.TaigaApp
-import io.eugenethedev.taigamobile.dagger.AppComponent
-import io.eugenethedev.taigamobile.domain.entities.Project
-import io.eugenethedev.taigamobile.domain.entities.Stats
-import io.eugenethedev.taigamobile.domain.entities.User
-import io.eugenethedev.taigamobile.domain.repositories.IProjectsRepository
-import io.eugenethedev.taigamobile.domain.repositories.IUsersRepository
-import io.eugenethedev.taigamobile.state.Session
-import io.eugenethedev.taigamobile.ui.utils.MutableResultFlow
-import io.eugenethedev.taigamobile.ui.utils.loadOrError
+import com.luminaapps.taigamobile.TaigaApp
+import com.luminaapps.taigamobile.dagger.AppComponent
+import com.luminaapps.taigamobile.domain.entities.Project
+import com.luminaapps.taigamobile.domain.entities.Stats
+import com.luminaapps.taigamobile.domain.entities.User
+import com.luminaapps.taigamobile.domain.repositories.IProjectsRepository
+import com.luminaapps.taigamobile.domain.repositories.IUsersRepository
+import com.luminaapps.taigamobile.state.Session
+import com.luminaapps.taigamobile.ui.utils.MutableResultFlow
+import com.luminaapps.taigamobile.ui.utils.loadOrError
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

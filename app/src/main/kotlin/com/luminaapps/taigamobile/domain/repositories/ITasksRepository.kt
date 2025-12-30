@@ -1,6 +1,6 @@
 package com.luminaapps.taigamobile.domain.repositories
 
-import io.eugenethedev.taigamobile.domain.entities.*
+import com.luminaapps.taigamobile.domain.entities.*
 import java.io.InputStream
 import java.time.LocalDate
 

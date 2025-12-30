@@ -11,13 +11,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import io.eugenethedev.taigamobile.R
-import io.eugenethedev.taigamobile.ui.components.dialogs.LoadingDialog
-import io.eugenethedev.taigamobile.ui.components.editors.Editor
-import io.eugenethedev.taigamobile.ui.utils.LoadingResult
-import io.eugenethedev.taigamobile.ui.utils.SuccessResult
-import io.eugenethedev.taigamobile.ui.utils.navigateToWikiPageScreen
-import io.eugenethedev.taigamobile.ui.utils.subscribeOnError
+import com.luminaapps.taigamobile.R
+import com.luminaapps.taigamobile.ui.components.dialogs.LoadingDialog
+import com.luminaapps.taigamobile.ui.components.editors.Editor
+import com.luminaapps.taigamobile.ui.utils.LoadingResult
+import com.luminaapps.taigamobile.ui.utils.SuccessResult
+import com.luminaapps.taigamobile.ui.utils.navigateToWikiPageScreen
+import com.luminaapps.taigamobile.ui.utils.subscribeOnError
 
 @Composable
 fun WikiCreatePageScreen(

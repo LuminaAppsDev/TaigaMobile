@@ -2,16 +2,16 @@ package com.luminaapps.taigamobile.ui.screens.dashboard
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import io.eugenethedev.taigamobile.state.Session
-import io.eugenethedev.taigamobile.TaigaApp
-import io.eugenethedev.taigamobile.dagger.AppComponent
-import io.eugenethedev.taigamobile.domain.entities.CommonTask
-import io.eugenethedev.taigamobile.domain.entities.Project
-import io.eugenethedev.taigamobile.domain.repositories.IProjectsRepository
-import io.eugenethedev.taigamobile.domain.repositories.ITasksRepository
-import io.eugenethedev.taigamobile.ui.utils.MutableResultFlow
-import io.eugenethedev.taigamobile.ui.utils.NothingResult
-import io.eugenethedev.taigamobile.ui.utils.loadOrError
+import com.luminaapps.taigamobile.state.Session
+import com.luminaapps.taigamobile.TaigaApp
+import com.luminaapps.taigamobile.dagger.AppComponent
+import com.luminaapps.taigamobile.domain.entities.CommonTask
+import com.luminaapps.taigamobile.domain.entities.Project
+import com.luminaapps.taigamobile.domain.repositories.IProjectsRepository
+import com.luminaapps.taigamobile.domain.repositories.ITasksRepository
+import com.luminaapps.taigamobile.ui.utils.MutableResultFlow
+import com.luminaapps.taigamobile.ui.utils.NothingResult
+import com.luminaapps.taigamobile.ui.utils.loadOrError
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.joinAll

@@ -19,13 +19,14 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import io.eugenethedev.taigamobile.domain.entities.Attachment
-import io.eugenethedev.taigamobile.ui.components.dialogs.ConfirmActionDialog
-import io.eugenethedev.taigamobile.ui.components.loaders.DotsLoader
-import io.eugenethedev.taigamobile.ui.components.texts.SectionTitle
-import io.eugenethedev.taigamobile.ui.screens.commontask.EditAction
-import io.eugenethedev.taigamobile.ui.screens.main.LocalFilePicker
-import io.eugenethedev.taigamobile.ui.utils.activity
+import com.luminaapps.taigamobile.R
+import com.luminaapps.taigamobile.domain.entities.Attachment
+import com.luminaapps.taigamobile.ui.components.dialogs.ConfirmActionDialog
+import com.luminaapps.taigamobile.ui.components.loaders.DotsLoader
+import com.luminaapps.taigamobile.ui.components.texts.SectionTitle
+import com.luminaapps.taigamobile.ui.screens.commontask.EditAction
+import com.luminaapps.taigamobile.ui.screens.main.LocalFilePicker
+import com.luminaapps.taigamobile.ui.utils.activity
 import java.io.InputStream
 
 @Suppress("FunctionName")

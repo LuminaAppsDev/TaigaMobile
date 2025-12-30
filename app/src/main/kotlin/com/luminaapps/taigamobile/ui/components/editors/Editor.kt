@@ -20,10 +20,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.insets.imePadding
 import com.google.accompanist.insets.navigationBarsHeight
-import io.eugenethedev.taigamobile.ui.components.appbars.AppBarWithBackButton
-import io.eugenethedev.taigamobile.ui.theme.TaigaMobileTheme
-import io.eugenethedev.taigamobile.ui.theme.mainHorizontalScreenPadding
-import io.eugenethedev.taigamobile.ui.utils.onBackPressed
+import com.luminaapps.taigamobile.R
+import com.luminaapps.taigamobile.ui.components.appbars.AppBarWithBackButton
+import com.luminaapps.taigamobile.ui.theme.TaigaMobileTheme
+import com.luminaapps.taigamobile.ui.theme.mainHorizontalScreenPadding
+import com.luminaapps.taigamobile.ui.utils.onBackPressed
 
 @Composable
 fun Editor(

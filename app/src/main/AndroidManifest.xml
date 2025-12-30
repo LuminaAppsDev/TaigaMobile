@@ -28,7 +28,7 @@
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="io.eugenethedev.taigamobile.provider"
+            android:authorities="com.luminaapps.taigamobile.provider"
             android:grantUriPermissions="true"
             android:exported="false">
             <meta-data

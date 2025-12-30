@@ -1,12 +1,12 @@
 package com.luminaapps.taigamobile.viewmodels
 
-import io.eugenethedev.taigamobile.domain.entities.FiltersData
-import io.eugenethedev.taigamobile.ui.screens.issues.IssuesViewModel
-import io.eugenethedev.taigamobile.ui.utils.ErrorResult
-import io.eugenethedev.taigamobile.ui.utils.SuccessResult
-import io.eugenethedev.taigamobile.viewmodels.utils.assertResultEquals
-import io.eugenethedev.taigamobile.viewmodels.utils.notFoundException
-import io.eugenethedev.taigamobile.viewmodels.utils.testLazyPagingItems
+import com.luminaapps.taigamobile.domain.entities.FiltersData
+import com.luminaapps.taigamobile.ui.screens.issues.IssuesViewModel
+import com.luminaapps.taigamobile.ui.utils.ErrorResult
+import com.luminaapps.taigamobile.ui.utils.SuccessResult
+import com.luminaapps.taigamobile.viewmodels.utils.assertResultEquals
+import com.luminaapps.taigamobile.viewmodels.utils.notFoundException
+import com.luminaapps.taigamobile.viewmodels.utils.testLazyPagingItems
 import io.mockk.coEvery
 import kotlinx.coroutines.runBlocking
 import kotlin.test.BeforeTest

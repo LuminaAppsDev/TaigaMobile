@@ -16,6 +16,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("io.eugenethedev.taigamobile", appContext.packageName)
+        assertEquals("com.luminaapps.taigamobile", appContext.packageName)
     }
 }

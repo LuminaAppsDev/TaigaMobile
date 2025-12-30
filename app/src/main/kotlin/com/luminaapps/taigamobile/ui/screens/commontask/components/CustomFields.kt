@@ -24,15 +24,16 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import io.eugenethedev.taigamobile.domain.entities.CustomField
-import io.eugenethedev.taigamobile.domain.entities.CustomFieldType
-import io.eugenethedev.taigamobile.domain.entities.CustomFieldValue
-import io.eugenethedev.taigamobile.ui.components.DropdownSelector
-import io.eugenethedev.taigamobile.ui.components.editors.TextFieldWithHint
-import io.eugenethedev.taigamobile.ui.components.pickers.DatePicker
-import io.eugenethedev.taigamobile.ui.components.texts.MarkdownText
-import io.eugenethedev.taigamobile.ui.theme.TaigaMobileTheme
-import io.eugenethedev.taigamobile.ui.utils.activity
+import com.luminaapps.taigamobile.R
+import com.luminaapps.taigamobile.domain.entities.CustomField
+import com.luminaapps.taigamobile.domain.entities.CustomFieldType
+import com.luminaapps.taigamobile.domain.entities.CustomFieldValue
+import com.luminaapps.taigamobile.ui.components.DropdownSelector
+import com.luminaapps.taigamobile.ui.components.editors.TextFieldWithHint
+import com.luminaapps.taigamobile.ui.components.pickers.DatePicker
+import com.luminaapps.taigamobile.ui.components.texts.MarkdownText
+import com.luminaapps.taigamobile.ui.theme.TaigaMobileTheme
+import com.luminaapps.taigamobile.ui.utils.activity
 import java.time.LocalDate
 import kotlin.math.floor
 

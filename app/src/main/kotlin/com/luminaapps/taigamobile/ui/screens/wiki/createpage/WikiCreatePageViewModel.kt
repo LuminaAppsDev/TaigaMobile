@@ -2,12 +2,12 @@ package com.luminaapps.taigamobile.ui.screens.wiki.createpage
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import io.eugenethedev.taigamobile.TaigaApp
-import io.eugenethedev.taigamobile.dagger.AppComponent
-import io.eugenethedev.taigamobile.domain.entities.WikiPage
-import io.eugenethedev.taigamobile.domain.repositories.IWikiRepository
-import io.eugenethedev.taigamobile.ui.utils.MutableResultFlow
-import io.eugenethedev.taigamobile.ui.utils.loadOrError
+import com.luminaapps.taigamobile.TaigaApp
+import com.luminaapps.taigamobile.dagger.AppComponent
+import com.luminaapps.taigamobile.domain.entities.WikiPage
+import com.luminaapps.taigamobile.domain.repositories.IWikiRepository
+import com.luminaapps.taigamobile.ui.utils.MutableResultFlow
+import com.luminaapps.taigamobile.ui.utils.loadOrError
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

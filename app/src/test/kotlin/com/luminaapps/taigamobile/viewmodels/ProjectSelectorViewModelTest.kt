@@ -1,11 +1,11 @@
 package com.luminaapps.taigamobile.viewmodels
 
-import io.eugenethedev.taigamobile.domain.entities.*
-import io.eugenethedev.taigamobile.ui.screens.projectselector.ProjectSelectorViewModel
+import com.luminaapps.taigamobile.domain.entities.*
+import com.luminaapps.taigamobile.ui.screens.projectselector.ProjectSelectorViewModel
 import io.mockk.mockk
 import kotlinx.coroutines.runBlocking
 import kotlin.test.BeforeTest
-import io.eugenethedev.taigamobile.viewmodels.utils.testLazyPagingItems
+import com.luminaapps.taigamobile.viewmodels.utils.testLazyPagingItems
 import io.mockk.coVerify
 import kotlin.test.Test
 

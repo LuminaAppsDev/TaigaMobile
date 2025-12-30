@@ -1,8 +1,8 @@
 package com.luminaapps.taigamobile.domain.repositories
 
-import io.eugenethedev.taigamobile.domain.entities.Attachment
-import io.eugenethedev.taigamobile.domain.entities.WikiLink
-import io.eugenethedev.taigamobile.domain.entities.WikiPage
+import com.luminaapps.taigamobile.domain.entities.Attachment
+import com.luminaapps.taigamobile.domain.entities.WikiLink
+import com.luminaapps.taigamobile.domain.entities.WikiPage
 import java.io.InputStream
 
 interface IWikiRepository {

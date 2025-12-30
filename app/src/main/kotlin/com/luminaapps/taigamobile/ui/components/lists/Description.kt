@@ -3,8 +3,8 @@ package com.luminaapps.taigamobile.ui.components.lists
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.ui.Modifier
-import io.eugenethedev.taigamobile.ui.components.texts.MarkdownText
-import io.eugenethedev.taigamobile.ui.components.texts.NothingToSeeHereText
+import com.luminaapps.taigamobile.ui.components.texts.MarkdownText
+import com.luminaapps.taigamobile.ui.components.texts.NothingToSeeHereText
 
 @Suppress("FunctionName")
 fun LazyListScope.Description(

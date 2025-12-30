@@ -12,20 +12,21 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import io.eugenethedev.taigamobile.domain.entities.*
-import io.eugenethedev.taigamobile.domain.entities.CustomField
-import io.eugenethedev.taigamobile.ui.components.editors.Editor
-import io.eugenethedev.taigamobile.ui.components.lists.SimpleTasksListWithTitle
-import io.eugenethedev.taigamobile.ui.components.loaders.CircularLoader
-import io.eugenethedev.taigamobile.ui.components.dialogs.LoadingDialog
-import io.eugenethedev.taigamobile.ui.components.lists.Attachments
-import io.eugenethedev.taigamobile.ui.components.lists.Description
-import io.eugenethedev.taigamobile.ui.screens.commontask.components.*
-import io.eugenethedev.taigamobile.ui.screens.main.FilePicker
-import io.eugenethedev.taigamobile.ui.screens.main.LocalFilePicker
-import io.eugenethedev.taigamobile.ui.theme.TaigaMobileTheme
-import io.eugenethedev.taigamobile.ui.theme.mainHorizontalScreenPadding
-import io.eugenethedev.taigamobile.ui.utils.*
+import com.luminaapps.taigamobile.R
+import com.luminaapps.taigamobile.domain.entities.*
+import com.luminaapps.taigamobile.domain.entities.CustomField
+import com.luminaapps.taigamobile.ui.components.editors.Editor
+import com.luminaapps.taigamobile.ui.components.lists.SimpleTasksListWithTitle
+import com.luminaapps.taigamobile.ui.components.loaders.CircularLoader
+import com.luminaapps.taigamobile.ui.components.dialogs.LoadingDialog
+import com.luminaapps.taigamobile.ui.components.lists.Attachments
+import com.luminaapps.taigamobile.ui.components.lists.Description
+import com.luminaapps.taigamobile.ui.screens.commontask.components.*
+import com.luminaapps.taigamobile.ui.screens.main.FilePicker
+import com.luminaapps.taigamobile.ui.screens.main.LocalFilePicker
+import com.luminaapps.taigamobile.ui.theme.TaigaMobileTheme
+import com.luminaapps.taigamobile.ui.theme.mainHorizontalScreenPadding
+import com.luminaapps.taigamobile.ui.utils.*
 import java.time.LocalDateTime
 
 @Composable

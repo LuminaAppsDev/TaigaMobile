@@ -13,13 +13,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import io.eugenethedev.taigamobile.domain.entities.Comment
-import io.eugenethedev.taigamobile.ui.components.dialogs.ConfirmActionDialog
-import io.eugenethedev.taigamobile.ui.components.lists.UserItem
-import io.eugenethedev.taigamobile.ui.components.loaders.DotsLoader
-import io.eugenethedev.taigamobile.ui.components.texts.MarkdownText
-import io.eugenethedev.taigamobile.ui.components.texts.SectionTitle
-import io.eugenethedev.taigamobile.ui.screens.commontask.EditActions
+import com.luminaapps.taigamobile.R
+import com.luminaapps.taigamobile.domain.entities.Comment
+import com.luminaapps.taigamobile.ui.components.dialogs.ConfirmActionDialog
+import com.luminaapps.taigamobile.ui.components.lists.UserItem
+import com.luminaapps.taigamobile.ui.components.loaders.DotsLoader
+import com.luminaapps.taigamobile.ui.components.texts.MarkdownText
+import com.luminaapps.taigamobile.ui.components.texts.SectionTitle
+import com.luminaapps.taigamobile.ui.screens.commontask.EditActions
 
 @Suppress("FunctionName")
 fun LazyListScope.CommonTaskComments(

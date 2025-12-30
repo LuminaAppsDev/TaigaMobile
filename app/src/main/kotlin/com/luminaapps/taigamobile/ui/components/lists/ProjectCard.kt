@@ -29,9 +29,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
-import io.eugenethedev.taigamobile.R
-import io.eugenethedev.taigamobile.domain.entities.Project
-import io.eugenethedev.taigamobile.ui.theme.mainHorizontalScreenPadding
+import com.luminaapps.taigamobile.R
+import com.luminaapps.taigamobile.domain.entities.Project
+import com.luminaapps.taigamobile.ui.theme.mainHorizontalScreenPadding
 
 @OptIn(ExperimentalCoilApi::class)
 @Composable

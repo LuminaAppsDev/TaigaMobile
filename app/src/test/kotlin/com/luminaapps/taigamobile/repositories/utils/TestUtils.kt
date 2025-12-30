@@ -1,7 +1,7 @@
 package com.luminaapps.taigamobile.repositories.utils
 
-import io.eugenethedev.taigamobile.testdata.Task
-import io.eugenethedev.taigamobile.testdata.TestData
+import com.luminaapps.taigamobile.testdata.Task
+import com.luminaapps.taigamobile.testdata.TestData
 
 class TestCommonTask(
     val title: String,

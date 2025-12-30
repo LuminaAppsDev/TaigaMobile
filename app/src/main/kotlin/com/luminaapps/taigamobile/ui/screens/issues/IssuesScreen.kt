@@ -8,18 +8,18 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.paging.compose.LazyPagingItems
-import io.eugenethedev.taigamobile.domain.entities.CommonTask
-import io.eugenethedev.taigamobile.domain.entities.CommonTaskType
-import io.eugenethedev.taigamobile.domain.entities.FiltersData
-import io.eugenethedev.taigamobile.ui.components.TasksFiltersWithLazyList
-import io.eugenethedev.taigamobile.ui.components.buttons.PlusButton
-import io.eugenethedev.taigamobile.ui.components.appbars.ClickableAppBar
-import io.eugenethedev.taigamobile.ui.components.lists.SimpleTasksListWithTitle
-import io.eugenethedev.taigamobile.ui.screens.main.Routes
-import io.eugenethedev.taigamobile.ui.theme.TaigaMobileTheme
-import io.eugenethedev.taigamobile.ui.theme.commonVerticalPadding
-import io.eugenethedev.taigamobile.ui.theme.mainHorizontalScreenPadding
-import io.eugenethedev.taigamobile.ui.utils.*
+import com.luminaapps.taigamobile.domain.entities.CommonTask
+import com.luminaapps.taigamobile.domain.entities.CommonTaskType
+import com.luminaapps.taigamobile.domain.entities.FiltersData
+import com.luminaapps.taigamobile.ui.components.TasksFiltersWithLazyList
+import com.luminaapps.taigamobile.ui.components.buttons.PlusButton
+import com.luminaapps.taigamobile.ui.components.appbars.ClickableAppBar
+import com.luminaapps.taigamobile.ui.components.lists.SimpleTasksListWithTitle
+import com.luminaapps.taigamobile.ui.screens.main.Routes
+import com.luminaapps.taigamobile.ui.theme.TaigaMobileTheme
+import com.luminaapps.taigamobile.ui.theme.commonVerticalPadding
+import com.luminaapps.taigamobile.ui.theme.mainHorizontalScreenPadding
+import com.luminaapps.taigamobile.ui.utils.*
 
 @Composable
 fun IssuesScreen(

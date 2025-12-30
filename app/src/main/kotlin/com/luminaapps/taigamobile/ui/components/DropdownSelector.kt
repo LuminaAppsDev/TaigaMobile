@@ -12,9 +12,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import io.eugenethedev.taigamobile.ui.theme.dialogTonalElevation
-import io.eugenethedev.taigamobile.ui.utils.clickableUnindicated
-import io.eugenethedev.taigamobile.ui.utils.surfaceColorAtElevation
+import com.luminaapps.taigamobile.R
+import com.luminaapps.taigamobile.ui.theme.dialogTonalElevation
+import com.luminaapps.taigamobile.ui.utils.clickableUnindicated
+import com.luminaapps.taigamobile.ui.utils.surfaceColorAtElevation
 
 /**
  * Dropdown selector with animated arrow

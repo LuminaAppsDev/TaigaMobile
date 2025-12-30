@@ -24,16 +24,17 @@ import androidx.navigation.NavController
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
 import com.google.accompanist.insets.navigationBarsHeight
-import io.eugenethedev.taigamobile.domain.entities.TeamMember
-import io.eugenethedev.taigamobile.ui.utils.LoadingResult
-import io.eugenethedev.taigamobile.ui.components.appbars.ClickableAppBar
-import io.eugenethedev.taigamobile.ui.components.loaders.CircularLoader
-import io.eugenethedev.taigamobile.ui.components.texts.NothingToSeeHereText
-import io.eugenethedev.taigamobile.ui.screens.main.Routes
-import io.eugenethedev.taigamobile.ui.theme.TaigaMobileTheme
-import io.eugenethedev.taigamobile.ui.theme.mainHorizontalScreenPadding
-import io.eugenethedev.taigamobile.ui.utils.navigateToProfileScreen
-import io.eugenethedev.taigamobile.ui.utils.subscribeOnError
+import com.luminaapps.taigamobile.R
+import com.luminaapps.taigamobile.domain.entities.TeamMember
+import com.luminaapps.taigamobile.ui.utils.LoadingResult
+import com.luminaapps.taigamobile.ui.components.appbars.ClickableAppBar
+import com.luminaapps.taigamobile.ui.components.loaders.CircularLoader
+import com.luminaapps.taigamobile.ui.components.texts.NothingToSeeHereText
+import com.luminaapps.taigamobile.ui.screens.main.Routes
+import com.luminaapps.taigamobile.ui.theme.TaigaMobileTheme
+import com.luminaapps.taigamobile.ui.theme.mainHorizontalScreenPadding
+import com.luminaapps.taigamobile.ui.utils.navigateToProfileScreen
+import com.luminaapps.taigamobile.ui.utils.subscribeOnError
 
 @Composable
 fun TeamScreen(

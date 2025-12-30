@@ -14,14 +14,15 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextOverflow
-import io.eugenethedev.taigamobile.domain.entities.CommonTaskType
-import io.eugenethedev.taigamobile.ui.components.dialogs.ConfirmActionDialog
-import io.eugenethedev.taigamobile.ui.components.appbars.AppBarWithBackButton
-import io.eugenethedev.taigamobile.ui.components.editors.TextFieldWithHint
-import io.eugenethedev.taigamobile.ui.screens.commontask.EditActions
-import io.eugenethedev.taigamobile.ui.screens.commontask.NavigationActions
-import io.eugenethedev.taigamobile.ui.theme.dialogTonalElevation
-import io.eugenethedev.taigamobile.ui.utils.surfaceColorAtElevation
+import com.luminaapps.taigamobile.R
+import com.luminaapps.taigamobile.domain.entities.CommonTaskType
+import com.luminaapps.taigamobile.ui.components.dialogs.ConfirmActionDialog
+import com.luminaapps.taigamobile.ui.components.appbars.AppBarWithBackButton
+import com.luminaapps.taigamobile.ui.components.editors.TextFieldWithHint
+import com.luminaapps.taigamobile.ui.screens.commontask.EditActions
+import com.luminaapps.taigamobile.ui.screens.commontask.NavigationActions
+import com.luminaapps.taigamobile.ui.theme.dialogTonalElevation
+import com.luminaapps.taigamobile.ui.utils.surfaceColorAtElevation
 
 @Composable
 fun CommonTaskAppBar(

@@ -1,11 +1,11 @@
 package com.luminaapps.taigamobile.data.repositories
 
-import io.eugenethedev.taigamobile.state.Session
-import io.eugenethedev.taigamobile.data.api.CreateSprintRequest
-import io.eugenethedev.taigamobile.data.api.EditSprintRequest
-import io.eugenethedev.taigamobile.data.api.TaigaApi
-import io.eugenethedev.taigamobile.domain.entities.CommonTaskType
-import io.eugenethedev.taigamobile.domain.repositories.ISprintsRepository
+import com.luminaapps.taigamobile.state.Session
+import com.luminaapps.taigamobile.data.api.CreateSprintRequest
+import com.luminaapps.taigamobile.data.api.EditSprintRequest
+import com.luminaapps.taigamobile.data.api.TaigaApi
+import com.luminaapps.taigamobile.domain.entities.CommonTaskType
+import com.luminaapps.taigamobile.domain.repositories.ISprintsRepository
 import java.time.LocalDate
 import javax.inject.Inject
 

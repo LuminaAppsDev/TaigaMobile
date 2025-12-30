@@ -1,8 +1,8 @@
 package com.luminaapps.taigamobile.domain.repositories
 
-import io.eugenethedev.taigamobile.domain.entities.Stats
-import io.eugenethedev.taigamobile.domain.entities.TeamMember
-import io.eugenethedev.taigamobile.domain.entities.User
+import com.luminaapps.taigamobile.domain.entities.Stats
+import com.luminaapps.taigamobile.domain.entities.TeamMember
+import com.luminaapps.taigamobile.domain.entities.User
 
 interface IUsersRepository {
     suspend fun getMe(): User

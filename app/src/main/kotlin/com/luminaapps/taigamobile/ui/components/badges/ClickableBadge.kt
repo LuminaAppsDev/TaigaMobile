@@ -20,9 +20,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import io.eugenethedev.taigamobile.ui.theme.TaigaMobileTheme
-import io.eugenethedev.taigamobile.ui.utils.textColor
-import io.eugenethedev.taigamobile.ui.utils.toColor
+import com.luminaapps.taigamobile.R
+import com.luminaapps.taigamobile.ui.theme.TaigaMobileTheme
+import com.luminaapps.taigamobile.ui.utils.textColor
+import com.luminaapps.taigamobile.ui.utils.toColor
 
 /**
  * Badge on which you can click. With cool shimmer loading animation

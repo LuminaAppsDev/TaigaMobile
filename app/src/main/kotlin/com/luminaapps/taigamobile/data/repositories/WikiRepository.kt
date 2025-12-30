@@ -1,11 +1,11 @@
 package com.luminaapps.taigamobile.data.repositories
 
-import io.eugenethedev.taigamobile.data.api.EditWikiPageRequest
-import io.eugenethedev.taigamobile.data.api.NewWikiLinkRequest
-import io.eugenethedev.taigamobile.data.api.TaigaApi
-import io.eugenethedev.taigamobile.domain.entities.Attachment
-import io.eugenethedev.taigamobile.domain.repositories.IWikiRepository
-import io.eugenethedev.taigamobile.state.Session
+import com.luminaapps.taigamobile.data.api.EditWikiPageRequest
+import com.luminaapps.taigamobile.data.api.NewWikiLinkRequest
+import com.luminaapps.taigamobile.data.api.TaigaApi
+import com.luminaapps.taigamobile.domain.entities.Attachment
+import com.luminaapps.taigamobile.domain.repositories.IWikiRepository
+import com.luminaapps.taigamobile.state.Session
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.toRequestBody

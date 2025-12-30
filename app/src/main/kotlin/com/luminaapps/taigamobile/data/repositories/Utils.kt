@@ -1,10 +1,10 @@
 package com.luminaapps.taigamobile.data.repositories
 
-import io.eugenethedev.taigamobile.data.api.CommonTaskResponse
-import io.eugenethedev.taigamobile.data.api.SprintResponse
-import io.eugenethedev.taigamobile.domain.entities.*
-import io.eugenethedev.taigamobile.ui.theme.taigaGray
-import io.eugenethedev.taigamobile.ui.utils.toHex
+import com.luminaapps.taigamobile.data.api.CommonTaskResponse
+import com.luminaapps.taigamobile.data.api.SprintResponse
+import com.luminaapps.taigamobile.domain.entities.*
+import com.luminaapps.taigamobile.ui.theme.taigaGray
+import com.luminaapps.taigamobile.ui.utils.toHex
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

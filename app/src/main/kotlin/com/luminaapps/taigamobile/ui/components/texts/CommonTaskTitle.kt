@@ -13,12 +13,13 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.flowlayout.FlowRow
-import io.eugenethedev.taigamobile.domain.entities.Tag
-import io.eugenethedev.taigamobile.ui.components.Chip
-import io.eugenethedev.taigamobile.ui.theme.TaigaMobileTheme
-import io.eugenethedev.taigamobile.ui.theme.taigaRed
-import io.eugenethedev.taigamobile.ui.utils.textColor
-import io.eugenethedev.taigamobile.ui.utils.toColor
+import com.luminaapps.taigamobile.R
+import com.luminaapps.taigamobile.domain.entities.Tag
+import com.luminaapps.taigamobile.ui.components.Chip
+import com.luminaapps.taigamobile.ui.theme.TaigaMobileTheme
+import com.luminaapps.taigamobile.ui.theme.taigaRed
+import com.luminaapps.taigamobile.ui.utils.textColor
+import com.luminaapps.taigamobile.ui.utils.toColor
 
 /**
  * Text with colored dots (indicators) at the end and tags
