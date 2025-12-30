@@ -333,7 +333,7 @@ class TasksRepositoryTest : BaseRepositoryTest() {
             CommonTaskType.Issue to issue
         )
 
-        CommonTaskType.values().forEach { type ->
+        CommonTaskType.entries.forEach { type ->
             dataForTest[type]!!.forEachIndexed { index, task ->
                 val commonTaskExt = tasksRepository.getCommonTask(index.toLong() + 1, type)
                 assertEquals(
@@ -366,7 +366,7 @@ class TasksRepositoryTest : BaseRepositoryTest() {
             CommonTaskType.Issue to issue
         )
 
-        CommonTaskType.values().forEach { type ->
+        CommonTaskType.entries.forEach { type ->
             dataForTest[type]!!.forEachIndexed { index, task ->
                 val comments = tasksRepository.getComments(index.toLong() + 1, type)
                 val testComments = task.comments
@@ -504,7 +504,7 @@ class TasksRepositoryTest : BaseRepositoryTest() {
             )
         )
 
-        CommonTaskType.values().forEach { type ->
+        CommonTaskType.entries.forEach { type ->
             dataForTest[type]!!.forEachIndexed { index, data ->
                 val assigneeUsers = listOf(users[index % users.size].id)
                 tasksRepository.editAssignees(data, assigneeUsers)
@@ -531,7 +531,7 @@ class TasksRepositoryTest : BaseRepositoryTest() {
             )
         )
 
-        CommonTaskType.values().forEach { type ->
+        CommonTaskType.entries.forEach { type ->
             dataForTest[type]!!.forEachIndexed { index, data ->
                 val watchers = listOf(users[index % users.size].id)
                 tasksRepository.editWatchers(data, watchers)
@@ -665,7 +665,7 @@ class TasksRepositoryTest : BaseRepositoryTest() {
     fun `test create common task`() = runBlocking {
         val sprints = sprintsRepository.getSprints(1)
         val swimlanes = tasksRepository.getSwimlanes()
-        CommonTaskType.values().forEachIndexed { index, type ->
+        CommonTaskType.entries.forEachIndexed { index, type ->
             val statuses = tasksRepository.getStatuses(type)
             val title = "Title${index}"
             val description = "Description${index}"

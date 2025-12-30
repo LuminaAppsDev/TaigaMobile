@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.StateFlow
  */
 sealed class Result<T>(
     val data: T? = null,
-    @StringRes val message: Int? = null
+    @param:StringRes val message: Int? = null
 )
 
 class SuccessResult<T>(data: T?) : Result<T>(data = data)
@@ -18,5 +18,5 @@ class LoadingResult<T>(data: T? = null) : Result<T>(data = data)
 class NothingResult<T> : Result<T>()
 
 typealias MutableResultFlow<T> = MutableStateFlow<Result<T>>
-fun <T> MutableResultFlow(value: Result<T> = NothingResult()) = MutableStateFlow(value)
+fun <T> mutableResultFlow(value: Result<T> = NothingResult()) = MutableStateFlow(value)
 typealias ResultFlow<T> = StateFlow<Result<T>>

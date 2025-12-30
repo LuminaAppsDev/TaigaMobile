@@ -7,10 +7,10 @@ import java.time.LocalDateTime
 @JsonClass(generateAdapter = true)
 data class Comment(
     val id: String,
-    @Json(name = "user") val author: User,
-    @Json(name = "comment") val text: String,
-    @Json(name = "created_at") val postDateTime: LocalDateTime,
-    @Json(name = "delete_comment_date") val deleteDate: LocalDateTime?
+    @param:Json(name = "user") val author: User,
+    @param:Json(name = "comment") val text: String,
+    @param:Json(name = "created_at") val postDateTime: LocalDateTime,
+    @param:Json(name = "delete_comment_date") val deleteDate: LocalDateTime?
 ) {
     var canDelete: Boolean = false
 }

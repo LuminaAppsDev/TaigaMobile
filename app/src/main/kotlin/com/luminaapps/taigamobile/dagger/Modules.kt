@@ -97,7 +97,7 @@ class DataModule {
                                         val refreshResponse = RefreshTokenResponseJsonAdapter(moshi)
                                             .fromJson(
                                                 tokenClient.newCall(request).execute().body.string()
-                                                    .orEmpty()) ?: throw IllegalStateException("Cannot parse RefreshResponse")
+                                            ) ?: throw IllegalStateException("Cannot parse RefreshResponse")
 
                                         session.changeAuthCredentials(refreshResponse.auth_token, refreshResponse.refresh)
                                     }

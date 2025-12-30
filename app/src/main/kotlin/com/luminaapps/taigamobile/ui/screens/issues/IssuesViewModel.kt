@@ -12,7 +12,7 @@ import com.luminaapps.taigamobile.domain.paging.CommonPagingSource
 import com.luminaapps.taigamobile.domain.repositories.ITasksRepository
 import com.luminaapps.taigamobile.state.Session
 import com.luminaapps.taigamobile.state.subscribeToAll
-import com.luminaapps.taigamobile.ui.utils.MutableResultFlow
+import com.luminaapps.taigamobile.ui.utils.mutableResultFlow
 import com.luminaapps.taigamobile.ui.utils.asLazyPagingItems
 import com.luminaapps.taigamobile.ui.utils.loadOrError
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -45,7 +45,7 @@ class IssuesViewModel(appComponent: AppComponent = TaigaApp.appComponent) : View
         shouldReload = false
     }
 
-    val filters = MutableResultFlow<FiltersData>()
+    val filters = mutableResultFlow<FiltersData>()
     val activeFilters by lazy { session.issuesFilters }
     @OptIn(ExperimentalCoroutinesApi::class)
     val issues by lazy {

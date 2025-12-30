@@ -89,9 +89,8 @@ fun LazyListScope.CommonTaskTags(
                     onInputChange = editActions.editTags.searchItems,
                     onConfirm = {
                         editActions.editTags.select(it)
-                        isAddTagDialogVisible = false
                     },
-                    onDismiss = { isAddTagDialogVisible = false }
+                    onDismiss = { }
                 )
             }
         }

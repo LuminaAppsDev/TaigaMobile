@@ -247,7 +247,7 @@ private fun BlockDialog(
             TextFieldWithHint(
                 hintId = R.string.block_reason,
                 value = reason,
-                onValueChange = { reason = it },
+                onValueChange = { },
                 minHeight = with(LocalDensity.current) { MaterialTheme.typography.bodyLarge.fontSize.toDp() * 4 },
                 contentAlignment = Alignment.TopStart
             )

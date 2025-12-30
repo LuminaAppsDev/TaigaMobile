@@ -32,6 +32,7 @@ import com.luminaapps.taigamobile.state.Session
 import com.luminaapps.taigamobile.state.postUpdate
 import com.luminaapps.taigamobile.ui.utils.LoadingResult
 import com.luminaapps.taigamobile.ui.utils.MutableResultFlow
+import com.luminaapps.taigamobile.ui.utils.mutableResultFlow
 import com.luminaapps.taigamobile.ui.utils.NothingResult
 import com.luminaapps.taigamobile.ui.utils.asLazyPagingItems
 import com.luminaapps.taigamobile.ui.utils.loadOrError
@@ -64,21 +65,21 @@ class CommonTaskViewModel(appComponent: AppComponent = TaigaApp.appComponent) : 
     private var commonTaskId: Long = -1
     private lateinit var commonTaskType: CommonTaskType
 
-    val commonTask = MutableResultFlow<CommonTaskExtended>()
+    val commonTask = mutableResultFlow<CommonTaskExtended>()
 
-    val creator = MutableResultFlow<User>()
-    val customFields = MutableResultFlow<CustomFields>()
-    val attachments = MutableResultFlow<List<Attachment>>()
-    val assignees = MutableResultFlow<List<User>>()
-    val watchers = MutableResultFlow<List<User>>()
-    val userStories = MutableResultFlow<List<CommonTask>>()
-    val tasks = MutableResultFlow<List<CommonTask>>()
-    val comments = MutableResultFlow<List<Comment>>()
+    val creator = mutableResultFlow<User>()
+    val customFields = mutableResultFlow<CustomFields>()
+    val attachments = mutableResultFlow<List<Attachment>>()
+    val assignees = mutableResultFlow<List<User>>()
+    val watchers = mutableResultFlow<List<User>>()
+    val userStories = mutableResultFlow<List<CommonTask>>()
+    val tasks = mutableResultFlow<List<CommonTask>>()
+    val comments = mutableResultFlow<List<Comment>>()
 
-    val team = MutableResultFlow<List<User>>()
-    val tags = MutableResultFlow<List<Tag>>()
-    val swimlanes = MutableResultFlow<List<Swimlane>>()
-    val statuses = MutableResultFlow<Map<StatusType, List<Status>>>()
+    val team = mutableResultFlow<List<User>>()
+    val tags = mutableResultFlow<List<Tag>>()
+    val swimlanes = mutableResultFlow<List<Swimlane>>()
+    val statuses = mutableResultFlow<Map<StatusType, List<Status>>>()
 
     val isAssignedToMe = assignees.map { session.currentUserId.value in it.data?.map { it.id }.orEmpty() }
         .stateIn(viewModelScope, SharingStarted.Lazily, false)
@@ -98,7 +99,7 @@ class CommonTaskViewModel(appComponent: AppComponent = TaigaApp.appComponent) : 
 
     private fun loadData(isReloading: Boolean = true) = viewModelScope.launch {
         commonTask.loadOrError(showLoading = !isReloading) {
-            tasksRepository.getCommonTask(commonTaskId, commonTaskType).also {
+            tasksRepository.getCommonTask(commonTaskId, commonTaskType).also { it ->
 
                 suspend fun MutableResultFlow<List<User>>.loadUsersFromIds(ids: List<Long>) =
                     loadOrError(showLoading = false) {
@@ -151,7 +152,7 @@ class CommonTaskViewModel(appComponent: AppComponent = TaigaApp.appComponent) : 
                         },
                         launch {
                             statuses.loadOrError(showLoading = false) {
-                                StatusType.values().filter {
+                                StatusType.entries.filter {
                                     if (commonTaskType != CommonTaskType.Issue) it == StatusType.Status else true
                                 }.associateWith { tasksRepository.getStatusByType(commonTaskType, it) }
                             }
@@ -171,7 +172,7 @@ class CommonTaskViewModel(appComponent: AppComponent = TaigaApp.appComponent) : 
     // ================
 
     // Edit task itself (title & description)
-    val editBasicInfoResult = MutableResultFlow<Unit>()
+    val editBasicInfoResult = mutableResultFlow<Unit>()
 
     fun editBasicInfo(title: String, description: String) = viewModelScope.launch {
         editBasicInfoResult.loadOrError(R.string.permission_error) {
@@ -182,7 +183,7 @@ class CommonTaskViewModel(appComponent: AppComponent = TaigaApp.appComponent) : 
     }
 
     // Edit status (and also type, severity, priority)
-    val editStatusResult = MutableResultFlow<StatusType>()
+    val editStatusResult = mutableResultFlow<StatusType>()
 
     fun editStatus(status: Status) = viewModelScope.launch {
         editStatusResult.value = LoadingResult(status.type)
@@ -203,7 +204,7 @@ class CommonTaskViewModel(appComponent: AppComponent = TaigaApp.appComponent) : 
             .asLazyPagingItems(viewModelScope)
     }
 
-    val editSprintResult = MutableResultFlow<Unit>(NothingResult())
+    val editSprintResult = mutableResultFlow<Unit>(NothingResult())
 
     fun editSprint(sprint: Sprint) = viewModelScope.launch {
         editSprintResult.loadOrError(R.string.permission_error) {
@@ -305,7 +306,7 @@ class CommonTaskViewModel(appComponent: AppComponent = TaigaApp.appComponent) : 
     }
 
     // Due date
-    val editDueDateResult = MutableResultFlow<Unit>()
+    val editDueDateResult = mutableResultFlow<Unit>()
 
     fun editDueDate(date: LocalDate?) = viewModelScope.launch {
         editDueDateResult.loadOrError(R.string.permission_error) {
@@ -315,7 +316,7 @@ class CommonTaskViewModel(appComponent: AppComponent = TaigaApp.appComponent) : 
     }
 
     // Epic color
-    val editEpicColorResult = MutableResultFlow<Unit>()
+    val editEpicColorResult = mutableResultFlow<Unit>()
 
     fun editEpicColor(color: String) = viewModelScope.launch {
         editEpicColorResult.loadOrError(R.string.permission_error) {
@@ -325,7 +326,7 @@ class CommonTaskViewModel(appComponent: AppComponent = TaigaApp.appComponent) : 
         }
     }
 
-    val editBlockedResult = MutableResultFlow<Unit>()
+    val editBlockedResult = mutableResultFlow<Unit>()
 
     fun editBlocked(blockedNote: String?) = viewModelScope.launch {
         editBlockedResult.loadOrError(R.string.permission_error) {
@@ -355,7 +356,7 @@ class CommonTaskViewModel(appComponent: AppComponent = TaigaApp.appComponent) : 
         epicsQuery.value = query
     }
 
-    val linkToEpicResult = MutableResultFlow<Unit>(NothingResult())
+    val linkToEpicResult = mutableResultFlow<Unit>(NothingResult())
 
     fun linkToEpic(epic: CommonTask) = viewModelScope.launch {
         linkToEpicResult.loadOrError(R.string.permission_error) {
@@ -409,7 +410,7 @@ class CommonTaskViewModel(appComponent: AppComponent = TaigaApp.appComponent) : 
     }
 
     // Delete task
-    val deleteResult = MutableResultFlow<Unit>()
+    val deleteResult = mutableResultFlow<Unit>()
 
     fun deleteTask() = viewModelScope.launch {
         deleteResult.loadOrError(R.string.permission_error) {
@@ -418,7 +419,7 @@ class CommonTaskViewModel(appComponent: AppComponent = TaigaApp.appComponent) : 
         }
     }
 
-    val promoteResult = MutableResultFlow<CommonTask>()
+    val promoteResult = mutableResultFlow<CommonTask>()
 
     fun promoteToUserStory() = viewModelScope.launch {
         promoteResult.loadOrError(R.string.permission_error, preserveValue = false) {
@@ -433,9 +434,9 @@ class CommonTaskViewModel(appComponent: AppComponent = TaigaApp.appComponent) : 
             tasksRepository.editCustomFields(
                 commonTaskType = commonTaskType,
                 commonTaskId = commonTaskId,
-                fields = customFields.value.data?.fields.orEmpty().map {
+                fields = customFields.value.data?.fields.orEmpty().associate {
                     it.id to (if (it.id == customField.id) value else it.value)
-                }.toMap(),
+                },
                 version = customFields.value.data?.version ?: 0
             )
             loadData().join()

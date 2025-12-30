@@ -18,7 +18,7 @@ import com.luminaapps.taigamobile.domain.entities.FiltersData
 import com.luminaapps.taigamobile.ui.components.TasksFiltersWithLazyList
 import com.luminaapps.taigamobile.ui.components.appbars.ClickableAppBar
 import com.luminaapps.taigamobile.ui.components.buttons.PlusButton
-import com.luminaapps.taigamobile.ui.components.lists.SimpleTasksListWithTitle
+import com.luminaapps.taigamobile.ui.components.lists.simpleTasksListWithTitle
 import com.luminaapps.taigamobile.ui.screens.main.Routes
 import com.luminaapps.taigamobile.ui.theme.TaigaMobileTheme
 import com.luminaapps.taigamobile.ui.theme.commonVerticalPadding
@@ -50,7 +50,7 @@ fun IssuesScreen(
 
     IssuesScreenContent(
         projectName = projectName,
-        onTitleClick = { navController.navigate(Routes.projectsSelector) },
+        onTitleClick = { navController.navigate(Routes.PROJECTS_SELECTOR) },
         navigateToCreateTask = { navController.navigateToCreateTaskScreen(CommonTaskType.Issue) },
         issues = issues,
         filters = filters.data ?: FiltersData(),
@@ -85,7 +85,7 @@ fun IssuesScreenContent(
         activeFilters = activeFilters,
         selectFilters = selectFilters
     ) {
-        SimpleTasksListWithTitle(
+        simpleTasksListWithTitle(
             commonTasksLazy = issues,
             keysHash = activeFilters.hashCode(),
             navigateToTask = navigateToTask,

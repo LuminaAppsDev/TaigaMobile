@@ -1,7 +1,6 @@
 package com.luminaapps.taigamobile.ui.screens.commontask.components
 
 import android.content.Intent
-import android.net.Uri
 import android.util.Patterns
 import androidx.annotation.StringRes
 import androidx.compose.foundation.border
@@ -55,6 +54,7 @@ import com.luminaapps.taigamobile.ui.theme.TaigaMobileTheme
 import com.luminaapps.taigamobile.ui.utils.activity
 import java.time.LocalDate
 import kotlin.math.floor
+import androidx.core.net.toUri
 
 @Composable
 fun CustomField(
@@ -250,7 +250,6 @@ private fun CustomFieldText(
         hintId = R.string.custom_field_text,
         text = text,
         onTextChange = {
-            text = it
             onValueChange(CustomFieldValue(it.text))
         },
         onFocusChange = { changeFieldState(if (it) FieldState.Focused else FieldState.Default) },
@@ -270,7 +269,6 @@ private fun CustomFieldMultiline(
         hintId = R.string.custom_field_multiline,
         text = text,
         onTextChange = {
-            text = it
             onValueChange(CustomFieldValue(it.text))
         },
         onFocusChange = { changeFieldState(if (it) FieldState.Focused else FieldState.Default) },
@@ -292,7 +290,6 @@ private fun CustomFieldRichText(
             hintId = R.string.custom_field_rich_text,
             text = text,
             onTextChange = {
-                text = it
                 onValueChange(CustomFieldValue(it.text))
             },
             onFocusChange = { changeFieldState(if (it) FieldState.Focused else FieldState.Default) },
@@ -321,7 +318,6 @@ private fun CustomFieldNumber(
         hintId = R.string.custom_field_number,
         text = text,
         onTextChange = {
-            text = it
 
             if (it.text.isEmpty()) {
                 onValueChange(null)
@@ -336,7 +332,7 @@ private fun CustomFieldNumber(
             }
         },
         onFocusChange = {
-            text = TextFieldValue(value?.doubleValue.prettyDisplay())
+            TextFieldValue(value?.doubleValue.prettyDisplay())
             changeFieldState(if (it) FieldState.Focused else FieldState.Default)
         },
         keyboardType = KeyboardType.Number,
@@ -390,7 +386,7 @@ private fun CustomFieldUrl(
                     activity.startActivity(
                         Intent(
                             Intent.ACTION_VIEW,
-                            Uri.parse(it)
+                            it.toUri()
                         )
                     )
                 }

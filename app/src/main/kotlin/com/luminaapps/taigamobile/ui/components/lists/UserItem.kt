@@ -99,10 +99,9 @@ fun UserItemWithAction(
             title = stringResource(R.string.remove_user_title),
             text = stringResource(R.string.remove_user_text),
             onConfirm = {
-                isAlertVisible = false
                 onRemoveClick()
             },
-            onDismiss = { isAlertVisible = false },
+            onDismiss = { },
             iconId = R.drawable.ic_remove
         )
     }
@@ -117,7 +116,7 @@ fun UserItemWithAction(
             onUserItemClick = onUserItemClick
         )
 
-        IconButton(onClick = { isAlertVisible = true }) {
+        IconButton(onClick = { }) {
             Icon(
                 painter = painterResource(R.drawable.ic_remove),
                 contentDescription = null,

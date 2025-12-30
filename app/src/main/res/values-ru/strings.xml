@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">Taiga Mobile</string>
-    <string name="app_name_with_version_template" translatable="false">%s - %s</string>
-    <string name="global_taiga_host" translatable="false">https://api.taiga.io</string>
+<!--    <string name="app_name_with_version_template" translatable="false">%s - %s</string>-->
 
     <string name="yes">Да</string>
     <string name="no">Нет</string>
@@ -38,7 +37,6 @@
     <string name="choose_project_title">Выбрать проект</string>
 
     <string name="search_projects_hint">Происк проектов</string>
-    <string name="project_name_template" translatable="false">%s (%s)</string>
     <string name="project_member">Участник</string>
     <string name="project_admin">Администратор</string>
     <string name="project_owner">Владелец</string>
@@ -48,13 +46,11 @@
     <string name="watching">Отслеживаемые</string>
     <string name="my_projects">Мои проекты</string>
 
-    <string name="title_with_ref_pattern" translatable="false">#%d %s</string>
     <string name="unassigned">Нет ответственного</string>
     <string name="assignee_pattern">Ответственный: %s</string>
     <string name="backlog">Бэклог</string>
 
     <string name="sprints_title">Спринты</string>
-    <string name="sprint_dates_template" translatable="false">%s - %s</string>
     <string name="stories_count_template">Истории: %d</string>
     <string name="taskboard">Доска</string>
     <string name="closed">Закрыто</string>
@@ -90,7 +86,6 @@
     <string name="comment_hint">Комментарий</string>
     <string name="delete_comment_title">Удалить комментарий</string>
     <string name="delete_comment_text">Вы уверены что хотите удалить этот комментарий?</string>
-    <string name="add_user">Добавить пользователя</string>
     <string name="attachments_template">%d Вложений</string>
     <string name="custom_fields">Специальные поля</string>
     <string name="block">Блокировать</string>
@@ -188,10 +183,7 @@
     <string name="profile">Профиль</string>
     <string name="contacts">Контакты</string>
 
-    <string name="status_with_number_template" translatable="false">%s - %d</string>
-
     <!-- settings -->
-    <string name="username_template" translatable="false">\@%s</string>
     <string name="logout_title">Выйти</string>
     <string name="logout_text">Вы уверены, что хотите выйти?</string>
 
@@ -211,12 +203,6 @@
     <string name="empty_wiki_dialog_title">Пока нет ни одной страницы вики…</string>
     <string name="empty_wiki_dialog_subtitle">Может добавим новую?</string>
     <string name="create_new_page">Создать новую страницу</string>
-    <string name="list_of_bookmarks">Список закладок</string>
-    <string name="pages">Страницы</string>
-    <string name="pages_without_link">Страницы без ссылок</string>
-
     <string name="credits_message">Сделано с ❤️ EugeneTheDev. Если вам понравилось это приложение, поставьте ему высокую оценку в Google Play и звезду на GitHub</string>
-
-    <string name="github_url" translatable="false">https://github.com/EugeneTheDev/TaigaMobile</string>
     <string name="source_code">Исходный код</string>
 </resources>

@@ -64,7 +64,7 @@ fun TeamScreen(
         projectName = projectName,
         team = team.data.orEmpty(),
         isLoading = team is LoadingResult,
-        onTitleClick = { navController.navigate(Routes.projectsSelector) },
+        onTitleClick = { navController.navigate(Routes.PROJECTS_SELECTOR) },
         navigateBack = navController::popBackStack,
         onUserItemClick = { userId ->
             navController.navigateToProfileScreen(userId)

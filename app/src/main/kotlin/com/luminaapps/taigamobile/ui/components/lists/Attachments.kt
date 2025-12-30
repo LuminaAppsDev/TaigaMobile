@@ -1,7 +1,6 @@
 package com.luminaapps.taigamobile.ui.components.lists
 
 import android.content.Intent
-import android.net.Uri
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -36,6 +35,7 @@ import com.luminaapps.taigamobile.ui.screens.commontask.EditAction
 import com.luminaapps.taigamobile.ui.screens.main.LocalFilePicker
 import com.luminaapps.taigamobile.ui.utils.activity
 import java.io.InputStream
+import androidx.core.net.toUri
 
 @Suppress("FunctionName")
 fun LazyListScope.Attachments(
@@ -107,7 +107,7 @@ private fun AttachmentItem(
             text = attachment.name,
             color = MaterialTheme.colorScheme.primary,
             modifier = Modifier.clickable {
-                activity.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(attachment.url)))
+                activity.startActivity(Intent(Intent.ACTION_VIEW, attachment.url.toUri()))
             }
         )
     }

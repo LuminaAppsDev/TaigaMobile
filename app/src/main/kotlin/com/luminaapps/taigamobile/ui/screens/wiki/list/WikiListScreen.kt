@@ -63,9 +63,9 @@ fun WikiListScreen(
         bookmarks = wikiLinks.data.orEmpty().filter { it.ref in wikiPagesSlug }.map { it.title to it.ref },
         allPages = wikiPagesSlug,
         isLoading = wikiLinks is LoadingResult || wikiPages is LoadingResult,
-        onTitleClick = { navController.navigate(Routes.projectsSelector) },
+        onTitleClick = { navController.navigate(Routes.PROJECTS_SELECTOR) },
         navigateToCreatePage = {
-            navController.navigate(Routes.wiki_create_page)
+            navController.navigate(Routes.WIKI_CREATE_PAGE)
         },
         navigateToPageBySlug = { slug ->
             navController.navigateToWikiPageScreen(slug)
@@ -134,7 +134,7 @@ fun WikiListScreenContent(
     }
 }
 
-private enum class WikiTabs(@StringRes override val titleId: Int) : Tab {
+private enum class WikiTabs(@param:StringRes override val titleId: Int) : Tab {
     Bookmarks(R.string.bookmarks),
     AllWikiPages(R.string.all_wiki_pages)
 }

@@ -56,7 +56,7 @@ interface Creations {
     }
 
     private fun TaigaTestInstanceManager.authActiveUser() {
-        activeUser = TestData.activeUser.let {
+        activeUser = TestData.activeUser.let { it ->
             val data = Request.Builder()
                 .apiEndpoint("auth")
                 .post(
@@ -88,8 +88,7 @@ interface Creations {
                 .toJsonArray()
                 .map { it.asJsonObject }
                 .map { it.get("id").asLong to it.get("name").asString }
-                .map { (id, name) -> id to TestData.projects.find { it.name == name }!! }
-                .toMap()
+                .associate { (id, name) -> id to TestData.projects.find { it.name == name }!! }
 
             UserInfo(it, data, projects)
         }

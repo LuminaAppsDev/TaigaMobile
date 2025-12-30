@@ -11,7 +11,7 @@ import com.luminaapps.taigamobile.domain.entities.FiltersData
 import com.luminaapps.taigamobile.domain.paging.CommonPagingSource
 import com.luminaapps.taigamobile.domain.repositories.ITasksRepository
 import com.luminaapps.taigamobile.state.Session
-import com.luminaapps.taigamobile.ui.utils.MutableResultFlow
+import com.luminaapps.taigamobile.ui.utils.mutableResultFlow
 import com.luminaapps.taigamobile.ui.utils.asLazyPagingItems
 import com.luminaapps.taigamobile.ui.utils.loadOrError
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -44,7 +44,7 @@ class EpicsViewModel(appComponent: AppComponent = TaigaApp.appComponent) : ViewM
         shouldReload = false
     }
 
-    val filters = MutableResultFlow<FiltersData>()
+    val filters = mutableResultFlow<FiltersData>()
     val activeFilters by lazy { session.epicsFilters }
     @OptIn(ExperimentalCoroutinesApi::class)
     val epics by lazy {

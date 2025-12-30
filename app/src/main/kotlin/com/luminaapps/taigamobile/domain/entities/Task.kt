@@ -92,7 +92,7 @@ data class CommonTaskExtended(
 @JsonClass(generateAdapter = true)
 data class EpicShortInfo(
     val id: Long,
-    @Json(name = "subject") val title: String,
+    @param:Json(name = "subject") val title: String,
     val ref: Int,
     val color: String
 )
@@ -101,7 +101,7 @@ data class EpicShortInfo(
 data class UserStoryShortInfo(
     val id: Long,
     val ref: Int,
-    @Json(name = "subject") val title: String,
+    @param:Json(name = "subject") val title: String,
     val epics: List<EpicShortInfo>?
 ) {
     val epicColors get() = epics?.map { it.color }.orEmpty()

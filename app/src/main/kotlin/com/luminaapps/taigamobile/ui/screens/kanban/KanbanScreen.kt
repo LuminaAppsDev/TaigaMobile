@@ -62,7 +62,7 @@ fun KanbanScreen(
         selectSwimlane = viewModel::selectSwimlane,
         selectedSwimlane = selectedSwimlane,
         navigateToStory = { id, ref -> navController.navigateToTaskScreen(id, CommonTaskType.UserStory, ref) },
-        onTitleClick = { navController.navigate(Routes.projectsSelector) },
+        onTitleClick = { navController.navigate(Routes.PROJECTS_SELECTOR) },
         navigateBack = navController::popBackStack,
         navigateToCreateTask = { statusId, swimlaneId ->
             navController.navigateToCreateTaskScreen(CommonTaskType.UserStory, statusId = statusId, swimlaneId = swimlaneId)

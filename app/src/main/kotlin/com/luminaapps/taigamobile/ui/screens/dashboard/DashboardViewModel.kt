@@ -9,7 +9,7 @@ import com.luminaapps.taigamobile.domain.entities.Project
 import com.luminaapps.taigamobile.domain.repositories.IProjectsRepository
 import com.luminaapps.taigamobile.domain.repositories.ITasksRepository
 import com.luminaapps.taigamobile.state.Session
-import com.luminaapps.taigamobile.ui.utils.MutableResultFlow
+import com.luminaapps.taigamobile.ui.utils.mutableResultFlow
 import com.luminaapps.taigamobile.ui.utils.NothingResult
 import com.luminaapps.taigamobile.ui.utils.loadOrError
 import kotlinx.coroutines.flow.launchIn
@@ -23,9 +23,9 @@ class DashboardViewModel(appComponent: AppComponent = TaigaApp.appComponent) : V
     @Inject lateinit var projectsRepository: IProjectsRepository
     @Inject lateinit var session: Session
 
-    val workingOn = MutableResultFlow<List<CommonTask>>()
-    val watching = MutableResultFlow<List<CommonTask>>()
-    val myProjects = MutableResultFlow<List<Project>>()
+    val workingOn = mutableResultFlow<List<CommonTask>>()
+    val watching = mutableResultFlow<List<CommonTask>>()
+    val myProjects = mutableResultFlow<List<Project>>()
 
     val currentProjectId by lazy { session.currentProjectId }
 

@@ -9,7 +9,7 @@ import com.luminaapps.taigamobile.domain.entities.CommonTaskType
 import com.luminaapps.taigamobile.domain.repositories.ITasksRepository
 import com.luminaapps.taigamobile.state.Session
 import com.luminaapps.taigamobile.state.postUpdate
-import com.luminaapps.taigamobile.ui.utils.MutableResultFlow
+import com.luminaapps.taigamobile.ui.utils.mutableResultFlow
 import com.luminaapps.taigamobile.ui.utils.loadOrError
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -22,7 +22,7 @@ class CreateTaskViewModel(appComponent: AppComponent = TaigaApp.appComponent) : 
         appComponent.inject(this)
     }
 
-    val creationResult = MutableResultFlow<CommonTask>()
+    val creationResult = mutableResultFlow<CommonTask>()
 
     fun createTask(
         commonTaskType: CommonTaskType,

@@ -11,7 +11,7 @@ import com.luminaapps.taigamobile.domain.entities.WikiLink
 import com.luminaapps.taigamobile.domain.entities.WikiPage
 import com.luminaapps.taigamobile.domain.repositories.IUsersRepository
 import com.luminaapps.taigamobile.domain.repositories.IWikiRepository
-import com.luminaapps.taigamobile.ui.utils.MutableResultFlow
+import com.luminaapps.taigamobile.ui.utils.mutableResultFlow
 import com.luminaapps.taigamobile.ui.utils.loadOrError
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.joinAll
@@ -29,11 +29,11 @@ class WikiPageViewModel(appComponent: AppComponent = TaigaApp.appComponent) : Vi
 
     private lateinit var pageSlug: String
 
-    val page = MutableResultFlow<WikiPage>()
-    val link = MutableResultFlow<WikiLink>()
-    val attachments = MutableResultFlow<List<Attachment>>()
-    val editWikiPageResult = MutableResultFlow<Unit>()
-    val deleteWikiPageResult = MutableResultFlow<Unit>()
+    val page = mutableResultFlow<WikiPage>()
+    val link = mutableResultFlow<WikiLink>()
+    val attachments = mutableResultFlow<List<Attachment>>()
+    val editWikiPageResult = mutableResultFlow<Unit>()
+    val deleteWikiPageResult = mutableResultFlow<Unit>()
 
     var lastModifierUser = MutableStateFlow<User?>(null)
 

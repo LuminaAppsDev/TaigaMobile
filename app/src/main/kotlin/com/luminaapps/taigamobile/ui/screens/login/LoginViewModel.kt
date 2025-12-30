@@ -7,7 +7,7 @@ import com.luminaapps.taigamobile.TaigaApp
 import com.luminaapps.taigamobile.dagger.AppComponent
 import com.luminaapps.taigamobile.domain.entities.AuthType
 import com.luminaapps.taigamobile.domain.repositories.IAuthRepository
-import com.luminaapps.taigamobile.ui.utils.MutableResultFlow
+import com.luminaapps.taigamobile.ui.utils.mutableResultFlow
 import com.luminaapps.taigamobile.ui.utils.loadOrError
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -15,7 +15,7 @@ import javax.inject.Inject
 class LoginViewModel(appComponent: AppComponent = TaigaApp.appComponent) : ViewModel() {
     @Inject lateinit var authRepository: IAuthRepository
 
-    val loginResult = MutableResultFlow<Unit>()
+    val loginResult = mutableResultFlow<Unit>()
 
     init {
         appComponent.inject(this)

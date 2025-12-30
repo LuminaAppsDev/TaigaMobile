@@ -86,7 +86,6 @@
     <string name="comment_hint">Коментар</string>
     <string name="delete_comment_title">Видалити коментар</string>
     <string name="delete_comment_text">Ви впевнені, що бажаєте видалити коментар?</string>
-    <string name="add_user">Додати користувача</string>
     <string name="attachments_template">%d Вкладення</string>
     <string name="custom_fields">Спеціальні поля</string>
     <string name="block">Блокувати</string>
@@ -204,12 +203,7 @@
     <string name="empty_wiki_dialog_title">Тут немає вікі-сторінок…</string>
     <string name="empty_wiki_dialog_subtitle">Давайте додамо новий?</string>
     <string name="create_new_page">Створити нову сторінку</string>
-    <string name="list_of_bookmarks">Список закладок</string>
-    <string name="pages">Сторінка</string>
-    <string name="pages_without_link">Сторінки без посилань</string>
-
     <string name="credits_message">Зроблено ❤️ by EugeneTheDev. Якщо вам подобається додаток незабудьте оцінити його на Google Play та GitHub</string>
-
     <string name="source_code">Джерело коду</string>
 </resources>
 

@@ -52,7 +52,7 @@ fun <T : Any> SelectorList(
     isSearchable: Boolean = true,
     searchData: (String) -> Unit = {},
     navigateBack: () -> Unit = {},
-    animationDurationMillis: Int = SelectorListConstants.defaultAnimDurationMillis,
+    animationDurationMillis: Int = SelectorListConstants.DEFAULT_ANIM_DURATION_MILLIS,
     itemContent: @Composable (T) -> Unit
 ) = AnimatedVisibility(
     visibleState = remember { MutableTransitionState(false) }
@@ -130,5 +130,5 @@ fun <T : Any> SelectorList(
 }
 
 object SelectorListConstants {
-    const val defaultAnimDurationMillis = 200
+    const val DEFAULT_ANIM_DURATION_MILLIS = 200
 }

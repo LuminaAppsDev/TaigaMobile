@@ -9,7 +9,7 @@ import com.luminaapps.taigamobile.domain.repositories.IUsersRepository
 import com.luminaapps.taigamobile.state.Session
 import com.luminaapps.taigamobile.state.Settings
 import com.luminaapps.taigamobile.state.ThemeSetting
-import com.luminaapps.taigamobile.ui.utils.MutableResultFlow
+import com.luminaapps.taigamobile.ui.utils.mutableResultFlow
 import com.luminaapps.taigamobile.ui.utils.loadOrError
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -19,7 +19,7 @@ class SettingsViewModel(appComponent: AppComponent = TaigaApp.appComponent) : Vi
     @Inject lateinit var settings: Settings
     @Inject lateinit var userRepository: IUsersRepository
 
-    val user = MutableResultFlow<User>()
+    val user = mutableResultFlow<User>()
     val serverUrl by lazy { session.server }
 
     val themeSetting by lazy { settings.themeSetting }

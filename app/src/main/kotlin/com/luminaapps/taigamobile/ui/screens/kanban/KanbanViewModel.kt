@@ -13,7 +13,7 @@ import com.luminaapps.taigamobile.domain.repositories.ITasksRepository
 import com.luminaapps.taigamobile.domain.repositories.IUsersRepository
 import com.luminaapps.taigamobile.state.Session
 import com.luminaapps.taigamobile.state.subscribeToAll
-import com.luminaapps.taigamobile.ui.utils.MutableResultFlow
+import com.luminaapps.taigamobile.ui.utils.mutableResultFlow
 import com.luminaapps.taigamobile.ui.utils.NothingResult
 import com.luminaapps.taigamobile.ui.utils.loadOrError
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -28,10 +28,10 @@ class KanbanViewModel(appComponent: AppComponent = TaigaApp.appComponent) : View
 
     val projectName by lazy { session.currentProjectName }
 
-    val statuses = MutableResultFlow<List<Status>>()
-    val team = MutableResultFlow<List<User>>()
-    val stories = MutableResultFlow<List<CommonTaskExtended>>()
-    val swimlanes = MutableResultFlow<List<Swimlane?>>()
+    val statuses = mutableResultFlow<List<Status>>()
+    val team = mutableResultFlow<List<User>>()
+    val stories = mutableResultFlow<List<CommonTaskExtended>>()
+    val swimlanes = mutableResultFlow<List<Swimlane?>>()
 
     val selectedSwimlane = MutableStateFlow<Swimlane?>(null)
 

@@ -48,7 +48,7 @@ import com.luminaapps.taigamobile.ui.components.containers.HorizontalTabbedPager
 import com.luminaapps.taigamobile.ui.components.containers.Tab
 import com.luminaapps.taigamobile.ui.components.dialogs.EditSprintDialog
 import com.luminaapps.taigamobile.ui.components.dialogs.LoadingDialog
-import com.luminaapps.taigamobile.ui.components.lists.SimpleTasksListWithTitle
+import com.luminaapps.taigamobile.ui.components.lists.simpleTasksListWithTitle
 import com.luminaapps.taigamobile.ui.components.loaders.DotsLoader
 import com.luminaapps.taigamobile.ui.components.texts.NothingToSeeHereText
 import com.luminaapps.taigamobile.ui.screens.main.Routes
@@ -99,7 +99,7 @@ fun ScrumScreen(
 
     ScrumScreenContent(
         projectName = projectName,
-        onTitleClick = { navController.navigate(Routes.projectsSelector) },
+        onTitleClick = { navController.navigate(Routes.PROJECTS_SELECTOR) },
         stories = stories,
         filters = filters.data ?: FiltersData(),
         activeFilters = activeFilters,
@@ -143,7 +143,7 @@ fun ScrumScreenContent(
         projectName = projectName,
         actions = {
             PlusButton(
-                onClick = when (Tabs.values()[pagerState.currentPage]) {
+                onClick = when (Tabs.entries[pagerState.currentPage]) {
                     Tabs.Backlog -> navigateToCreateTask
                     Tabs.Sprints -> { { isCreateSprintDialogVisible = true } }
                 }
@@ -167,11 +167,11 @@ fun ScrumScreenContent(
     }
 
     HorizontalTabbedPager(
-        tabs = Tabs.values(),
+        tabs = Tabs.entries.toTypedArray(),
         modifier = Modifier.fillMaxSize(),
         pagerState = pagerState
     ) { page ->
-        when (Tabs.values()[page]) {
+        when (Tabs.entries[page]) {
             Tabs.Backlog -> BacklogTabContent(
                 stories = stories,
                 filters = filters,
@@ -189,7 +189,7 @@ fun ScrumScreenContent(
 
 }
 
-private enum class Tabs(@StringRes override val titleId: Int) : Tab {
+private enum class Tabs(@param:StringRes override val titleId: Int) : Tab {
     Backlog(R.string.backlog),
     Sprints(R.string.sprints_title)
 }
@@ -210,7 +210,7 @@ private fun BacklogTabContent(
         activeFilters = activeFilters,
         selectFilters = selectFilters
     ) {
-        SimpleTasksListWithTitle(
+        simpleTasksListWithTitle(
             commonTasksLazy = stories,
             keysHash = activeFilters.hashCode(),
             navigateToTask = navigateToTask,

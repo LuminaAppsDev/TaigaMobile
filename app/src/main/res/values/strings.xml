@@ -54,7 +54,7 @@
     <string name="backlog">Backlog</string>
 
     <string name="sprints_title">Sprints</string>
-    <string name="sprint_dates_template" translatable="false">%s - %s</string>
+    <string name="sprint_dates_template">%s - %s</string>
     <string name="stories_count_template">Stories: %d</string>
     <string name="taskboard">Board</string>
     <string name="closed">Closed</string>
@@ -210,11 +210,6 @@
     <string name="empty_wiki_dialog_title">There are no wiki pages…</string>
     <string name="empty_wiki_dialog_subtitle">Let\'s add a new one?</string>
     <string name="create_new_page">Create new page</string>
-    <string name="list_of_bookmarks">List of bookmarks</string>
-    <string name="pages">Pages</string>
-    <string name="pages_without_link">Pages without link</string>
-
-
     <string name="credits_message">Made with ❤️ by EugeneTheDev. If you enjoy the app please consider rating it on Google Play and starring the project on GitHub</string>
 
     <string name="github_url" translatable="false">https://github.com/EugeneTheDev/TaigaMobile</string>

@@ -1,7 +1,6 @@
 package com.luminaapps.taigamobile.ui.screens.settings
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Build
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
@@ -65,6 +64,7 @@ import com.luminaapps.taigamobile.ui.utils.activity
 import com.luminaapps.taigamobile.ui.utils.clickableUnindicated
 import com.luminaapps.taigamobile.ui.utils.SubscribeOnError
 import timber.log.Timber
+import androidx.core.net.toUri
 
 @Composable
 fun SettingsScreen(
@@ -91,8 +91,8 @@ fun SettingsScreen(
         navigateBack = navController::popBackStack,
         logout = {
             viewModel.logout()
-            navController.navigate(Routes.login) {
-                popUpTo(Routes.settings) { inclusive = true }
+            navController.navigate(Routes.LOGIN) {
+                popUpTo(Routes.SETTINGS) { inclusive = true }
             }
         },
         themeSetting = themeSetting,
@@ -151,16 +151,15 @@ fun SettingsScreenContent(
             title = stringResource(R.string.logout_title),
             text = stringResource(R.string.logout_text),
             onConfirm = {
-                isAlertVisible = false
                 logout()
             },
-            onDismiss = { isAlertVisible = false },
+            onDismiss = { },
             iconId = R.drawable.ic_logout
         )
     }
 
     IconButton(
-        onClick = { isAlertVisible = true },
+        onClick = { },
         modifier = Modifier.constrainAs(logoutIcon) {
             top.linkTo(avatar.top)
             start.linkTo(avatar.end)
@@ -311,7 +310,8 @@ fun SettingsScreenContent(
         Text(
             text = stringResource(R.string.source_code),
             style = MaterialTheme.typography.bodyLarge.merge(SpanStyle(color = MaterialTheme.colorScheme.primary, textDecoration = TextDecoration.Underline)),
-            modifier = Modifier.clickableUnindicated { activity.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(githubUrl))) }
+            modifier = Modifier.clickableUnindicated { activity.startActivity(Intent(Intent.ACTION_VIEW,
+                githubUrl.toUri())) }
         )
 
         Spacer(Modifier.windowInsetsBottomHeight(WindowInsets.navigationBars))

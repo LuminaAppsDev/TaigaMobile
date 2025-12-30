@@ -13,7 +13,7 @@ import com.luminaapps.taigamobile.domain.repositories.ISprintsRepository
 import com.luminaapps.taigamobile.domain.repositories.ITasksRepository
 import com.luminaapps.taigamobile.state.Session
 import com.luminaapps.taigamobile.state.postUpdate
-import com.luminaapps.taigamobile.ui.utils.MutableResultFlow
+import com.luminaapps.taigamobile.ui.utils.mutableResultFlow
 import com.luminaapps.taigamobile.ui.utils.NothingResult
 import com.luminaapps.taigamobile.ui.utils.loadOrError
 import kotlinx.coroutines.async
@@ -32,11 +32,11 @@ class SprintViewModel(appComponent: AppComponent = TaigaApp.appComponent) : View
 
     private var sprintId: Long = -1
 
-    val sprint = MutableResultFlow<Sprint>()
-    val statuses = MutableResultFlow<List<Status>>()
-    val storiesWithTasks = MutableResultFlow<Map<CommonTask, List<CommonTask>>>()
-    val storylessTasks = MutableResultFlow<List<CommonTask>>()
-    val issues = MutableResultFlow<List<CommonTask>>()
+    val sprint = mutableResultFlow<Sprint>()
+    val statuses = mutableResultFlow<List<Status>>()
+    val storiesWithTasks = mutableResultFlow<Map<CommonTask, List<CommonTask>>>()
+    val storylessTasks = mutableResultFlow<List<CommonTask>>()
+    val issues = mutableResultFlow<List<CommonTask>>()
 
     private var shouldReload = true
 
@@ -78,7 +78,7 @@ class SprintViewModel(appComponent: AppComponent = TaigaApp.appComponent) : View
         }
     }
 
-    val editResult = MutableResultFlow<Unit>()
+    val editResult = mutableResultFlow<Unit>()
     fun editSprint(name: String, start: LocalDate, end: LocalDate) = viewModelScope.launch {
         editResult.loadOrError(R.string.permission_error) {
             sprintsRepository.editSprint(sprintId, name, start, end)
@@ -87,7 +87,7 @@ class SprintViewModel(appComponent: AppComponent = TaigaApp.appComponent) : View
         }
     }
 
-    val deleteResult = MutableResultFlow<Unit>()
+    val deleteResult = mutableResultFlow<Unit>()
     fun deleteSprint() = viewModelScope.launch {
         deleteResult.loadOrError(R.string.permission_error) {
             sprintsRepository.deleteSprint(sprintId)

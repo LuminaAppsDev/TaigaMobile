@@ -71,7 +71,7 @@ fun EditSprintDialog(
             TextFieldWithHint(
                 hintId = R.string.sprint_name_hint,
                 value = name,
-                onValueChange = { name = it },
+                onValueChange = { },
                 style = MaterialTheme.typography.titleLarge
             )
         },

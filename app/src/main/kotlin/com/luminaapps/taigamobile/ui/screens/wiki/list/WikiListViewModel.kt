@@ -8,7 +8,7 @@ import com.luminaapps.taigamobile.domain.entities.WikiLink
 import com.luminaapps.taigamobile.domain.entities.WikiPage
 import com.luminaapps.taigamobile.domain.repositories.IWikiRepository
 import com.luminaapps.taigamobile.state.Session
-import com.luminaapps.taigamobile.ui.utils.MutableResultFlow
+import com.luminaapps.taigamobile.ui.utils.mutableResultFlow
 import com.luminaapps.taigamobile.ui.utils.loadOrError
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -23,8 +23,8 @@ class WikiListViewModel(appComponent: AppComponent = TaigaApp.appComponent) : Vi
 
     val projectName by lazy { session.currentProjectName }
 
-    val wikiPages = MutableResultFlow<List<WikiPage>>()
-    val wikiLinks = MutableResultFlow<List<WikiLink>>()
+    val wikiPages = mutableResultFlow<List<WikiPage>>()
+    val wikiLinks = mutableResultFlow<List<WikiLink>>()
 
     init {
         appComponent.inject(this)

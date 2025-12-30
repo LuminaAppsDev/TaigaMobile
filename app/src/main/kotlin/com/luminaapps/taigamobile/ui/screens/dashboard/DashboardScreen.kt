@@ -28,7 +28,7 @@ import com.luminaapps.taigamobile.ui.components.appbars.AppBarWithBackButton
 import com.luminaapps.taigamobile.ui.components.containers.HorizontalTabbedPager
 import com.luminaapps.taigamobile.ui.components.containers.Tab
 import com.luminaapps.taigamobile.ui.components.lists.ProjectCard
-import com.luminaapps.taigamobile.ui.components.lists.SimpleTasksListWithTitle
+import com.luminaapps.taigamobile.ui.components.lists.simpleTasksListWithTitle
 import com.luminaapps.taigamobile.ui.components.loaders.CircularLoader
 import com.luminaapps.taigamobile.ui.theme.TaigaMobileTheme
 import com.luminaapps.taigamobile.ui.theme.commonVerticalPadding
@@ -97,10 +97,10 @@ fun DashboardScreenContent(
         }
     } else {
         HorizontalTabbedPager(
-            tabs = Tabs.values(),
+            tabs = Tabs.entries.toTypedArray(),
             modifier = Modifier.fillMaxSize()
         ) { page ->
-            when (Tabs.values()[page]) {
+            when (Tabs.entries[page]) {
                 Tabs.WorkingOn -> TabContent(
                     commonTasks = workingOn,
                     navigateToTask = navigateToTask
@@ -120,7 +120,7 @@ fun DashboardScreenContent(
 
 }
 
-private enum class Tabs(@StringRes override val titleId: Int) : Tab {
+private enum class Tabs(@param:StringRes override val titleId: Int) : Tab {
     WorkingOn(R.string.working_on),
     Watching(R.string.watching),
     MyProjects(R.string.my_projects)
@@ -131,7 +131,7 @@ private fun TabContent(
     commonTasks: List<CommonTask>,
     navigateToTask: (CommonTask) -> Unit,
 ) = LazyColumn(Modifier.fillMaxSize()) {
-    SimpleTasksListWithTitle(
+    simpleTasksListWithTitle(
         bottomPadding = commonVerticalPadding,
         horizontalPadding = mainHorizontalScreenPadding,
         showExtendedTaskInfo = true,

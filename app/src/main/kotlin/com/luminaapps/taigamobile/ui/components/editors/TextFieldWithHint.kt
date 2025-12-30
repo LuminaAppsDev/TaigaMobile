@@ -89,7 +89,6 @@ fun TextFieldWithHint(
                 .focusRequester(focusRequester)
                 .onFocusChanged {
                     onFocusChange(it.isFocused)
-                    outlineColor = if (it.isFocused) primaryColor else unfocusedColor
                 },
             textStyle = style.merge(TextStyle(color = textColor)),
             cursorBrush = SolidColor(MaterialTheme.colorScheme.onSurface),

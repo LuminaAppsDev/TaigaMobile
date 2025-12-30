@@ -162,7 +162,7 @@ class MainActivity : AppCompatActivity() {
                                 }
                             },
                             bottomBar = {
-                                val items = Screens.values()
+                                val items = Screens.entries.toTypedArray()
                                 val routes = items.map { it.route }
                                 val navBackStackEntry by navController.currentBackStackEntryAsState()
                                 val currentRoute =
@@ -214,44 +214,44 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-enum class Screens(val route: String, @StringRes val resourceId: Int, @DrawableRes val iconId: Int) {
-    Dashboard(Routes.dashboard, R.string.dashboard_short, R.drawable.ic_dashboard),
-    Scrum(Routes.scrum, R.string.scrum, R.drawable.ic_scrum),
-    Epics(Routes.epics, R.string.epics, R.drawable.ic_epics),
-    Issues(Routes.issues, R.string.issues, R.drawable.ic_issues),
-    More(Routes.more, R.string.more, R.drawable.ic_more)
+enum class Screens(val route: String, @param:StringRes val resourceId: Int, @param:DrawableRes val iconId: Int) {
+    Dashboard(Routes.DASHBOARD, R.string.dashboard_short, R.drawable.ic_dashboard),
+    Scrum(Routes.SCRUM, R.string.scrum, R.drawable.ic_scrum),
+    Epics(Routes.EPICS, R.string.epics, R.drawable.ic_epics),
+    Issues(Routes.ISSUES, R.string.issues, R.drawable.ic_issues),
+    More(Routes.MORE, R.string.more, R.drawable.ic_more)
 }
 
 object Routes {
-    const val login = "login"
-    const val dashboard = "dashboard"
-    const val scrum = "scrum"
-    const val epics = "epics"
-    const val issues = "issues"
-    const val more = "more"
-    const val team = "team"
-    const val settings = "settings"
-    const val kanban = "kanban"
-    const val wiki_selector = "wiki_selector"
-    const val wiki_page = "wiki_page"
-    const val wiki_create_page = "wiki_create_page"
-    const val projectsSelector = "projectsSelector"
-    const val sprint = "sprint"
-    const val commonTask = "commonTask"
-    const val createTask = "createTask"
-    const val profile = "profile"
+    const val LOGIN = "login"
+    const val DASHBOARD = "dashboard"
+    const val SCRUM = "scrum"
+    const val EPICS = "epics"
+    const val ISSUES = "issues"
+    const val MORE = "more"
+    const val TEAM = "team"
+    const val SETTINGS = "settings"
+    const val KANBAN = "kanban"
+    const val WIKI_SELECTOR = "wiki_selector"
+    const val WIKI_PAGE = "wiki_page"
+    const val WIKI_CREATE_PAGE = "wiki_create_page"
+    const val PROJECTS_SELECTOR = "projectsSelector"
+    const val SPRINT = "sprint"
+    const val COMMON_TASK = "commonTask"
+    const val CREATE_TASK = "createTask"
+    const val PROFILE = "profile"
 
     object Arguments {
-        const val sprint = "sprint"
-        const val sprintId = "sprintId"
-        const val swimlaneId = "swimlaneId"
-        const val commonTaskId = "taskId"
-        const val commonTaskType = "taskType"
-        const val ref = "ref"
-        const val parentId = "parentId"
-        const val statusId = "statusId"
-        const val userId = "userId"
-        const val wikiSlug = "wikiSlug"
+        const val SPRINT = "sprint"
+        const val SPRINT_ID = "sprintId"
+        const val SWIMLANE_ID = "swimlaneId"
+        const val COMMON_TASK_ID = "taskId"
+        const val COMMON_TASK_TYPE = "taskType"
+        const val REF = "ref"
+        const val PARENT_ID = "parentId"
+        const val STATUS_ID = "statusId"
+        const val USER_ID = "userId"
+        const val WIKI_SLUG = "wikiSlug"
     }
 }
 
@@ -280,9 +280,9 @@ fun MainScreen(
     ) {
         NavHost(
             navController = navController,
-            startDestination = remember { if (isLogged) Routes.dashboard else Routes.login }
+            startDestination = remember { if (isLogged) Routes.DASHBOARD else Routes.LOGIN }
         ) {
-            composable(Routes.login) {
+            composable(Routes.LOGIN) {
                 LoginScreen(
                     navController = navController,
                     showMessage = showMessage
@@ -290,7 +290,7 @@ fun MainScreen(
             }
 
             // start screen
-            composable(Routes.dashboard) {
+            composable(Routes.DASHBOARD) {
                 DashboardScreen(
                     navController = navController,
                     showMessage = showMessage
@@ -298,60 +298,60 @@ fun MainScreen(
                 // user must select project first
                 LaunchedEffect(Unit) {
                     if (!isProjectSelected) {
-                        navController.navigate(Routes.projectsSelector)
+                        navController.navigate(Routes.PROJECTS_SELECTOR)
                     }
                 }
             }
 
-            composable(Routes.scrum) {
+            composable(Routes.SCRUM) {
                 ScrumScreen(
                     navController = navController,
                     showMessage = showMessage
                 )
             }
 
-            composable(Routes.epics) {
+            composable(Routes.EPICS) {
                 EpicsScreen(
                     navController = navController,
                     showMessage = showMessage
                 )
             }
 
-            composable(Routes.issues) {
+            composable(Routes.ISSUES) {
                 IssuesScreen(
                     navController = navController,
                     showMessage = showMessage
                 )
             }
 
-            composable(Routes.more) {
+            composable(Routes.MORE) {
                 MoreScreen(
                     navController = navController
                 )
             }
 
-            composable(Routes.team) {
+            composable(Routes.TEAM) {
                 TeamScreen(
                     navController = navController,
                     showMessage = showMessage
                 )
             }
 
-            composable(Routes.kanban) {
+            composable(Routes.KANBAN) {
                 KanbanScreen(
                     navController = navController,
                     showMessage = showMessage
                 )
             }
 
-            composable(Routes.wiki_selector) {
+            composable(Routes.WIKI_SELECTOR) {
                 WikiListScreen(
                     navController = navController,
                     showMessage = showMessage
                 )
             }
 
-            composable(Routes.wiki_create_page) {
+            composable(Routes.WIKI_CREATE_PAGE) {
                 WikiCreatePageScreen(
                     navController = navController,
                     showMessage = showMessage
@@ -359,26 +359,26 @@ fun MainScreen(
             }
 
             composable(
-                "${Routes.wiki_page}/{${Routes.Arguments.wikiSlug}}",
+                "${Routes.WIKI_PAGE}/{${Routes.Arguments.WIKI_SLUG}}",
                 arguments = listOf(
-                    navArgument(Routes.Arguments.wikiSlug) { type = NavType.StringType }
+                    navArgument(Routes.Arguments.WIKI_SLUG) { type = NavType.StringType }
                 )
             ) {
                 WikiPageScreen(
-                    slug = it.arguments!!.getString(Routes.Arguments.wikiSlug).orEmpty(),
+                    slug = it.arguments!!.getString(Routes.Arguments.WIKI_SLUG).orEmpty(),
                     navController = navController,
                     showMessage = showMessage
                 )
             }
 
-            composable(Routes.settings) {
+            composable(Routes.SETTINGS) {
                 SettingsScreen(
                     navController = navController,
                     showMessage = showMessage
                 )
             }
 
-            composable(Routes.projectsSelector) {
+            composable(Routes.PROJECTS_SELECTOR) {
                 ProjectSelectorScreen(
                     navController = navController,
                     showMessage = showMessage
@@ -386,65 +386,65 @@ fun MainScreen(
             }
 
             composable(
-                "${Routes.sprint}/{${Routes.Arguments.sprintId}}",
+                "${Routes.SPRINT}/{${Routes.Arguments.SPRINT_ID}}",
                 arguments = listOf(
-                    navArgument(Routes.Arguments.sprintId) { type = NavType.LongType }
+                    navArgument(Routes.Arguments.SPRINT_ID) { type = NavType.LongType }
                 )
             ) {
                 SprintScreen(
                     navController = navController,
-                    sprintId = it.arguments!!.getLong(Routes.Arguments.sprintId),
+                    sprintId = it.arguments!!.getLong(Routes.Arguments.SPRINT_ID),
                     showMessage = showMessage
                 )
             }
 
             composable(
-                "${Routes.profile}/{${Routes.Arguments.userId}}",
+                "${Routes.PROFILE}/{${Routes.Arguments.USER_ID}}",
                 arguments = listOf(
-                    navArgument(Routes.Arguments.userId) { type = NavType.LongType }
+                    navArgument(Routes.Arguments.USER_ID) { type = NavType.LongType }
                 )
             ) {
                 ProfileScreen(
                     navController = navController,
                     showMessage = showMessage,
-                    userId = it.arguments!!.getLong(Routes.Arguments.userId),
+                    userId = it.arguments!!.getLong(Routes.Arguments.USER_ID),
                 )
             }
 
             composable(
-                Routes.Arguments.run { "${Routes.commonTask}/{$commonTaskId}/{$commonTaskType}/{$ref}" },
+                Routes.Arguments.run { "${Routes.COMMON_TASK}/{$COMMON_TASK_ID}/{$COMMON_TASK_TYPE}/{$REF}" },
                 arguments = listOf(
-                    navArgument(Routes.Arguments.commonTaskType) { type = NavType.StringType },
-                    navArgument(Routes.Arguments.commonTaskId) { type = NavType.LongType },
-                    navArgument(Routes.Arguments.ref) { type = NavType.IntType },
+                    navArgument(Routes.Arguments.COMMON_TASK_TYPE) { type = NavType.StringType },
+                    navArgument(Routes.Arguments.COMMON_TASK_ID) { type = NavType.LongType },
+                    navArgument(Routes.Arguments.REF) { type = NavType.IntType },
                 )
             ) {
                 CommonTaskScreen(
                     navController = navController,
-                    commonTaskId = it.arguments!!.getLong(Routes.Arguments.commonTaskId),
-                    commonTaskType = CommonTaskType.valueOf(it.arguments!!.getString(Routes.Arguments.commonTaskType, "")),
-                    ref = it.arguments!!.getInt(Routes.Arguments.ref),
+                    commonTaskId = it.arguments!!.getLong(Routes.Arguments.COMMON_TASK_ID),
+                    commonTaskType = CommonTaskType.valueOf(it.arguments!!.getString(Routes.Arguments.COMMON_TASK_TYPE, "")),
+                    ref = it.arguments!!.getInt(Routes.Arguments.REF),
                     showMessage = showMessage
                 )
             }
 
             composable(
-                Routes.Arguments.run {"${Routes.createTask}/{$commonTaskType}?$parentId={$parentId}&$sprintId={$sprintId}&$statusId={$statusId}&$swimlaneId={$swimlaneId}" },
+                Routes.Arguments.run {"${Routes.CREATE_TASK}/{$COMMON_TASK_TYPE}?$PARENT_ID={$PARENT_ID}&$SPRINT_ID={$SPRINT_ID}&$STATUS_ID={$STATUS_ID}&$SWIMLANE_ID={$SWIMLANE_ID}" },
                 arguments = listOf(
-                    navArgument(Routes.Arguments.commonTaskType) { type = NavType.StringType },
-                    navArgument(Routes.Arguments.parentId) {
+                    navArgument(Routes.Arguments.COMMON_TASK_TYPE) { type = NavType.StringType },
+                    navArgument(Routes.Arguments.PARENT_ID) {
                         type = NavType.LongType
                         defaultValue = -1L // long does not allow null values
                     },
-                    navArgument(Routes.Arguments.sprintId) {
+                    navArgument(Routes.Arguments.SPRINT_ID) {
                         type = NavType.LongType
                         defaultValue = -1L
                     },
-                    navArgument(Routes.Arguments.statusId) {
+                    navArgument(Routes.Arguments.STATUS_ID) {
                         type = NavType.LongType
                         defaultValue = -1L
                     },
-                    navArgument(Routes.Arguments.swimlaneId) {
+                    navArgument(Routes.Arguments.SWIMLANE_ID) {
                         type = NavType.LongType
                         defaultValue = -1L
                     },
@@ -452,11 +452,11 @@ fun MainScreen(
             ) {
                 CreateTaskScreen(
                     navController = navController,
-                    commonTaskType = CommonTaskType.valueOf(it.arguments!!.getString(Routes.Arguments.commonTaskType, "")),
-                    parentId = it.arguments!!.getLong(Routes.Arguments.parentId).takeIf { it >= 0 },
-                    sprintId = it.arguments!!.getLong(Routes.Arguments.sprintId).takeIf { it >= 0 },
-                    statusId = it.arguments!!.getLong(Routes.Arguments.statusId).takeIf { it >= 0 },
-                    swimlaneId = it.arguments!!.getLong(Routes.Arguments.swimlaneId).takeIf { it >= 0 },
+                    commonTaskType = CommonTaskType.valueOf(it.arguments!!.getString(Routes.Arguments.COMMON_TASK_TYPE, "")),
+                    parentId = it.arguments!!.getLong(Routes.Arguments.PARENT_ID).takeIf { it >= 0 },
+                    sprintId = it.arguments!!.getLong(Routes.Arguments.SPRINT_ID).takeIf { it >= 0 },
+                    statusId = it.arguments!!.getLong(Routes.Arguments.STATUS_ID).takeIf { it >= 0 },
+                    swimlaneId = it.arguments!!.getLong(Routes.Arguments.SWIMLANE_ID).takeIf { it >= 0 },
                     showMessage = showMessage
                 )
             }
@@ -494,11 +494,11 @@ fun MoreScreen(
 
     val space = 2.dp
 
-    Item(R.drawable.ic_team, R.string.team, Routes.team)
+    Item(R.drawable.ic_team, R.string.team, Routes.TEAM)
     Spacer(Modifier.height(space))
-    Item(R.drawable.ic_kanban, R.string.kanban, Routes.kanban)
+    Item(R.drawable.ic_kanban, R.string.kanban, Routes.KANBAN)
     Spacer(Modifier.height(space))
-    Item(R.drawable.ic_wiki, R.string.wiki, Routes.wiki_selector)
+    Item(R.drawable.ic_wiki, R.string.wiki, Routes.WIKI_SELECTOR)
     Spacer(Modifier.height(space))
-    Item(R.drawable.ic_settings, R.string.settings, Routes.settings)
+    Item(R.drawable.ic_settings, R.string.settings, Routes.SETTINGS)
 }

@@ -258,10 +258,9 @@ fun WikiAppBar(
                     title = stringResource(R.string.delete_wiki_title),
                     text = stringResource(R.string.delete_wiki_text),
                     onConfirm = {
-                        isDeleteAlertVisible = false
                         deleteWikiPage()
                     },
-                    onDismiss = { isDeleteAlertVisible = false },
+                    onDismiss = { },
                     iconId = R.drawable.ic_delete
                 )
             }
@@ -270,13 +269,12 @@ fun WikiAppBar(
                     MaterialTheme.colorScheme.surfaceColorAtElevation(dialogTonalElevation)
                 ),
                 expanded = isMenuExpanded,
-                onDismissRequest = { isMenuExpanded = false }
+                onDismissRequest = { }
             ) {
 
                 //Edit
                 DropdownMenuItem(
                     onClick = {
-                        isMenuExpanded = false
                         editWikiPage()
                     },
                     text = {
@@ -290,8 +288,6 @@ fun WikiAppBar(
                 // Delete
                 DropdownMenuItem(
                     onClick = {
-                        isMenuExpanded = false
-                        isDeleteAlertVisible = true
                     },
                     text = {
                         Text(

@@ -7,6 +7,6 @@ import com.squareup.moshi.JsonClass
 data class Attachment(
     val id: Long,
     val name: String,
-    @Json(name = "size") val sizeInBytes: Long,
+    @param:Json(name = "size") val sizeInBytes: Long,
     val url: String
 )

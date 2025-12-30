@@ -13,7 +13,7 @@ import com.luminaapps.taigamobile.domain.paging.CommonPagingSource
 import com.luminaapps.taigamobile.domain.repositories.ISprintsRepository
 import com.luminaapps.taigamobile.domain.repositories.ITasksRepository
 import com.luminaapps.taigamobile.state.Session
-import com.luminaapps.taigamobile.ui.utils.MutableResultFlow
+import com.luminaapps.taigamobile.ui.utils.mutableResultFlow
 import com.luminaapps.taigamobile.ui.utils.NothingResult
 import com.luminaapps.taigamobile.ui.utils.asLazyPagingItems
 import com.luminaapps.taigamobile.ui.utils.loadOrError
@@ -57,7 +57,7 @@ class ScrumViewModel(appComponent: AppComponent = TaigaApp.appComponent) : ViewM
 
     // stories
 
-    val filters = MutableResultFlow<FiltersData>()
+    val filters = mutableResultFlow<FiltersData>()
     val activeFilters by lazy { session.scrumFilters }
     @OptIn(ExperimentalCoroutinesApi::class)
     val stories by lazy {
@@ -83,7 +83,7 @@ class ScrumViewModel(appComponent: AppComponent = TaigaApp.appComponent) : ViewM
         }.flow.asLazyPagingItems(viewModelScope)
     }
 
-    val createSprintResult = MutableResultFlow<Unit>(NothingResult())
+    val createSprintResult = mutableResultFlow<Unit>(NothingResult())
 
     fun createSprint(name: String, start: LocalDate, end: LocalDate) = viewModelScope.launch {
         createSprintResult.loadOrError(R.string.permission_error) {

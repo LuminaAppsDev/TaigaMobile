@@ -6,7 +6,7 @@ import com.luminaapps.taigamobile.TaigaApp
 import com.luminaapps.taigamobile.dagger.AppComponent
 import com.luminaapps.taigamobile.domain.entities.WikiPage
 import com.luminaapps.taigamobile.domain.repositories.IWikiRepository
-import com.luminaapps.taigamobile.ui.utils.MutableResultFlow
+import com.luminaapps.taigamobile.ui.utils.mutableResultFlow
 import com.luminaapps.taigamobile.ui.utils.loadOrError
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -16,7 +16,7 @@ class WikiCreatePageViewModel(appComponent: AppComponent = TaigaApp.appComponent
     @Inject
     lateinit var wikiRepository: IWikiRepository
 
-    val creationResult = MutableResultFlow<WikiPage>()
+    val creationResult = mutableResultFlow<WikiPage>()
 
     init {
         appComponent.inject(this)

@@ -69,8 +69,8 @@ fun LoginScreen(
             is ErrorResult -> showMessage(it.message!!)
             is SuccessResult -> {
                 LaunchedEffect(Unit) {
-                    navController.navigate(Routes.dashboard) {
-                        popUpTo(Routes.login) { inclusive = true }
+                    navController.navigate(Routes.DASHBOARD) {
+                        popUpTo(Routes.LOGIN) { inclusive = true }
                     }
                 }
             }

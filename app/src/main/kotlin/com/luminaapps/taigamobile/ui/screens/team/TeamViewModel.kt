@@ -7,7 +7,7 @@ import com.luminaapps.taigamobile.dagger.AppComponent
 import com.luminaapps.taigamobile.domain.entities.TeamMember
 import com.luminaapps.taigamobile.domain.repositories.IUsersRepository
 import com.luminaapps.taigamobile.state.Session
-import com.luminaapps.taigamobile.ui.utils.MutableResultFlow
+import com.luminaapps.taigamobile.ui.utils.mutableResultFlow
 import com.luminaapps.taigamobile.ui.utils.NothingResult
 import com.luminaapps.taigamobile.ui.utils.loadOrError
 import kotlinx.coroutines.flow.launchIn
@@ -20,7 +20,7 @@ class TeamViewModel(appComponent: AppComponent = TaigaApp.appComponent) : ViewMo
     @Inject lateinit var session: Session
 
     val projectName by lazy { session.currentProjectName }
-    val team = MutableResultFlow<List<TeamMember>?>()
+    val team = mutableResultFlow<List<TeamMember>?>()
 
     private var shouldReload = true
 

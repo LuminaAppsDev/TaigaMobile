@@ -50,7 +50,9 @@ fun HorizontalTabbedPager(
 
     val tabsRow: @Composable () -> Unit = {
         tabs.forEachIndexed { index, tab ->
-            val selected = pagerState.run { targetPage.takeIf { it != currentPage } ?: currentPage == index }
+            val selected = pagerState.run {
+                (currentPage.takeIf { it != currentPage } ?: currentPage) == index
+            }
             Tab(
                 selected = selected,
                 onClick = {

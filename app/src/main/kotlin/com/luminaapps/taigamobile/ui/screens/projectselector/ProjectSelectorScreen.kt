@@ -53,7 +53,7 @@ fun ProjectSelectorScreen(
     val currentProjectId by viewModel.currentProjectId.collectAsState()
 
     var isSelectorVisible by remember { mutableStateOf(true) }
-    val selectorAnimationDuration = SelectorListConstants.defaultAnimDurationMillis
+    val selectorAnimationDuration = SelectorListConstants.DEFAULT_ANIM_DURATION_MILLIS
 
     fun navigateBack() = coroutineScope.launch {
         isSelectorVisible = false
@@ -81,7 +81,7 @@ fun ProjectSelectorScreenContent(
     projects: LazyPagingItems<Project>? = null,
     isVisible: Boolean = false,
     currentProjectId: Long = -1,
-    selectorAnimationDuration: Int = SelectorListConstants.defaultAnimDurationMillis,
+    selectorAnimationDuration: Int = SelectorListConstants.DEFAULT_ANIM_DURATION_MILLIS,
     navigateBack: () -> Unit = {},
     searchProjects: (String) -> Unit = {},
     selectProject: (Project) -> Unit  = {}
@@ -131,7 +131,7 @@ private fun ItemProject(
                         when {
                             project.isOwner -> R.string.project_owner
                             project.isAdmin -> R.string.project_admin
-                            project.isMember -> R.string.project_member
+                            true -> R.string.project_member
                             else -> 0
                         }
                     )

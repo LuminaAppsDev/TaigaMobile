@@ -10,17 +10,17 @@ data class WikiPage(
     val version: Int,
     val content: String,
     val editions: Long,
-    @Json(name = "created_date") val cratedDate: LocalDateTime,
-    @Json(name = "is_watcher") val isWatcher: Boolean,
-    @Json(name = "last_modifier") val lastModifier: Long,
-    @Json(name = "modified_date") val modifiedDate: LocalDateTime,
-    @Json(name = "total_watchers") val totalWatchers: Long,
-    @Json(name = "slug")val slug: String
+    @param:Json(name = "created_date") val cratedDate: LocalDateTime,
+    @param:Json(name = "is_watcher") val isWatcher: Boolean,
+    @param:Json(name = "last_modifier") val lastModifier: Long,
+    @param:Json(name = "modified_date") val modifiedDate: LocalDateTime,
+    @param:Json(name = "total_watchers") val totalWatchers: Long,
+    @param:Json(name = "slug")val slug: String
 )
 
 @JsonClass(generateAdapter = true)
 data class WikiLink(
-    @Json(name = "href") val ref: String,
+    @param:Json(name = "href") val ref: String,
     val id: Long,
     val order: Long,
     val title: String

@@ -10,7 +10,7 @@ import com.luminaapps.taigamobile.domain.entities.User
 import com.luminaapps.taigamobile.domain.repositories.IProjectsRepository
 import com.luminaapps.taigamobile.domain.repositories.IUsersRepository
 import com.luminaapps.taigamobile.state.Session
-import com.luminaapps.taigamobile.ui.utils.MutableResultFlow
+import com.luminaapps.taigamobile.ui.utils.mutableResultFlow
 import com.luminaapps.taigamobile.ui.utils.loadOrError
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -25,9 +25,9 @@ class ProfileViewModel(appComponent: AppComponent = TaigaApp.appComponent) : Vie
     @Inject
     lateinit var session: Session
 
-    val currentUser = MutableResultFlow<User>()
-    val currentUserStats = MutableResultFlow<Stats>()
-    val currentUserProjects = MutableResultFlow<List<Project>>()
+    val currentUser = mutableResultFlow<User>()
+    val currentUserStats = mutableResultFlow<Stats>()
+    val currentUserProjects = mutableResultFlow<List<Project>>()
     val currentProjectId by lazy { session.currentProjectId }
 
     init {

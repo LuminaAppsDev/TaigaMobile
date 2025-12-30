@@ -40,7 +40,7 @@ import com.luminaapps.taigamobile.ui.components.dialogs.LoadingDialog
 import com.luminaapps.taigamobile.ui.components.editors.Editor
 import com.luminaapps.taigamobile.ui.components.lists.Attachments
 import com.luminaapps.taigamobile.ui.components.lists.Description
-import com.luminaapps.taigamobile.ui.components.lists.SimpleTasksListWithTitle
+import com.luminaapps.taigamobile.ui.components.lists.simpleTasksListWithTitle
 import com.luminaapps.taigamobile.ui.components.loaders.CircularLoader
 import com.luminaapps.taigamobile.ui.screens.commontask.components.CommonTaskAppBar
 import com.luminaapps.taigamobile.ui.screens.commontask.components.CommonTaskAssignees
@@ -483,7 +483,7 @@ fun CommonTaskScreenContent(
 
                     // user stories
                     if (commonTaskType == CommonTaskType.Epic) {
-                        SimpleTasksListWithTitle(
+                        simpleTasksListWithTitle(
                             titleText = R.string.userstories,
                             bottomPadding = sectionsPadding,
                             commonTasks = userStories,
@@ -493,7 +493,7 @@ fun CommonTaskScreenContent(
 
                     // tasks
                     if (commonTaskType == CommonTaskType.UserStory) {
-                        SimpleTasksListWithTitle(
+                        simpleTasksListWithTitle(
                             titleText = R.string.tasks,
                             bottomPadding = sectionsPadding,
                             commonTasks = tasks,
