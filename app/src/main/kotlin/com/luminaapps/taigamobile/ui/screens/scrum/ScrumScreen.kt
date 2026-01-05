@@ -324,17 +324,19 @@ private fun SprintItem(
             }
         }
 
-        buttonColors().let {
-            val containerColor by it.containerColor(!sprint.isClosed)
-            val contentColor by it.contentColor(!sprint.isClosed)
-
+        if (sprint.isClosed) {
+            // A button with less emphasis for closed sprints
+            FilledTonalButton(
+                onClick = { navigateToBoard(sprint) },
+                modifier = Modifier.weight(0.3f),
+            ) {
+                Text(stringResource(R.string.taskboard))
+            }
+        } else {
+            // The default, high-emphasis button for open sprints
             Button(
                 onClick = { navigateToBoard(sprint) },
                 modifier = Modifier.weight(0.3f),
-                colors = buttonColors(
-                    containerColor = containerColor,
-                    contentColor = contentColor
-                )
             ) {
                 Text(stringResource(R.string.taskboard))
             }

@@ -36,9 +36,7 @@ import javax.inject.Singleton
 
 @Module
 class DataModule {
-
-    @Singleton
-    @Provides
+    @Singleton@Provides
     fun provideTaigaApi(session: Session, moshi: Moshi): TaigaApi {
         val baseUrlPlaceholder = "https://nothing.nothing"
         fun getApiUrl() = // for compatibility with older app versions
@@ -47,6 +45,16 @@ class DataModule {
             } else {
                 ""
             } + "${session.server.value}/${TaigaApi.API_PREFIX}"
+
+        // Create a simple client for token refresh.
+        // This client does not have complex interceptors, preventing loops.
+        val tokenRefreshClient = OkHttpClient.Builder()
+            .addInterceptor(
+                HttpLoggingInterceptor(Timber::d)
+                    .setLevel(HttpLoggingInterceptor.Level.BODY)
+                    .also { it.redactHeader("Authorization") }
+            )
+            .build()
 
         val okHttpBuilder = OkHttpClient.Builder()
             .addInterceptor {
@@ -73,46 +81,50 @@ class DataModule {
                     .also { it.redactHeader("Authorization") }
             )
 
-        val tokenClient = okHttpBuilder.build()
 
         return Retrofit.Builder()
             .baseUrl(baseUrlPlaceholder) // base url is set dynamically in interceptor
             .addConverterFactory(MoshiConverterFactory.create(moshi).withNullSerialization())
             .client(
                 okHttpBuilder.authenticator { _, response ->
-                        response.request.header("Authorization")?.let {
-                            try {
-                                // prevent multiple refresh requests from different threads
-                                synchronized(session) {
-                                    // refresh token only if it was not refreshed in another thread
-                                    if (it.replace("Bearer ", "") == session.token.value) {
-                                        val body = RefreshTokenRequestJsonAdapter(moshi)
-                                            .toJson(RefreshTokenRequest(session.refreshToken.value))
+                    response.request.header("Authorization")?.let {
+                        try {
+                            // prevent multiple refresh requests from different threads
+                            synchronized(session) {
+                                // refresh token only if it was not refreshed in another thread
+                                if (it.replace("Bearer ", "") == session.token.value) {
+                                    val body = RefreshTokenRequestJsonAdapter(moshi)
+                                        .toJson(RefreshTokenRequest(session.refreshToken.value))
 
-                                        val request = Request.Builder()
-                                            .url("$baseUrlPlaceholder/${TaigaApi.REFRESH_ENDPOINT}")
-                                            .post(body.toRequestBody("application/json".toMediaType()))
-                                            .build()
+                                    // -Build the real refresh URL directly
+                                    val refreshUrl = getApiUrl().replace(TaigaApi.API_PREFIX, TaigaApi.REFRESH_ENDPOINT)
 
-                                        val refreshResponse = RefreshTokenResponseJsonAdapter(moshi)
-                                            .fromJson(
-                                                tokenClient.newCall(request).execute().body.string()
-                                            ) ?: throw IllegalStateException("Cannot parse RefreshResponse")
+                                    val request = Request.Builder()
+                                        .url(refreshUrl) // Use the real, final URL
+                                        .post(body.toRequestBody("application/json".toMediaType()))
+                                        .build()
 
-                                        session.changeAuthCredentials(refreshResponse.auth_token, refreshResponse.refresh)
-                                    }
+                                    // Use the simple, clean client to avoid redirect loops
+                                    val refreshResponse = RefreshTokenResponseJsonAdapter(moshi)
+                                        .fromJson(
+                                            // Use the new, simple client here
+                                            tokenRefreshClient.newCall(request).execute().body.string()
+                                        ) ?: throw IllegalStateException("Cannot parse RefreshResponse")
+
+                                    session.changeAuthCredentials(refreshResponse.auth_token, refreshResponse.refresh)
                                 }
-
-                                response.request.newBuilder()
-                                    .header("Authorization", "Bearer ${session.token.value}")
-                                    .build()
-                            } catch (e: Exception) {
-                                Timber.w(e)
-                                session.changeAuthCredentials("", "")
-                                null
                             }
+
+                            response.request.newBuilder()
+                                .header("Authorization", "Bearer ${session.token.value}")
+                                .build()
+                        } catch (e: Exception) {
+                            Timber.w(e)
+                            session.changeAuthCredentials("", "")
+                            null
                         }
                     }
+                }
                     .build()
             )
             .build()
