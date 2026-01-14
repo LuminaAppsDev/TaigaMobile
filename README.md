@@ -1,4 +1,5 @@
 # TaigaMobile
+
 <a href='https://play.google.com/store/apps/details?id=com.luminaapps.taigamobile&utm_source=github'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width=300/></a>
 
 This is the **unofficial** android app for the agile project management system [taiga.io](https://www.taiga.io/). It was built with [Jetpack Compose](https://developer.android.com/jetpack/compose), featuring Material You with dynamic colors.
@@ -7,6 +8,7 @@ This is the **unofficial** android app for the agile project management system [
 <img alt="screenshot3_3" src="screenshots/m3_3.png" width=200/> <img alt="screenshot3_4" src="screenshots/m3_4.png" width=200/>
 
 ## Features
+
 * View:
   * Projects
   * Epics
@@ -29,11 +31,13 @@ This is the **unofficial** android app for the agile project management system [
 * Filters for user stories, epics, issues
 
 ## Some screens
+
 <img alt="screenshot_login" src="screenshots/login.png" width=300/> <img alt="screenshot_login_dark" src="screenshots/login_dark.png" width=300/>
 <img alt="screenshot_story" src="screenshots/story.png" width=300/> <img alt="screenshot_story_dark" src="screenshots/story_dark.png" width=300/>
 <img alt="screenshot_sprint" src="screenshots/sprint.png" width=300/> <img alt="screenshot_sprint_dark" src="screenshots/sprint_dark.png" width=300/>
 
 ## Stack
+
 * Kotlin
 * Jetpack Compose
 * Clean Architecture
@@ -42,4 +46,5 @@ This is the **unofficial** android app for the agile project management system [
 * ... and other cool things
 
 ## Download
+
 Check out the app on [Google Play](https://play.google.com/store/apps/details?id=com.luminaapps.taigamobile&utm_source=github) or go to the [Releases page](https://github.com/LuminaAppsDev/TaigaMobile/releases) to download the latest apk.
