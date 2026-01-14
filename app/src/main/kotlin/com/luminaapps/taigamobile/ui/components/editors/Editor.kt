@@ -3,9 +3,13 @@ package com.luminaapps.taigamobile.ui.components.editors
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.windowInsetsBottomHeight
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Icon
@@ -22,8 +26,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.google.accompanist.insets.imePadding
-import com.google.accompanist.insets.navigationBarsHeight
 import com.luminaapps.taigamobile.R
 import com.luminaapps.taigamobile.ui.components.appbars.AppBarWithBackButton
 import com.luminaapps.taigamobile.ui.theme.TaigaMobileTheme
@@ -95,7 +97,7 @@ fun Editor(
             onValueChange = { descriptionInput = it },
         )
 
-        Spacer(Modifier.navigationBarsHeight(8.dp))
+        Spacer(Modifier.windowInsetsBottomHeight(WindowInsets.navigationBars))
     }
 
 }

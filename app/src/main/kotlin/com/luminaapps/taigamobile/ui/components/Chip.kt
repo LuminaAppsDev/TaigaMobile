@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.LocalMinimumInteractiveComponentEnforcement
 import androidx.compose.material3.LocalMinimumTouchTargetEnforcement
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -34,7 +35,7 @@ fun Chip(
     content: @Composable () -> Unit
 ) {
     CompositionLocalProvider(
-        LocalMinimumTouchTargetEnforcement.provides(onClick != null)
+        LocalMinimumInteractiveComponentEnforcement.provides(onClick != null)
     ) {
         Surface(
             modifier = modifier,
