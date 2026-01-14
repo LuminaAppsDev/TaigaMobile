@@ -127,7 +127,7 @@ dependencies {
     implementation("io.coil-kt:coil-compose:1.3.2")
 
     // Navigation Component (with Compose)
-    implementation("androidx.navigation:navigation-compose:2.5.0-rc01")
+    implementation("androidx.navigation:navigation-compose:2.5.0")
 
     // Paging (with Compose)
     implementation("androidx.paging:paging-compose:1.0.0-alpha14")
