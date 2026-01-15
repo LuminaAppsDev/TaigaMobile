@@ -85,6 +85,9 @@ android {
     lint { 
         abortOnError = false
     }
+    composeCompiler {
+        includeComposeMappingFile.set(false) // Workaround for issue #463961757
+    }
 }
 
 dependencies {
@@ -116,7 +119,7 @@ dependencies {
     // view model support
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.10.0")
     // compose constraint layout
-    implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
+    implementation("androidx.constraintlayout:constraintlayout-compose:1.1.1")
 
     // Accompanist
     val accompanistVersion = "0.30.1"
