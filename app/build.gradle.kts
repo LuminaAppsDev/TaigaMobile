@@ -3,8 +3,7 @@ import java.util.Properties
 
 plugins {
     id("com.android.application")
-    kotlin("android")
-    id("com.google.devtools.ksp") version "2.3.0"  // Match Kotlin version
+    id("com.google.devtools.ksp") version "2.3.2"  // Match Kotlin version
     id("org.jetbrains.kotlin.plugin.compose") version "2.3.0"
 }
 
@@ -18,7 +17,7 @@ android {
         applicationId = namespace!!
         minSdk = 23
         targetSdk = 36
-        versionCode = 29
+        versionCode = 30
         versionName = "2.0"
         project.base.archivesName.set("TaigaMobile-$versionName")
 
@@ -71,7 +70,7 @@ android {
     }
 
     kotlin {
-        jvmToolchain(21)
+        jvmToolchain(25)
         compilerOptions {
             freeCompilerArgs.add("-Xannotation-default-target=first-only")
         }
