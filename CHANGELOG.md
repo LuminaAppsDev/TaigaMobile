@@ -4,13 +4,15 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
-- Release 2.0 forked from original project
-
 ### Added
 
 ### Fixed
 
+- Corrected api refresh call
+
 ### Changed
+
+- Update to gradle build system version 9
 
 ### Removed
 

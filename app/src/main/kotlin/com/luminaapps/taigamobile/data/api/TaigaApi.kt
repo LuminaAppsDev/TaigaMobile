@@ -29,7 +29,7 @@ interface TaigaApi {
     companion object {
         const val API_PREFIX = "api/v1"
         const val AUTH_ENDPOINTS = "auth"
-        const val REFRESH_ENDPOINT = "auth/refresh"
+        const val REFRESH_ENDPOINT = "api/v1/auth/refresh"
     }
 
     @POST("auth")

@@ -56,13 +56,20 @@ android {
     }
 
     sourceSets {
-        fun AndroidSourceSet.setupTestSrcDirs() {
+        getByName("test") {
             kotlin.srcDir("src/sharedTest/kotlin")
             resources.srcDir("src/sharedTest/resources")
         }
-
-        getByName("test").setupTestSrcDirs()
-        getByName("androidTest").setupTestSrcDirs()
+        getByName("androidTest") {
+            kotlin.srcDir("src/sharedTest/kotlin")
+            resources.srcDir("src/sharedTest/resources")
+        }
+        all {
+            kotlin.srcDirs(
+                "build/generated/ksp/$name/kotlin",
+                "build/generated/ksp/$name/java"
+            )
+        }
     }
 
     compileOptions {
@@ -215,4 +222,3 @@ tasks.withType<Test> {
     dependsOn("launchTestInstance")
     finalizedBy("stopTestInstance")
 }
-
