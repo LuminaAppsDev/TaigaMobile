@@ -9,6 +9,7 @@ All notable changes to this project are documented in this file.
 ### Fixed
 
 - Corrected api refresh call
+- Avoid broken release build caused by too rigid minify
 
 ### Changed
 

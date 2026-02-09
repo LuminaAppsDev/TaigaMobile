@@ -17,7 +17,7 @@ android {
         applicationId = namespace!!
         minSdk = 23
         targetSdk = 36
-        versionCode = 30
+        versionCode = 31
         versionName = "2.0"
         project.base.archivesName.set("TaigaMobile-$versionName")
 
