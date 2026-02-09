@@ -29,9 +29,10 @@ android {
             val properties = Properties().also {
                 it.load(file("./signing.properties").inputStream())
             }
-            storePassword = properties.getProperty("password")
-            keyAlias = properties.getProperty("alias")
-            keyPassword = properties.getProperty("password")
+            storeFile = file("play-store_release-key.keystore")
+            storePassword = properties.getProperty("storePassword")
+            keyAlias = properties.getProperty("keyAlias")
+            keyPassword = properties.getProperty("keyPassword")
         }
     }
 
