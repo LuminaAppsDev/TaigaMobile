@@ -19,3 +19,11 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+-keepclasseswithmembers class * {
+    @androidx.compose.runtime.Composable <methods>;
+}
+
+-keep class com.luminaapps.taigamobile.ui.utils.ViewModelUtilsKt { *; }
+
+-keep class androidx.paging.** { *; }
