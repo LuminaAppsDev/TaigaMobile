@@ -66,7 +66,7 @@ fun Modifier.clickableUnindicated(
         enabled = enabled,
         onClickLabel = null,
         role = null,
-        onClick
+        onClick = onClick
     )
 }
 
