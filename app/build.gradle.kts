@@ -199,7 +199,7 @@ dependencies {
     testRuntimeOnly("org.postgresql:postgresql:$postgresDriverVersion")
     androidTestRuntimeOnly("org.postgresql:postgresql:$postgresDriverVersion")
 
-    // manual json parsing when filling test instance
+    // manual JSON parsing when filling test instance
     implementation("com.google.code.gson:gson:2.13.2")
 
     // MockK
