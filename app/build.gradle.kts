@@ -1,4 +1,3 @@
-import com.android.build.api.dsl.AndroidSourceSet
 import java.util.Properties
 
 plugins {
@@ -58,18 +57,12 @@ android {
 
     sourceSets {
         getByName("test") {
-            kotlin.srcDir("src/sharedTest/kotlin")
+            java.srcDir("src/sharedTest/kotlin")
             resources.srcDir("src/sharedTest/resources")
         }
         getByName("androidTest") {
-            kotlin.srcDir("src/sharedTest/kotlin")
+            java.srcDir("src/sharedTest/kotlin")
             resources.srcDir("src/sharedTest/resources")
-        }
-        all {
-            kotlin.srcDirs(
-                "build/generated/ksp/$name/kotlin",
-                "build/generated/ksp/$name/java"
-            )
         }
     }
 
