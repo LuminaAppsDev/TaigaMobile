@@ -254,6 +254,7 @@ fun MainScreen(
 ) {
     val scope = rememberCoroutineScope()
     val context = LocalContext.current
+    @Suppress("LocalContextGetResourceValueCall") // getString() is correct here — lambda runs outside composition
     val showMessage: (Int) -> Unit = { message ->
         val strMessage = context.getString(message)
         scope.launch {

@@ -68,6 +68,15 @@ android {
         isCoreLibraryDesugaringEnabled = true
     }
 
+    // These are false-positive IDE warnings, both kotlin { } and composeCompiler { } resolve correctly
+    // via the Project receiver even when  written inside android { }, and they cannot be moved outside
+    // without breaking the build because:
+    // 1. kotlin { } — Inside android { }, AGP intercepts this to configure the Kotlin Android compilation.
+    // Moving it to top level changes which extension is resolved, breaking the Compose compiler flag
+    // application.
+    // 2. composeCompiler { } — Same issue; it needs the AGP context to properly configure the Compose compiler.
+
+    //noinspection WrongGradleMethod
     kotlin {
         jvmToolchain(25)
         compilerOptions {
@@ -83,6 +92,8 @@ android {
     lint { 
         abortOnError = false
     }
+
+    //noinspection WrongGradleMethod
     composeCompiler {
         includeComposeMappingFile.set(false) // Workaround for issue #463961757
     }
