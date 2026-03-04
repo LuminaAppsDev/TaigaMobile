@@ -33,8 +33,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import coil.annotation.ExperimentalCoilApi
-import coil.compose.rememberImagePainter
+import androidx.compose.ui.platform.LocalContext
+import coil.compose.rememberAsyncImagePainter
+import coil.request.ImageRequest
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.add
@@ -128,7 +129,6 @@ fun TeamScreenContent(
     }
 }
 
-@OptIn(ExperimentalCoilApi::class)
 @Composable
 private fun TeamMemberItem(
     teamMember: TeamMember,
@@ -147,12 +147,12 @@ private fun TeamMemberItem(
         modifier = Modifier.weight(0.6f)
     ) {
         Image(
-            painter = rememberImagePainter(
-                data = teamMember.avatarUrl ?: R.drawable.default_avatar,
-                builder = {
-                    error(R.drawable.default_avatar)
-                    crossfade(true)
-                },
+            painter = rememberAsyncImagePainter(
+                model = ImageRequest.Builder(LocalContext.current)
+                    .data(teamMember.avatarUrl ?: R.drawable.default_avatar)
+                    .error(R.drawable.default_avatar)
+                    .crossfade(true)
+                    .build()
             ),
             contentDescription = null,
             contentScale = ContentScale.Crop,

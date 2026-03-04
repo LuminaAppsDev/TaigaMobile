@@ -47,8 +47,8 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.core.content.FileProvider
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import coil.annotation.ExperimentalCoilApi
-import coil.compose.rememberImagePainter
+import coil.compose.rememberAsyncImagePainter
+import coil.request.ImageRequest
 import com.luminaapps.taigamobile.BuildConfig
 import com.luminaapps.taigamobile.R
 import com.luminaapps.taigamobile.TaigaApp
@@ -100,7 +100,6 @@ fun SettingsScreen(
     )
 }
 
-@OptIn(ExperimentalCoilApi::class)
 @Composable
 fun SettingsScreenContent(
     avatarUrl: String?,
@@ -125,12 +124,12 @@ fun SettingsScreenContent(
     )
 
     Image(
-        painter = rememberImagePainter(
-            data = avatarUrl ?: R.drawable.default_avatar,
-            builder = {
-                error(R.drawable.default_avatar)
-                crossfade(true)
-            },
+        painter = rememberAsyncImagePainter(
+            model = ImageRequest.Builder(LocalContext.current)
+                .data(avatarUrl ?: R.drawable.default_avatar)
+                .error(R.drawable.default_avatar)
+                .crossfade(true)
+                .build()
         ),
         contentDescription = null,
         contentScale = ContentScale.Crop,

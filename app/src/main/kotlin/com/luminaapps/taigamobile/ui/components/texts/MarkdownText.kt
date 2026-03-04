@@ -8,7 +8,7 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.viewinterop.AndroidView
 import io.noties.markwon.Markwon
-import io.noties.markwon.image.coil.CoilImagesPlugin
+import io.noties.markwon.image.ImagesPlugin
 
 /**
  * Use android TextView because Compose does not support Markdown yet
@@ -21,7 +21,7 @@ fun MarkdownText(
 ) {
     if (!::markwon.isInitialized) {
         markwon = Markwon.builder(LocalContext.current)
-            .usePlugin(CoilImagesPlugin.create(LocalContext.current))
+            .usePlugin(ImagesPlugin.create())
             .build()
     }
     val textSize = MaterialTheme.typography.bodyLarge.fontSize.value

@@ -38,8 +38,9 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import coil.annotation.ExperimentalCoilApi
-import coil.compose.rememberImagePainter
+import androidx.compose.ui.platform.LocalContext
+import coil.compose.rememberAsyncImagePainter
+import coil.request.ImageRequest
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.navigationBars
@@ -219,7 +220,6 @@ private fun Header(
     )
 }
 
-@OptIn(ExperimentalCoilApi::class)
 @Composable
 private fun StoryItem(
     story: CommonTaskExtended,
@@ -277,12 +277,12 @@ private fun StoryItem(
         ) {
             assignees.forEach {
                 Image(
-                    painter = rememberImagePainter(
-                        data = it.avatarUrl ?: R.drawable.default_avatar,
-                        builder = {
-                            error(R.drawable.default_avatar)
-                            crossfade(true)
-                        }
+                    painter = rememberAsyncImagePainter(
+                        model = ImageRequest.Builder(LocalContext.current)
+                            .data(it.avatarUrl ?: R.drawable.default_avatar)
+                            .error(R.drawable.default_avatar)
+                            .crossfade(true)
+                            .build()
                     ),
                     contentDescription = null,
                     contentScale = ContentScale.Crop,

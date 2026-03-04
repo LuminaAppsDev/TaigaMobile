@@ -118,7 +118,7 @@ dependencies {
     implementation("androidx.compose.material:material")
 
     // Coil
-    implementation("io.coil-kt:coil-compose:1.3.2")
+    implementation("io.coil-kt:coil-compose:2.7.0")
 
     // Navigation Component (with Compose)
     implementation("androidx.navigation:navigation-compose:2.5.0")
@@ -158,7 +158,7 @@ dependencies {
     // Markdown support (Markwon)
     val markwonVersion = "4.6.2"
     implementation("io.noties.markwon:core:$markwonVersion")
-    implementation("io.noties.markwon:image-coil:$markwonVersion")
+    implementation("io.noties.markwon:image:$markwonVersion")
 
     // Compose material dialogs (color picker)
     implementation("io.github.vanpra.compose-material-dialogs:color:0.7.0")
