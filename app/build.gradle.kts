@@ -100,7 +100,7 @@ dependencies {
 
     implementation("androidx.core:core-ktx:1.17.0")
     implementation("androidx.appcompat:appcompat:1.7.1")
-    implementation("com.google.android.material:material:1.6.0")
+    implementation("com.google.android.material:material:1.12.0")
 
     // Main Compose dependencies (versions managed by BOM)
     implementation("androidx.compose.ui:ui")
@@ -108,7 +108,7 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling")
     implementation("androidx.compose.animation:animation")
     // compose activity
-    implementation("androidx.activity:activity-compose:1.4.0")
+    implementation("androidx.activity:activity-compose:1.10.0")
     // view model support
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.10.0")
     // compose constraint layout
@@ -121,7 +121,7 @@ dependencies {
     implementation("io.coil-kt:coil-compose:2.7.0")
 
     // Navigation Component (with Compose)
-    implementation("androidx.navigation:navigation-compose:2.5.0")
+    implementation("androidx.navigation:navigation-compose:2.8.5")
 
     // Paging (with Compose)
     implementation("androidx.paging:paging-compose:3.3.6")
