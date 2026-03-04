@@ -31,7 +31,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
-import androidx.paging.compose.items
+import androidx.paging.compose.itemKey
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.add
@@ -235,12 +235,16 @@ private fun SprintsTabContent(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        items(openSprints, key = { it.id }) {
-            if (it == null) return@items
-            SprintItem(
-                sprint = it,
-                navigateToBoard = navigateToBoard
-            )
+        items(
+            count = openSprints.itemCount,
+            key = openSprints.itemKey { it.id }
+        ) { index ->
+            openSprints[index]?.let {
+                SprintItem(
+                    sprint = it,
+                    navigateToBoard = navigateToBoard
+                )
+            }
         }
 
         item {
@@ -256,12 +260,16 @@ private fun SprintsTabContent(
         }
 
         if (isClosedSprintsVisible) {
-            items(closedSprints, key = { it.id }) {
-                if (it == null) return@items
-                SprintItem(
-                    sprint = it,
-                    navigateToBoard = navigateToBoard
-                )
+            items(
+                count = closedSprints.itemCount,
+                key = closedSprints.itemKey { it.id }
+            ) { index ->
+                closedSprints[index]?.let {
+                    SprintItem(
+                        sprint = it,
+                        navigateToBoard = navigateToBoard
+                    )
+                }
             }
 
             item {

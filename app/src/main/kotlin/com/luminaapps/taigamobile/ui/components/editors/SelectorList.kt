@@ -37,7 +37,7 @@ import androidx.paging.compose.LazyPagingItems
 import com.luminaapps.taigamobile.ui.components.appbars.AppBarWithBackButton
 import com.luminaapps.taigamobile.ui.components.loaders.DotsLoader
 import com.luminaapps.taigamobile.ui.utils.onBackPressed
-import androidx.paging.compose.itemsIndexed as itemsIndexedLazy
+import androidx.paging.compose.itemKey
 
 /**
  * Selector list, which expands from bottom to top.
@@ -48,7 +48,7 @@ fun <T : Any> SelectorList(
     @StringRes titleHintId: Int,
     items: List<T> = emptyList(),
     itemsLazy: LazyPagingItems<T>? = null,
-    key: ((index: Int, item: T) -> Any)? = null, // used to preserve position with lazy items
+    key: ((item: T) -> Any)? = null, // used to preserve position with lazy items
     isVisible: Boolean = false,
     isItemsLoading: Boolean = false,
     isSearchable: Boolean = true,
@@ -72,9 +72,8 @@ fun <T : Any> SelectorList(
 
     val lastIndex = itemsLazy?.itemCount?.minus(1) ?: items.lastIndex
 
-    val listItemContent: @Composable LazyItemScope.(Int, T?) -> Unit = lambda@ { index, item ->
-        if (item == null) return@lambda
-
+    @Composable
+    fun ItemWithDivider(index: Int, item: T) {
         itemContent(item)
 
         if (index < lastIndex) {
@@ -113,13 +112,14 @@ fun <T : Any> SelectorList(
         )
 
         LazyColumn {
-            itemsLazy?.let {
-                itemsIndexedLazy(
-                    items = it,
-                    key = key,
-                    itemContent = listItemContent
-                )
-            } ?: itemsIndexed(items, itemContent = listItemContent)
+            itemsLazy?.let { lazyItems ->
+                items(
+                    count = lazyItems.itemCount,
+                    key = key?.let { k -> lazyItems.itemKey { k(it) } }
+                ) { index ->
+                    lazyItems[index]?.let { item -> ItemWithDivider(index, item) }
+                }
+            } ?: itemsIndexed(items) { index, item -> ItemWithDivider(index, item) }
 
             item {
                 if (isLoading) {
