@@ -3,7 +3,7 @@ import java.util.Properties
 plugins {
     id("com.android.application")
     id("com.google.devtools.ksp") version "2.3.2"  // Match Kotlin version
-    id("org.jetbrains.kotlin.plugin.compose") version "2.3.0"
+    id("org.jetbrains.kotlin.plugin.compose") version "2.3.10"
 }
 
 android {
@@ -92,7 +92,7 @@ dependencies {
     // Enforce correct kotlin version for all dependencies
     implementation(enforcedPlatform(kotlin("bom")))
     // Compose BOM — manages all androidx.compose.* versions consistently
-    implementation(platform("androidx.compose:compose-bom:2024.12.01"))
+    implementation(platform("androidx.compose:compose-bom:2026.02.01"))
 
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
 
@@ -100,7 +100,7 @@ dependencies {
 
     implementation("androidx.core:core-ktx:1.17.0")
     implementation("androidx.appcompat:appcompat:1.7.1")
-    implementation("com.google.android.material:material:1.12.0")
+    implementation("com.google.android.material:material:1.13.0")
 
     // Main Compose dependencies (versions managed by BOM)
     implementation("androidx.compose.ui:ui")
@@ -108,7 +108,7 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling")
     implementation("androidx.compose.animation:animation")
     // compose activity
-    implementation("androidx.activity:activity-compose:1.10.0")
+    implementation("androidx.activity:activity-compose:1.12.4")
     // view model support
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.10.0")
     // compose constraint layout
@@ -121,10 +121,10 @@ dependencies {
     implementation("io.coil-kt:coil-compose:2.7.0")
 
     // Navigation Component (with Compose)
-    implementation("androidx.navigation:navigation-compose:2.8.5")
+    implementation("androidx.navigation:navigation-compose:2.9.7")
 
     // Paging (with Compose)
-    implementation("androidx.paging:paging-compose:3.3.6")
+    implementation("androidx.paging:paging-compose:3.4.1")
 
     // Coroutines
     val coroutinesVersion = "1.10.2"
@@ -148,7 +148,7 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor:$okHttpVersion")
 
     // Dagger 2
-    val daggerVersion = "2.57.2"
+    val daggerVersion = "2.59.2"
     implementation("com.google.dagger:dagger:$daggerVersion")
     ksp("com.google.dagger:dagger-compiler:$daggerVersion")
 
@@ -167,14 +167,14 @@ dependencies {
     allTestsImplementation(kotlin("test-junit"))
 
     // Robolectric (run android tests on local host)
-    testRuntimeOnly("org.robolectric:robolectric:4.16")
+    testRuntimeOnly("org.robolectric:robolectric:4.16.1")
 
     allTestsImplementation("androidx.test:core-ktx:1.7.0")
     allTestsImplementation("androidx.test:runner:1.7.0")
     allTestsImplementation("androidx.test.ext:junit-ktx:1.3.0")
 
     // since we need to connect to test db instance
-    val postgresDriverVersion = "42.7.8"
+    val postgresDriverVersion = "42.7.10"
     testRuntimeOnly("org.postgresql:postgresql:$postgresDriverVersion")
     androidTestRuntimeOnly("org.postgresql:postgresql:$postgresDriverVersion")
 
@@ -182,7 +182,7 @@ dependencies {
     implementation("com.google.code.gson:gson:2.13.2")
 
     // MockK
-    testImplementation("io.mockk:mockk:1.14.7")
+    testImplementation("io.mockk:mockk:1.14.9")
 }
 
 fun DependencyHandler.allTestsImplementation(dependencyNotation: Any) {
