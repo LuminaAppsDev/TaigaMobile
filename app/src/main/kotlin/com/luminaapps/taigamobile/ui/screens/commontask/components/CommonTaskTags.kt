@@ -48,7 +48,7 @@ import com.luminaapps.taigamobile.ui.utils.surfaceColorAtElevation
 import com.luminaapps.taigamobile.ui.utils.textColor
 import com.luminaapps.taigamobile.ui.utils.toColor
 import com.luminaapps.taigamobile.ui.utils.toHex
-import com.vanpra.composematerialdialogs.color.ColorPalette
+import com.luminaapps.taigamobile.ui.components.pickers.PrimaryColorPalette
 
 @Suppress("FunctionName")
 fun LazyListScope.CommonTaskTags(
@@ -88,8 +88,9 @@ fun LazyListScope.CommonTaskTags(
                     onInputChange = editActions.editTags.searchItems,
                     onConfirm = {
                         editActions.editTags.select(it)
+                        isAddTagDialogVisible = false
                     },
-                    onDismiss = { }
+                    onDismiss = { isAddTagDialogVisible = false }
                 )
             }
         }
@@ -142,7 +143,7 @@ private fun AddTagDialog(
     onDismiss: () -> Unit
 ) {
     var name by rememberSaveable(stateSaver = TextFieldValue.Saver) { mutableStateOf(TextFieldValue()) }
-    var color by remember { mutableStateOf(ColorPalette.Primary.first()) }
+    var color by remember { mutableStateOf(PrimaryColorPalette.first()) }
     var isDropdownVisible by remember { mutableStateOf(true) }
 
     AlertDialog(

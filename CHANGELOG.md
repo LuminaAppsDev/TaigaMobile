@@ -19,6 +19,7 @@ All notable changes to this project are documented in this file.
 - Migration from Coil1 to Coil2
 - Migration from paging-compose 1-alpha to 3-stable
 - Libraries updates
+- Migration of abandoned compose-material-dialogs library
 
 ### Removed
 

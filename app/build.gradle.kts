@@ -160,8 +160,6 @@ dependencies {
     implementation("io.noties.markwon:core:$markwonVersion")
     implementation("io.noties.markwon:image:$markwonVersion")
 
-    // Compose material dialogs (color picker)
-    implementation("io.github.vanpra.compose-material-dialogs:color:0.7.0")
 
     /**
      * Test frameworks & dependencies
