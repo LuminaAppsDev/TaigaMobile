@@ -41,7 +41,6 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -58,9 +57,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.google.accompanist.insets.ProvideWindowInsets
-import com.google.accompanist.insets.navigationBarsHeight
-import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import android.app.Activity
+import androidx.compose.runtime.SideEffect
+import androidx.compose.ui.platform.LocalView
 import com.luminaapps.taigamobile.R
 import com.luminaapps.taigamobile.domain.entities.CommonTaskType
 import com.luminaapps.taigamobile.state.ThemeSetting
@@ -114,8 +113,6 @@ class MainActivity : AppCompatActivity() {
         setContent {
             val scaffoldState = rememberScaffoldState()
             val navController = rememberNavController()
-            val systemUiController = rememberSystemUiController()
-
             val viewModel: MainViewModel = viewModel()
             val theme by viewModel.theme.collectAsState()
 
@@ -126,19 +123,18 @@ class MainActivity : AppCompatActivity() {
             }
 
             TaigaMobileTheme(darkTheme) {
-                ProvideWindowInsets(windowInsetsAnimationsEnabled = true) {
-                    systemUiController.let {
-                        it.setStatusBarColor(
-                            Color.Transparent,
-                            darkIcons = !darkTheme
-                        )
-                        it.setNavigationBarColor(
-                            Color.Transparent,
-                            darkIcons = !darkTheme
-                        )
+                val view = LocalView.current
+                if (!view.isInEditMode) {
+                    SideEffect {
+                        val window = (view.context as Activity).window
+                        WindowCompat.getInsetsController(window, view).apply {
+                            isAppearanceLightStatusBars = !darkTheme
+                            isAppearanceLightNavigationBars = !darkTheme
+                        }
                     }
+                }
 
-                    CompositionLocalProvider(
+                CompositionLocalProvider(
                         LocalFilePicker provides filePicker
                     ) {
 
@@ -168,9 +164,7 @@ class MainActivity : AppCompatActivity() {
                                 // hide bottom bar for other screens
                                 if (currentRoute !in routes) return@Scaffold
 
-                                NavigationBar(
-                                    modifier = Modifier.navigationBarsHeight(70.dp)
-                                ) {
+                                NavigationBar {
                                     items.forEach { screen ->
                                         NavigationBarItem(
                                             modifier = Modifier.navigationBarsPadding()
@@ -205,7 +199,6 @@ class MainActivity : AppCompatActivity() {
                             }
                         )
                     }
-                }
             }
         }
     }

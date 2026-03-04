@@ -46,7 +46,7 @@ import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import com.google.accompanist.insets.imePadding
+import androidx.compose.foundation.layout.imePadding
 import com.luminaapps.taigamobile.R
 import com.luminaapps.taigamobile.domain.entities.AuthType
 import com.luminaapps.taigamobile.ui.components.dialogs.ConfirmActionDialog

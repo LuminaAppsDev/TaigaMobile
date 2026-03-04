@@ -51,7 +51,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
-import com.google.accompanist.flowlayout.FlowRow
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.FlowRow
 import com.luminaapps.taigamobile.R
 import com.luminaapps.taigamobile.domain.entities.Filter
 import com.luminaapps.taigamobile.domain.entities.FiltersData
@@ -203,7 +204,7 @@ fun TaskFilters(
                             Spacer(Modifier.height(space))
 
                             Column(modifier = Modifier.fillMaxWidth()) {
-                                FlowRow(mainAxisSpacing = 4.dp) {
+                                FlowRow(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
                                     selected.types.forEach {
                                         FilterChip(
                                             filter = it,
@@ -410,8 +411,8 @@ private fun <T : Filter> Section(
     AnimatedVisibility(visible = isExpanded) {
         FlowRow(
             modifier = Modifier.padding(vertical = 2.dp, horizontal = 6.dp),
-            mainAxisSpacing = 4.dp,
-            crossAxisSpacing = 4.dp
+            horizontalArrangement = Arrangement.spacedBy(4.dp),
+            verticalArrangement = Arrangement.spacedBy(4.dp)
         ) {
             filters.forEach {
                 FilterChip(

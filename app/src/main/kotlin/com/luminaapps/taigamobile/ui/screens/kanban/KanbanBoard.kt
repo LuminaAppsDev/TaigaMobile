@@ -40,8 +40,11 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
-import com.google.accompanist.flowlayout.FlowRow
-import com.google.accompanist.insets.navigationBarsHeight
+import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.navigationBars
+import androidx.compose.foundation.layout.add
+import androidx.compose.foundation.layout.windowInsetsBottomHeight
 import com.luminaapps.taigamobile.R
 import com.luminaapps.taigamobile.domain.entities.CommonTaskExtended
 import com.luminaapps.taigamobile.domain.entities.CommonTaskType
@@ -151,7 +154,7 @@ fun KanbanBoard(
                     }
 
                     item {
-                        Spacer(Modifier.navigationBarsHeight(8.dp))
+                        Spacer(Modifier.windowInsetsBottomHeight(WindowInsets.navigationBars.add(WindowInsets(bottom = 8.dp))))
                     }
                 }
             }
@@ -269,8 +272,8 @@ private fun StoryItem(
         Spacer(Modifier.height(8.dp))
 
         FlowRow(
-            mainAxisSpacing = 4.dp,
-            crossAxisSpacing = 4.dp
+            horizontalArrangement = Arrangement.spacedBy(4.dp),
+            verticalArrangement = Arrangement.spacedBy(4.dp)
         ) {
             assignees.forEach {
                 Image(

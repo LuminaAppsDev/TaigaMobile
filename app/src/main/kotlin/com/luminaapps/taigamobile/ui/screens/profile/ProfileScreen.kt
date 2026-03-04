@@ -30,7 +30,10 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
-import com.google.accompanist.insets.navigationBarsHeight
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.navigationBars
+import androidx.compose.foundation.layout.add
+import androidx.compose.foundation.layout.windowInsetsBottomHeight
 import com.luminaapps.taigamobile.R
 import com.luminaapps.taigamobile.domain.entities.Project
 import com.luminaapps.taigamobile.domain.entities.Stats
@@ -184,7 +187,7 @@ fun ProfileScreenContent(
             }
 
             item {
-                Spacer(Modifier.navigationBarsHeight(8.dp))
+                Spacer(Modifier.windowInsetsBottomHeight(WindowInsets.navigationBars.add(WindowInsets(bottom = 8.dp))))
             }
         }
     }

@@ -114,13 +114,8 @@ dependencies {
     // compose constraint layout
     implementation("androidx.constraintlayout:constraintlayout-compose:1.1.1")
 
-    // Accompanist
-    val accompanistVersion = "0.30.1"
-    implementation("com.google.accompanist:accompanist-pager:$accompanistVersion")
-    implementation("com.google.accompanist:accompanist-pager-indicators:$accompanistVersion")
-    implementation("com.google.accompanist:accompanist-systemuicontroller:$accompanistVersion")
-    implementation("com.google.accompanist:accompanist-insets:$accompanistVersion")
-    implementation("com.google.accompanist:accompanist-flowlayout:$accompanistVersion")
+    // Material2 — still needed for Scaffold/Snackbar/ModalBottomSheet/Divider/etc. (step 3 migration)
+    implementation("androidx.compose.material:material")
 
     // Coil
     implementation("io.coil-kt:coil-compose:1.3.2")

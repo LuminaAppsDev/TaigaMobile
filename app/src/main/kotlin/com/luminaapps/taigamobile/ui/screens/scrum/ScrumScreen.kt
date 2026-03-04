@@ -32,9 +32,11 @@ import androidx.navigation.NavController
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.items
-import com.google.accompanist.insets.navigationBarsHeight
-import com.google.accompanist.pager.ExperimentalPagerApi
-import com.google.accompanist.pager.rememberPagerState
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.navigationBars
+import androidx.compose.foundation.layout.add
+import androidx.compose.foundation.layout.windowInsetsBottomHeight
+import androidx.compose.foundation.pager.rememberPagerState
 import com.luminaapps.taigamobile.R
 import com.luminaapps.taigamobile.domain.entities.CommonTask
 import com.luminaapps.taigamobile.domain.entities.CommonTaskType
@@ -116,7 +118,6 @@ fun ScrumScreen(
     )
 }
 
-@OptIn(ExperimentalPagerApi::class)
 @Composable
 fun ScrumScreenContent(
     projectName: String,
@@ -136,7 +137,7 @@ fun ScrumScreenContent(
     modifier = Modifier.fillMaxSize(),
     horizontalAlignment = Alignment.Start
 ) {
-    val pagerState = rememberPagerState()
+    val pagerState = rememberPagerState(pageCount = { Tabs.entries.size })
     var isCreateSprintDialogVisible by remember { mutableStateOf(false) }
 
     ClickableAppBar(
@@ -275,7 +276,7 @@ private fun SprintsTabContent(
                 NothingToSeeHereText()
             }
 
-            Spacer(Modifier.navigationBarsHeight(8.dp))
+            Spacer(Modifier.windowInsetsBottomHeight(WindowInsets.navigationBars.add(WindowInsets(bottom = 8.dp))))
         }
     }
 }

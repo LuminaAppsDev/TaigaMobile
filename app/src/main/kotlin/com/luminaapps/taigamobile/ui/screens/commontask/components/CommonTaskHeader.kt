@@ -19,8 +19,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
-import com.google.accompanist.flowlayout.FlowCrossAxisAlignment
-import com.google.accompanist.flowlayout.FlowRow
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.FlowRow
 import com.luminaapps.taigamobile.R
 import com.luminaapps.taigamobile.domain.entities.CommonTaskExtended
 import com.luminaapps.taigamobile.domain.entities.CommonTaskType
@@ -80,9 +80,8 @@ fun LazyListScope.CommonTaskHeader(
         }
 
         FlowRow(
-            crossAxisAlignment = FlowCrossAxisAlignment.Center,
-            crossAxisSpacing = badgesPadding,
-            mainAxisSpacing = badgesPadding
+            horizontalArrangement = Arrangement.spacedBy(badgesPadding),
+            verticalArrangement = Arrangement.spacedBy(badgesPadding)
         ) {
             // epic color
             if (commonTask.taskType == CommonTaskType.Epic) {

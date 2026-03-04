@@ -14,7 +14,8 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.google.accompanist.flowlayout.FlowRow
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.FlowRow
 import com.luminaapps.taigamobile.R
 import com.luminaapps.taigamobile.domain.entities.Tag
 import com.luminaapps.taigamobile.ui.components.Chip
@@ -61,8 +62,8 @@ fun CommonTaskTitle(
         Spacer(Modifier.height(space))
 
         FlowRow(
-            mainAxisSpacing = space,
-            crossAxisSpacing = space
+            horizontalArrangement = Arrangement.spacedBy(space),
+            verticalArrangement = Arrangement.spacedBy(space)
         ) {
             tags.forEach {
                 val bgColor = it.color.toColor()
