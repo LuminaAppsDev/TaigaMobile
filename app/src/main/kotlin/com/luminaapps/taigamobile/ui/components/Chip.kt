@@ -5,10 +5,9 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.ripple.rememberRipple
+import androidx.compose.material3.ripple
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.LocalMinimumInteractiveComponentEnforcement
-import androidx.compose.material3.LocalMinimumTouchTargetEnforcement
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -46,7 +45,7 @@ fun Chip(
         ) {
             Box(
                 modifier = Modifier.clickable(
-                    indication = rememberRipple(),
+                    indication = ripple(),
                     onClick = onClick ?: {},
                     enabled = onClick != null,
                     interactionSource = remember { MutableInteractionSource() }

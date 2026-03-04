@@ -24,7 +24,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.CornerSize
-import androidx.compose.material.ripple.rememberRipple
+import androidx.compose.material3.ripple
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -384,7 +384,7 @@ private fun TaskItem(
         modifier = Modifier.fillMaxWidth()
             .clickable(
                 onClick = onTaskClick,
-                indication = rememberRipple(),
+                indication = ripple(),
                 interactionSource = remember { MutableInteractionSource() }
             )
             .padding(12.dp)

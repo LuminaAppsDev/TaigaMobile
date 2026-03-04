@@ -13,7 +13,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.ripple.rememberRipple
+import androidx.compose.material3.ripple
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -64,7 +64,7 @@ fun SectionTitle(
                     onClick = it,
                     role = Role.Button,
                     interactionSource = remember { MutableInteractionSource() },
-                    indication = rememberRipple(bounded = true)
+                    indication = ripple(bounded = true)
                 )
                 .padding(6.dp)
         ) {

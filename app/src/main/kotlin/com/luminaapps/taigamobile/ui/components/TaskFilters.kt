@@ -39,6 +39,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
@@ -132,7 +133,8 @@ fun TaskFilters(
     val coroutineScope = rememberCoroutineScope()
 
     // compose version of BottomSheetDialog (from Dialog and ModalBottomSheetLayout)
-    val bottomSheetState =  remember { ModalBottomSheetState(ModalBottomSheetValue.Expanded) } // fix to handle dialog closed state properly
+    val density = LocalDensity.current
+    val bottomSheetState = remember { ModalBottomSheetState(ModalBottomSheetValue.Expanded, density) } // fix to handle dialog closed state properly
     var isVisible by remember { mutableStateOf(false) }
 
     FilledTonalButton(

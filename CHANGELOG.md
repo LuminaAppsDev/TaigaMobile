@@ -15,6 +15,7 @@ All notable changes to this project are documented in this file.
 ### Changed
 
 - Update to gradle build system version 9
+- Migration from Material2 to Material3
 
 ### Removed
 

@@ -24,7 +24,6 @@ import androidx.compose.material.ScaffoldState
 import androidx.compose.material.Snackbar
 import androidx.compose.material.SnackbarHost
 import androidx.compose.material.rememberScaffoldState
-import androidx.compose.material.ripple.LocalRippleTheme
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
@@ -83,7 +82,6 @@ import com.luminaapps.taigamobile.ui.screens.team.TeamScreen
 import com.luminaapps.taigamobile.ui.screens.wiki.createpage.WikiCreatePageScreen
 import com.luminaapps.taigamobile.ui.screens.wiki.list.WikiListScreen
 import com.luminaapps.taigamobile.ui.screens.wiki.page.WikiPageScreen
-import com.luminaapps.taigamobile.ui.theme.TaigaMobileRippleTheme
 import com.luminaapps.taigamobile.ui.theme.TaigaMobileTheme
 import kotlinx.coroutines.launch
 import java.io.InputStream
@@ -141,8 +139,7 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     CompositionLocalProvider(
-                        LocalFilePicker provides filePicker,
-                        LocalRippleTheme provides TaigaMobileRippleTheme
+                        LocalFilePicker provides filePicker
                     ) {
 
                         // use Scaffold from material2, because material3 Scaffold lacks some functionality

@@ -6,8 +6,6 @@ plugins {
     id("org.jetbrains.kotlin.plugin.compose") version "2.3.0"
 }
 
-val composeVersion = "1.1.1"
-
 android {
     compileSdk = 36
     namespace = "com.luminaapps.taigamobile"
@@ -93,7 +91,8 @@ android {
 dependencies {
     // Enforce correct kotlin version for all dependencies
     implementation(enforcedPlatform(kotlin("bom")))
-    implementation("androidx.compose.foundation:foundation-layout:1.10.0")
+    // Compose BOM — manages all androidx.compose.* versions consistently
+    implementation(platform("androidx.compose:compose-bom:2024.12.01"))
 
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
 
@@ -103,17 +102,11 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.7.1")
     implementation("com.google.android.material:material:1.6.0")
 
-    // ============================================================================================
-    // CAREFUL WHEN UPDATING COMPOSE RELATED DEPENDENCIES - THEY CAN USE DIFFERENT COMPOSE VERSION!
-    // ============================================================================================
-
-    // Main Compose dependencies
-    implementation("androidx.compose.ui:ui:$composeVersion")
-    implementation("androidx.compose.material:material:$composeVersion")
-    // Material You
-    implementation("androidx.compose.material3:material3:1.1.1")
-    implementation("androidx.compose.ui:ui-tooling:$composeVersion")
-    implementation("androidx.compose.animation:animation:$composeVersion")
+    // Main Compose dependencies (versions managed by BOM)
+    implementation("androidx.compose.ui:ui")
+    implementation("androidx.compose.material3:material3")
+    implementation("androidx.compose.ui:ui-tooling")
+    implementation("androidx.compose.animation:animation")
     // compose activity
     implementation("androidx.activity:activity-compose:1.4.0")
     // view model support
