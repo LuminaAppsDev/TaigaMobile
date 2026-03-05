@@ -10,10 +10,9 @@ import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.LocalMinimumInteractiveComponentEnforcement
+import androidx.compose.material3.LocalMinimumInteractiveComponentSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
@@ -29,12 +28,13 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.luminaapps.taigamobile.R
 import com.luminaapps.taigamobile.ui.components.editors.TextFieldWithHint
 import com.luminaapps.taigamobile.ui.theme.mainHorizontalScreenPadding
 
-@OptIn(ExperimentalComposeUiApi::class, ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun CreateCommentBar(
     onButtonClick: (String) -> Unit
@@ -74,7 +74,7 @@ fun CreateCommentBar(
         }
 
         CompositionLocalProvider(
-            LocalMinimumInteractiveComponentEnforcement provides false
+            LocalMinimumInteractiveComponentSize provides Dp.Unspecified
         ) {
             IconButton(
                 onClick = {
