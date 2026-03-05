@@ -103,7 +103,9 @@ dependencies {
     // Enforce correct kotlin version for all dependencies
     implementation(enforcedPlatform(kotlin("bom")))
     // Compose BOM — manages all androidx.compose.* versions consistently
-    implementation(platform("androidx.compose:compose-bom:2026.02.01"))
+    // Do not update version.
+    // See open issue https://github.com/LuminaAppsDev/TaigaMobile/issues/1
+    implementation(platform("androidx.compose:compose-bom:2024.12.01"))
 
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
 
