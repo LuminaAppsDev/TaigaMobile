@@ -21,6 +21,7 @@ All notable changes to this project are documented in this file.
 - Migration from paging-compose 1-alpha to 3-stable
 - Libraries updates
 - Migration of abandoned compose-material-dialogs library
+- Migrate to DatePicker in Material3
 
 ### Removed
 
