@@ -11,6 +11,7 @@ All notable changes to this project are documented in this file.
 - Corrected api refresh call
 - Avoid broken release build caused by too rigid minify
 - Crash when opening the "Team" screen, due to legacy call in Material2 library
+- Logout button not working
 
 ### Changed
 
