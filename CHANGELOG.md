@@ -8,6 +8,14 @@ All notable changes to this project are documented in this file.
 
 ### Fixed
 
+### Changed
+
+### Removed
+
+## 2.1.0 - 2026-03-05
+
+### Fixed
+
 - Corrected api refresh call
 - Avoid broken release build caused by too rigid minify
 - Crash when opening the "Team" screen, due to legacy call in Material2 library
@@ -22,8 +30,6 @@ All notable changes to this project are documented in this file.
 - Libraries updates
 - Migration of abandoned compose-material-dialogs library
 - Migrate to DatePicker in Material3
-
-### Removed
 
 ## 2.0.0 - 2025-12-30
 
