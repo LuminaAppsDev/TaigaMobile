@@ -152,13 +152,13 @@ fun SettingsScreenContent(
             onConfirm = {
                 logout()
             },
-            onDismiss = { },
+            onDismiss = { isAlertVisible = false },
             iconId = R.drawable.ic_logout
         )
     }
 
     IconButton(
-        onClick = { },
+        onClick = { isAlertVisible = true },
         modifier = Modifier.constrainAs(logoutIcon) {
             top.linkTo(avatar.top)
             start.linkTo(avatar.end)

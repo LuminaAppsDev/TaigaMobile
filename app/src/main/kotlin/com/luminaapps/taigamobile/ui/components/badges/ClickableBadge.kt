@@ -14,8 +14,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material3.ripple
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.LocalMinimumInteractiveComponentEnforcement
+import androidx.compose.material3.LocalMinimumInteractiveComponentSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -31,6 +30,7 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.luminaapps.taigamobile.R
 import com.luminaapps.taigamobile.ui.theme.TaigaMobileTheme
@@ -41,7 +41,6 @@ import com.luminaapps.taigamobile.ui.utils.toColor
  * Badge on which you can click. With cool shimmer loading animation
  */
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ClickableBadge(
     text: String,
@@ -64,7 +63,7 @@ fun ClickableBadge(
     )
 
     CompositionLocalProvider(
-        LocalMinimumInteractiveComponentEnforcement provides false
+        LocalMinimumInteractiveComponentSize provides Dp.Unspecified
     ) {
         Surface(
             shape = MaterialTheme.shapes.large,

@@ -6,8 +6,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ripple
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.LocalMinimumInteractiveComponentEnforcement
+import androidx.compose.material3.LocalMinimumInteractiveComponentSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -17,6 +16,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.luminaapps.taigamobile.ui.theme.TaigaMobileTheme
 import com.luminaapps.taigamobile.ui.utils.textColor
@@ -25,7 +25,6 @@ import com.luminaapps.taigamobile.ui.utils.textColor
  * Material chip component (rounded rectangle)
  */
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Chip(
     modifier: Modifier = Modifier,
@@ -34,7 +33,7 @@ fun Chip(
     content: @Composable () -> Unit
 ) {
     CompositionLocalProvider(
-        LocalMinimumInteractiveComponentEnforcement.provides(onClick != null)
+        LocalMinimumInteractiveComponentSize provides if (onClick != null) 48.dp else Dp.Unspecified
     ) {
         Surface(
             modifier = modifier,

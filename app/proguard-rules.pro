@@ -27,3 +27,7 @@
 -keep class com.luminaapps.taigamobile.ui.utils.ViewModelUtilsKt { *; }
 
 -keep class androidx.paging.** { *; }
+
+-dontwarn com.caverock.androidsvg.SVG
+-dontwarn com.caverock.androidsvg.SVGParseException
+-dontwarn pl.droidsonroids.gif.GifDrawable

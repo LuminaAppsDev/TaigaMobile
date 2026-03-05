@@ -11,6 +11,7 @@ All notable changes to this project are documented in this file.
 - Corrected api refresh call
 - Avoid broken release build caused by too rigid minify
 - Crash when opening the "Team" screen, due to legacy call in Material2 library
+- Logout button not working
 
 ### Changed
 
@@ -20,6 +21,7 @@ All notable changes to this project are documented in this file.
 - Migration from paging-compose 1-alpha to 3-stable
 - Libraries updates
 - Migration of abandoned compose-material-dialogs library
+- Migrate to DatePicker in Material3
 
 ### Removed
 
