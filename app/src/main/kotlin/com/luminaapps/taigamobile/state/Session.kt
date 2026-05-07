@@ -1,7 +1,11 @@
 package com.luminaapps.taigamobile.state
 
 import android.content.Context
+import android.content.SharedPreferences
 import androidx.core.content.edit
+import androidx.security.crypto.EncryptedSharedPreferences
+import androidx.security.crypto.MasterKey
+import java.io.File
 import com.luminaapps.taigamobile.domain.entities.FiltersData
 import com.luminaapps.taigamobile.domain.entities.FiltersDataJsonAdapter
 import com.squareup.moshi.Moshi
@@ -17,13 +21,14 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 /**
  * Global app state
  */
 class Session(context: Context, moshi: Moshi) {
 
-    private val sharedPreferences = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE)
+    private val sharedPreferences = openSessionPrefs(context)
     private val scope = CoroutineScope(Dispatchers.Main + SupervisorJob())
 
     private val _refreshToken = MutableStateFlow(sharedPreferences.getString(REFRESH_TOKEN_KEY, "").orEmpty())
@@ -129,7 +134,9 @@ class Session(context: Context, moshi: Moshi) {
     }
 
     companion object {
-        private const val PREFERENCES_NAME = "session"
+        private const val PREFERENCES_NAME = "session_secure"
+        private const val LEGACY_PREFERENCES_NAME = "session"
+        private const val VOLATILE_FALLBACK_NAME = "session_volatile"
         private const val TOKEN_KEY = "token"
         private const val REFRESH_TOKEN_KEY = "refresh_token"
         private const val SERVER_KEY = "server"
@@ -140,12 +147,77 @@ class Session(context: Context, moshi: Moshi) {
         private const val FILTERS_SCRUM = "filters_scrum"
         private const val FILTERS_EPICS = "filters_epics"
         private const val FILTERS_ISSUES = "filters_issues"
+
+        // androidx.security:security-crypto is in maintenance mode: the 1.1.0 stable
+        // release ships its public API marked @Deprecated. We stay on 1.1.0-alpha06
+        // (last release without the deprecation annotation) to keep the build
+        // warning-free, and plan to migrate this layer to Tink directly.
+        private fun buildEncryptedPrefs(context: Context): SharedPreferences {
+            val masterKey = MasterKey.Builder(context)
+                .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
+                .build()
+            return EncryptedSharedPreferences.create(
+                context,
+                PREFERENCES_NAME,
+                masterKey,
+                EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+                EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
+            )
+        }
+
+        private fun openSessionPrefs(context: Context): SharedPreferences {
+            val encrypted = try {
+                buildEncryptedPrefs(context)
+            } catch (e: Exception) {
+                Timber.w(e, "EncryptedSharedPreferences init failed; resetting and retrying")
+                runCatching {
+                    context.deleteSharedPreferences(PREFERENCES_NAME)
+                    buildEncryptedPrefs(context)
+                }.getOrElse { retryFailure ->
+                    Timber.w(retryFailure, "EncryptedSharedPreferences still failing; using volatile fallback")
+                    // Treat as logged-out: a regular prefs file cleared on every launch.
+                    return context.getSharedPreferences(VOLATILE_FALLBACK_NAME, Context.MODE_PRIVATE)
+                        .also { it.edit { clear() } }
+                }
+            }
+
+            migrateLegacyPrefsIfNeeded(context, encrypted)
+            return encrypted
+        }
+
+        private fun migrateLegacyPrefsIfNeeded(context: Context, target: SharedPreferences) {
+            val legacy = context.getSharedPreferences(LEGACY_PREFERENCES_NAME, Context.MODE_PRIVATE)
+            val legacyEntries = legacy.all
+            if (legacyEntries.isEmpty()) return
+
+            if (!target.contains(TOKEN_KEY)) {
+                target.edit {
+                    legacyEntries.forEach { (key, value) ->
+                        when (value) {
+                            is String -> putString(key, value)
+                            is Long -> putLong(key, value)
+                            is Int -> putInt(key, value)
+                            is Boolean -> putBoolean(key, value)
+                            is Float -> putFloat(key, value)
+                            else -> Timber.w("Skipping legacy pref %s with unsupported type %s", key, value?.javaClass)
+                        }
+                    }
+                }
+                Timber.i("Migrated %d legacy session preferences into encrypted store", legacyEntries.size)
+            }
+
+            context.deleteSharedPreferences(LEGACY_PREFERENCES_NAME)
+            // deleteSharedPreferences() on older Android versions does not remove the
+            // SharedPreferencesImpl .bak sibling, which still contains plaintext credentials.
+            File(context.filesDir.parentFile, "shared_prefs/$LEGACY_PREFERENCES_NAME.xml.bak").delete()
+        }
     }
 
     // Events (no data, just dispatch update to subscribers)
 
     val taskEdit = EventFlow() // some task was edited
     val sprintEdit = EventFlow() // sprint was edited
+    val sessionExpired = EventFlow(extraBufferCapacity = 1) // refresh token rejected by server
 }
 
 /**
@@ -153,7 +225,7 @@ class Session(context: Context, moshi: Moshi) {
  */
 class Event
 @Suppress("FunctionName")
-fun EventFlow() = MutableSharedFlow<Event>()
+fun EventFlow(extraBufferCapacity: Int = 0) = MutableSharedFlow<Event>(extraBufferCapacity = extraBufferCapacity)
 
 suspend fun MutableSharedFlow<Event>.postUpdate() = emit(Event())
 fun MutableSharedFlow<Event>.tryPostUpdate() = tryEmit(Event())

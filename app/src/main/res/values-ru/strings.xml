@@ -19,6 +19,7 @@
     <string name="login_continue">Продолжить</string>
     <string name="login_ldap">Продолжить с LDAP</string>
     <string name="login_error_message">Ошибка входа. Проверьте учетные данные или соединение</string>
+    <string name="session_expired_message">Сеанс истёк, пожалуйста, войдите снова</string>
 
     <string name="login_alert_title">Незашифрованное соединение</string>
     <string name="login_alert_text">Вы собираетесь использовать незашифрованное соединение. Вы уверены?</string>

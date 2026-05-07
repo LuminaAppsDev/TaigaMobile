@@ -13,6 +13,7 @@ class MainViewModel(appComponent: AppComponent = TaigaApp.appComponent) : ViewMo
 
     val isLogged by lazy { session.isLogged }
     val isProjectSelected by lazy { session.isProjectSelected }
+    val sessionExpired by lazy { session.sessionExpired }
 
     val theme by lazy { settings.themeSetting }
 

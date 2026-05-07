@@ -18,6 +18,7 @@
     <string name="login_continue">Continuer</string>
     <string name="login_ldap">Continuer avec LDAP</string>
     <string name="login_error_message">Erreur lors de la connexion. Vérifiez vos identifiants et votre connexion</string>
+    <string name="session_expired_message">Session expirée, veuillez vous reconnecter</string>
 
     <string name="login_alert_title">Connexion non cryptée</string>
     <string name="login_alert_text">Vous allez utiliser une connexion non cryptée. Es-tu sûr?</string>
