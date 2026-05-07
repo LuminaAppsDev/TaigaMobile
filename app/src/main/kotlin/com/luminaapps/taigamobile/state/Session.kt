@@ -148,6 +148,10 @@ class Session(context: Context, moshi: Moshi) {
         private const val FILTERS_EPICS = "filters_epics"
         private const val FILTERS_ISSUES = "filters_issues"
 
+        // androidx.security:security-crypto is in maintenance mode: the 1.1.0 stable
+        // release ships its public API marked @Deprecated. We stay on 1.1.0-alpha06
+        // (last release without the deprecation annotation) to keep the build
+        // warning-free, and plan to migrate this layer to Tink directly.
         private fun buildEncryptedPrefs(context: Context): SharedPreferences {
             val masterKey = MasterKey.Builder(context)
                 .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
