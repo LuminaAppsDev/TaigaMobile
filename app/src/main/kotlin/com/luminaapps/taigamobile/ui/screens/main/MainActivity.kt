@@ -265,6 +265,20 @@ fun MainScreen(
     val isLogged by viewModel.isLogged.collectAsState()
     val isProjectSelected by viewModel.isProjectSelected.collectAsState()
 
+    LaunchedEffect(Unit) {
+        viewModel.sessionExpired.collect {
+            showMessage(R.string.session_expired_message)
+        }
+    }
+
+    LaunchedEffect(isLogged) {
+        if (!isLogged && navController.currentDestination?.route != Routes.LOGIN) {
+            navController.navigate(Routes.LOGIN) {
+                popUpTo(0) { inclusive = true }
+            }
+        }
+    }
+
     Surface(
         modifier = Modifier.fillMaxSize().padding(paddingValues),
         color = MaterialTheme.colorScheme.background

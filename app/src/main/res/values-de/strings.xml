@@ -14,6 +14,7 @@
     <string name="login_continue">Weiter</string>
     <string name="login_ldap">Weiter mit LDAP</string>
     <string name="login_error_message">"Fehler beim Anmelden. Überprüfen Sie Ihre Anmeldedaten oder Ihre Verbindung. "</string>
+    <string name="session_expired_message">Sitzung abgelaufen, bitte erneut anmelden</string>
     <string name="login_alert_title">"Unverschlüsselte Verbindung "</string>
     <string name="login_alert_text">"Sie werden eine unverschlüsselte Verbindung verwenden. Sind Sie sicher? "</string>
     <string name="dashboard">Dashboard</string>

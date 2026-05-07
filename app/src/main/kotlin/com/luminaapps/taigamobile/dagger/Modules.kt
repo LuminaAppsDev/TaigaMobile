@@ -20,6 +20,7 @@ import com.luminaapps.taigamobile.domain.repositories.IUsersRepository
 import com.luminaapps.taigamobile.domain.repositories.IWikiRepository
 import com.luminaapps.taigamobile.state.Session
 import com.luminaapps.taigamobile.state.Settings
+import com.luminaapps.taigamobile.state.tryPostUpdate
 import com.squareup.moshi.Moshi
 import dagger.Binds
 import dagger.Module
@@ -105,22 +106,31 @@ class DataModule {
                                         .build()
 
                                     // Use the simple, clean client to avoid redirect loops
-                                    val refreshResponse = RefreshTokenResponseJsonAdapter(moshi)
-                                        .fromJson(
-                                            // Use the new, simple client here
-                                            tokenRefreshClient.newCall(request).execute().body.string()
-                                        ) ?: throw IllegalStateException("Cannot parse RefreshResponse")
+                                    val refreshResponse = tokenRefreshClient.newCall(request).execute().use { resp ->
+                                        if (!resp.isSuccessful) {
+                                            throw IllegalStateException("Refresh failed: HTTP ${resp.code}")
+                                        }
+                                        RefreshTokenResponseJsonAdapter(moshi).fromJson(resp.body.string())
+                                            ?: throw IllegalStateException("Cannot parse RefreshResponse")
+                                    }
 
                                     session.changeAuthCredentials(refreshResponse.auth_token, refreshResponse.refresh)
                                 }
                             }
 
-                            response.request.newBuilder()
-                                .header("Authorization", "Bearer ${session.token.value}")
-                                .build()
+                            // If another thread cleared credentials after a failed refresh,
+                            // abort instead of retrying with an empty bearer token.
+                            if (session.token.value.isEmpty()) {
+                                null
+                            } else {
+                                response.request.newBuilder()
+                                    .header("Authorization", "Bearer ${session.token.value}")
+                                    .build()
+                            }
                         } catch (e: Exception) {
                             Timber.w(e)
                             session.changeAuthCredentials("", "")
+                            session.sessionExpired.tryPostUpdate()
                             null
                         }
                     }

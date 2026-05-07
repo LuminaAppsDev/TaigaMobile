@@ -146,6 +146,7 @@ class Session(context: Context, moshi: Moshi) {
 
     val taskEdit = EventFlow() // some task was edited
     val sprintEdit = EventFlow() // sprint was edited
+    val sessionExpired = EventFlow(extraBufferCapacity = 1) // refresh token rejected by server
 }
 
 /**
@@ -153,7 +154,7 @@ class Session(context: Context, moshi: Moshi) {
  */
 class Event
 @Suppress("FunctionName")
-fun EventFlow() = MutableSharedFlow<Event>()
+fun EventFlow(extraBufferCapacity: Int = 0) = MutableSharedFlow<Event>(extraBufferCapacity = extraBufferCapacity)
 
 suspend fun MutableSharedFlow<Event>.postUpdate() = emit(Event())
 fun MutableSharedFlow<Event>.tryPostUpdate() = tryEmit(Event())

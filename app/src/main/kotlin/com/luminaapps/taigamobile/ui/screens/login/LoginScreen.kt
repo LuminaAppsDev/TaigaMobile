@@ -80,7 +80,8 @@ fun LoginScreen(
 
     LoginScreenContent(
         login = viewModel::login,
-        isLoadingValue = loginResult is LoadingResult || loginResult is SuccessResult
+        isLoadingValue = loginResult is LoadingResult || loginResult is SuccessResult,
+        initialServer = viewModel.savedServer
     )
 }
 
@@ -88,11 +89,14 @@ fun LoginScreen(
 fun LoginScreenContent(
     login: (server: String, authType: AuthType, login: String, password: String) -> Unit = { _, _, _, _ -> },
     isLoadingValue: Boolean = false,
+    initialServer: String = "",
 ) = ConstraintLayout(
     modifier = Modifier.fillMaxSize(),
 ) {
     val taigaGlobalHost = stringResource(R.string.global_taiga_host)
-    var taigaServerInput by rememberSaveable(stateSaver = TextFieldValue.Saver) { mutableStateOf(TextFieldValue(taigaGlobalHost)) }
+    var taigaServerInput by rememberSaveable(stateSaver = TextFieldValue.Saver) {
+        mutableStateOf(TextFieldValue(initialServer.ifBlank { taigaGlobalHost }))
+    }
     var loginInput by rememberSaveable(stateSaver = TextFieldValue.Saver) { mutableStateOf(TextFieldValue()) }
     var passwordInput by rememberSaveable(stateSaver = TextFieldValue.Saver) { mutableStateOf(TextFieldValue()) }
 
