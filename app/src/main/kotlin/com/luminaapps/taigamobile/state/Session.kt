@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import androidx.core.content.edit
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
+import java.io.File
 import com.luminaapps.taigamobile.domain.entities.FiltersData
 import com.luminaapps.taigamobile.domain.entities.FiltersDataJsonAdapter
 import com.squareup.moshi.Moshi
@@ -202,6 +203,9 @@ class Session(context: Context, moshi: Moshi) {
             }
 
             context.deleteSharedPreferences(LEGACY_PREFERENCES_NAME)
+            // deleteSharedPreferences() on older Android versions does not remove the
+            // SharedPreferencesImpl .bak sibling, which still contains plaintext credentials.
+            File(context.filesDir.parentFile, "shared_prefs/$LEGACY_PREFERENCES_NAME.xml.bak").delete()
         }
     }
 

@@ -2,12 +2,20 @@
 <data-extraction-rules>
     <cloud-backup>
         <exclude domain="sharedpref" path="session_secure.xml"/>
+        <exclude domain="sharedpref" path="session_secure.xml.bak"/>
         <exclude domain="sharedpref" path="session.xml"/>
+        <exclude domain="sharedpref" path="session.xml.bak"/>
+        <exclude domain="sharedpref" path="session_volatile.xml"/>
+        <exclude domain="sharedpref" path="session_volatile.xml.bak"/>
         <exclude domain="external" path="logs/"/>
     </cloud-backup>
     <device-transfer>
         <exclude domain="sharedpref" path="session_secure.xml"/>
+        <exclude domain="sharedpref" path="session_secure.xml.bak"/>
         <exclude domain="sharedpref" path="session.xml"/>
+        <exclude domain="sharedpref" path="session.xml.bak"/>
+        <exclude domain="sharedpref" path="session_volatile.xml"/>
+        <exclude domain="sharedpref" path="session_volatile.xml.bak"/>
         <exclude domain="external" path="logs/"/>
     </device-transfer>
 </data-extraction-rules>
