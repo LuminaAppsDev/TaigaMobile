@@ -113,7 +113,7 @@ dependencies {
 
     implementation(kotlin("reflect"))
 
-    implementation("androidx.core:core-ktx:1.17.0")
+    implementation("androidx.core:core-ktx:1.18.0")
     implementation("androidx.appcompat:appcompat:1.7.1")
     implementation("com.google.android.material:material:1.13.0")
 
@@ -123,7 +123,7 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling")
     implementation("androidx.compose.animation:animation")
     // compose activity
-    implementation("androidx.activity:activity-compose:1.12.4")
+    implementation("androidx.activity:activity-compose:1.13.0")
     // view model support
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.10.0")
     // compose constraint layout
@@ -136,10 +136,10 @@ dependencies {
     implementation("io.coil-kt:coil-compose:2.7.0")
 
     // Navigation Component (with Compose)
-    implementation("androidx.navigation:navigation-compose:2.9.7")
+    implementation("androidx.navigation:navigation-compose:2.9.8")
 
     // Paging (with Compose)
-    implementation("androidx.paging:paging-compose:3.4.1")
+    implementation("androidx.paging:paging-compose:3.5.0")
 
     // Coroutines
     val coroutinesVersion = "1.10.2"
@@ -171,6 +171,8 @@ dependencies {
     implementation("com.jakewharton.timber:timber:5.0.1")
 
     // EncryptedSharedPreferences (auth-token storage backed by Android Keystore)
+    // 1.1.0 stable ships with the public API marked @Deprecated — staying on the
+    // last alpha until a Tink-direct migration replaces this layer entirely.
     implementation("androidx.security:security-crypto:1.1.0-alpha06")
 
     // Markdown support (Markwon)
@@ -197,7 +199,7 @@ dependencies {
     androidTestRuntimeOnly("org.postgresql:postgresql:$postgresDriverVersion")
 
     // manual JSON parsing when filling test instance
-    implementation("com.google.code.gson:gson:2.13.2")
+    implementation("com.google.code.gson:gson:2.14.0")
 
     // MockK
     testImplementation("io.mockk:mockk:1.14.9")
