@@ -20,6 +20,7 @@ All notable changes to this project are documented in this file.
 ### Changed
 
 - Disable HTTP request/response body logging in release builds to keep tokens out of on-disk log files
+- Target Android 17 (compileSdk and targetSdk 37); library upgrades for core-ktx, activity-compose, navigation-compose, paging-compose, gson
 
 ### Removed
 
