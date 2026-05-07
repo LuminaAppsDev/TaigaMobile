@@ -8,6 +8,8 @@ All notable changes to this project are documented in this file.
 
 - Pre-fill the server URL on the login screen with the previously used address
 - Show a "session expired" message and redirect to login automatically when the refresh token is rejected by the server
+- Encrypted on-disk storage for auth tokens, refresh tokens, and the server URL, backed by the Android Keystore (one-time migration of existing session data on first launch after upgrade)
+- Backup-exclusion rules so session credentials and on-disk log files are excluded from cloud backup and device-transfer
 
 ### Fixed
 
@@ -16,6 +18,8 @@ All notable changes to this project are documented in this file.
 - Refresh response body not closed on every code path (potential connection-pool leak)
 
 ### Changed
+
+- Disable HTTP request/response body logging in release builds to keep tokens out of on-disk log files
 
 ### Removed
 

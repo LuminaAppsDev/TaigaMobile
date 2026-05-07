@@ -52,7 +52,10 @@ class DataModule {
         val tokenRefreshClient = OkHttpClient.Builder()
             .addInterceptor(
                 HttpLoggingInterceptor(Timber::d)
-                    .setLevel(HttpLoggingInterceptor.Level.BODY)
+                    .setLevel(
+                        if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY
+                        else HttpLoggingInterceptor.Level.NONE
+                    )
                     .also { it.redactHeader("Authorization") }
             )
             .build()
@@ -78,7 +81,10 @@ class DataModule {
             }
             .addInterceptor(
                 HttpLoggingInterceptor(Timber::d)
-                    .setLevel(HttpLoggingInterceptor.Level.BODY)
+                    .setLevel(
+                        if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY
+                        else HttpLoggingInterceptor.Level.NONE
+                    )
                     .also { it.redactHeader("Authorization") }
             )
 

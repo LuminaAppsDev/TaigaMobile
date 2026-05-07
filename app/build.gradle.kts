@@ -170,6 +170,9 @@ dependencies {
     // Timber
     implementation("com.jakewharton.timber:timber:5.0.1")
 
+    // EncryptedSharedPreferences (auth-token storage backed by Android Keystore)
+    implementation("androidx.security:security-crypto:1.1.0-alpha06")
+
     // Markdown support (Markwon)
     val markwonVersion = "4.6.2"
     implementation("io.noties.markwon:core:$markwonVersion")
