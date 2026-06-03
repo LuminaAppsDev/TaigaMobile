@@ -195,6 +195,7 @@ fun CommonTaskScreen(
         userStories = userStories.data.orEmpty(),
         tasks = tasks.data.orEmpty(),
         comments = comments.data.orEmpty(),
+        teamMembers = team.data.orEmpty(),
         editActions = EditActions(
             editStatus = createEditStatusAction(StatusType.Status),
             editType = createEditStatusAction(StatusType.Type),
@@ -318,6 +319,7 @@ fun CommonTaskScreenContent(
     userStories: List<CommonTask> = emptyList(),
     tasks: List<CommonTask> = emptyList(),
     comments: List<Comment> = emptyList(),
+    teamMembers: List<User> = emptyList(),
     editActions: EditActions = EditActions(),
     navigationActions: NavigationActions = NavigationActions(),
     navigateToProfile: (userId: Long) -> Unit = {_ ->},
@@ -509,7 +511,8 @@ fun CommonTaskScreenContent(
                     CommonTaskComments(
                         comments = comments,
                         editActions = editActions,
-                        navigateToProfile = navigateToProfile
+                        navigateToProfile = navigateToProfile,
+                        mentionableUsers = teamMembers.associate { it.username to it.id }
                     )
 
                     item {
@@ -521,7 +524,10 @@ fun CommonTaskScreenContent(
                     }
                 }
 
-                CreateCommentBar(editActions.editComments.select)
+                CreateCommentBar(
+                    onButtonClick = editActions.editComments.select,
+                    mentionableUsers = teamMembers
+                )
             }
         }
     }

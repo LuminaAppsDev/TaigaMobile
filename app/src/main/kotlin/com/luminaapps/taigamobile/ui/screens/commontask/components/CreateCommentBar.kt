@@ -31,13 +31,15 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.luminaapps.taigamobile.R
-import com.luminaapps.taigamobile.ui.components.editors.TextFieldWithHint
+import com.luminaapps.taigamobile.domain.entities.User
+import com.luminaapps.taigamobile.ui.components.editors.MentionableTextField
 import com.luminaapps.taigamobile.ui.theme.mainHorizontalScreenPadding
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun CreateCommentBar(
-    onButtonClick: (String) -> Unit
+    onButtonClick: (String) -> Unit,
+    mentionableUsers: List<User> = emptyList()
 ) = Surface(
     modifier = Modifier.fillMaxWidth(),
     tonalElevation = 8.dp,
@@ -65,11 +67,12 @@ fun CreateCommentBar(
                 .padding(8.dp),
             contentAlignment = Alignment.CenterStart
         ) {
-            TextFieldWithHint(
+            MentionableTextField(
                 hintId = R.string.comment_hint,
                 maxLines = 3,
                 value = commentTextValue,
-                onValueChange = { commentTextValue = it }
+                onValueChange = { commentTextValue = it },
+                members = mentionableUsers
             )
         }
 

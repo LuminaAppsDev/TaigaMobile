@@ -34,7 +34,8 @@ import com.luminaapps.taigamobile.ui.screens.commontask.EditActions
 fun LazyListScope.CommonTaskComments(
     comments: List<Comment>,
     editActions: EditActions,
-    navigateToProfile: (userId: Long) -> Unit
+    navigateToProfile: (userId: Long) -> Unit,
+    mentionableUsers: Map<String, Long> = emptyMap()
 ) {
     item {
         SectionTitle(stringResource(R.string.comments_template).format(comments.size))
@@ -44,7 +45,8 @@ fun LazyListScope.CommonTaskComments(
         CommentItem(
             comment = item,
             onDeleteClick = { editActions.editComments.remove(item) },
-            navigateToProfile = navigateToProfile
+            navigateToProfile = navigateToProfile,
+            mentionableUsers = mentionableUsers
         )
 
         if (index < comments.lastIndex) {
@@ -66,7 +68,8 @@ fun LazyListScope.CommonTaskComments(
 private fun CommentItem(
     comment: Comment,
     onDeleteClick: () -> Unit,
-    navigateToProfile: (userId: Long) -> Unit
+    navigateToProfile: (userId: Long) -> Unit,
+    mentionableUsers: Map<String, Long>
 ) = Column {
     var isAlertVisible by remember { mutableStateOf(false) }
 
@@ -107,6 +110,8 @@ private fun CommentItem(
 
     MarkdownText(
         text = comment.text,
-        modifier = Modifier.padding(start = 4.dp)
+        modifier = Modifier.padding(start = 4.dp),
+        members = mentionableUsers,
+        onMentionClick = navigateToProfile
     )
 }
