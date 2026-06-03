@@ -34,6 +34,7 @@ class WikiPageViewModel(appComponent: AppComponent = TaigaApp.appComponent) : Vi
     val attachments = mutableResultFlow<List<Attachment>>()
     val editWikiPageResult = mutableResultFlow<Unit>()
     val deleteWikiPageResult = mutableResultFlow<Unit>()
+    val team = mutableResultFlow<List<User>>()
 
     var lastModifierUser = MutableStateFlow<User?>(null)
 
@@ -44,6 +45,11 @@ class WikiPageViewModel(appComponent: AppComponent = TaigaApp.appComponent) : Vi
     fun onOpen(slug: String) {
         pageSlug = slug
         loadData()
+        viewModelScope.launch {
+            team.loadOrError(showLoading = false) {
+                userRepository.getTeam().map { it.toUser() }
+            }
+        }
     }
 
     private fun loadData() = viewModelScope.launch {

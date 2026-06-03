@@ -77,6 +77,9 @@ fun WikiPageScreen(
 
     val lastModifierUser by viewModel.lastModifierUser.collectAsState()
 
+    val team by viewModel.team.collectAsState()
+    team.SubscribeOnError(showMessage)
+
     val isLoading = page is LoadingResult || link is LoadingResult ||
         editWikiPageResult is LoadingResult || deleteWikiPageResult is LoadingResult ||
         attachments is LoadingResult
@@ -108,7 +111,8 @@ fun WikiPageScreen(
             select = { (file, stream) -> viewModel.addPageAttachment(file, stream) },
             remove = viewModel::deletePageAttachment,
             isLoading = attachments is LoadingResult
-        )
+        ),
+        teamMembers = team.data.orEmpty()
     )
 }
 
@@ -125,11 +129,16 @@ fun WikiPageScreenContent(
     deleteWikiPage: () -> Unit = {},
     onUserItemClick: (userId: Long) -> Unit = { _ -> },
     editAttachments: EditAction<Pair<String, InputStream>, Attachment> = EditAction(),
+    teamMembers: List<User> = emptyList()
 ) = Box(
     modifier = Modifier.fillMaxSize()
 ) {
     val sectionsPadding = 24.dp
     var isEditPageVisible by remember { mutableStateOf(false) }
+
+    val mentionableUsersMap = remember(teamMembers) {
+        teamMembers.distinctBy { it.username }.associate { it.username to it.id }
+    }
 
     Column(
         modifier = Modifier
@@ -161,7 +170,11 @@ fun WikiPageScreenContent(
         ) {
 
             // description
-            Description(content)
+            Description(
+                description = content,
+                mentionableUsers = mentionableUsersMap,
+                onMentionClick = onUserItemClick
+            )
 
             item {
                 Spacer(
@@ -221,7 +234,8 @@ fun WikiPageScreenContent(
             },
             navigateBack = {
                 isEditPageVisible = false
-            }
+            },
+            mentionableUsers = teamMembers
         )
     }
 }

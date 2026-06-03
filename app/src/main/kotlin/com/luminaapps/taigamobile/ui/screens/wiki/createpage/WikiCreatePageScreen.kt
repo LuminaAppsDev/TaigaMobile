@@ -12,6 +12,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.luminaapps.taigamobile.R
+import com.luminaapps.taigamobile.domain.entities.User
 import com.luminaapps.taigamobile.ui.components.dialogs.LoadingDialog
 import com.luminaapps.taigamobile.ui.components.editors.Editor
 import com.luminaapps.taigamobile.ui.utils.LoadingResult
@@ -25,9 +26,13 @@ fun WikiCreatePageScreen(
     showMessage: (message: Int) -> Unit = {},
 ) {
     val viewModel: WikiCreatePageViewModel = viewModel()
+    LaunchedEffect(Unit) { viewModel.onOpen() }
 
     val creationResult by viewModel.creationResult.collectAsState()
     creationResult.SubscribeOnError(showMessage)
+
+    val team by viewModel.team.collectAsState()
+    team.SubscribeOnError(showMessage)
 
     creationResult.takeIf { it is SuccessResult }?.data?.let {
         LaunchedEffect(Unit) {
@@ -39,7 +44,8 @@ fun WikiCreatePageScreen(
     WikiCreatePageScreenContent(
         isLoading = creationResult is LoadingResult,
         createWikiPage = viewModel::createWikiPage,
-        navigateBack = navController::popBackStack
+        navigateBack = navController::popBackStack,
+        mentionableUsers = team.data.orEmpty()
     )
 }
 
@@ -47,14 +53,16 @@ fun WikiCreatePageScreen(
 fun WikiCreatePageScreenContent(
     isLoading: Boolean = false,
     createWikiPage: (title: String, description: String) -> Unit = { _, _ -> },
-    navigateBack: () -> Unit = {}
+    navigateBack: () -> Unit = {},
+    mentionableUsers: List<User> = emptyList()
 ) = Box(
     modifier = Modifier.fillMaxSize()
 ) {
     Editor(
         toolbarText = stringResource(R.string.create_new_page),
         onSaveClick = createWikiPage,
-        navigateBack = navigateBack
+        navigateBack = navigateBack,
+        mentionableUsers = mentionableUsers
     )
 
     if (isLoading) {
