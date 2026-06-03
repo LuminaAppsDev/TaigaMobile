@@ -341,6 +341,10 @@ fun CommonTaskScreenContent(
     customFieldsValues =
         customFields.associate { it.id to (if (it.id in customFieldsValues) customFieldsValues[it.id] else it.value) }
 
+    val mentionableUsersMap = remember(teamMembers) {
+        teamMembers.distinctBy { it.username }.associate { it.username to it.id }
+    }
+
     Column(Modifier.fillMaxSize()) {
         CommonTaskAppBar(
             toolbarTitle = toolbarTitle,
@@ -401,7 +405,11 @@ fun CommonTaskScreenContent(
                         Spacer(Modifier.height(sectionsPadding))
                     }
 
-                    Description(commonTask.description)
+                    Description(
+                        description = commonTask.description,
+                        mentionableUsers = mentionableUsersMap,
+                        onMentionClick = navigateToProfile
+                    )
 
                     item {
                         Spacer(Modifier.height(sectionsPadding))
@@ -512,9 +520,7 @@ fun CommonTaskScreenContent(
                         comments = comments,
                         editActions = editActions,
                         navigateToProfile = navigateToProfile,
-                        mentionableUsers = teamMembers
-                            .distinctBy { it.username }
-                            .associate { it.username to it.id }
+                        mentionableUsers = mentionableUsersMap
                     )
 
                     item {
@@ -593,7 +599,8 @@ fun CommonTaskScreenContent(
                 isTaskEditorVisible = false
                 editActions.editBasicInfo.select(Pair(title, description))
             },
-            navigateBack = { isTaskEditorVisible = false }
+            navigateBack = { isTaskEditorVisible = false },
+            mentionableUsers = teamMembers
         )
     }
 

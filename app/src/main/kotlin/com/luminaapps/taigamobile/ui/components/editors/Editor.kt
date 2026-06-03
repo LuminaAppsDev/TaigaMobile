@@ -27,6 +27,7 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.luminaapps.taigamobile.R
+import com.luminaapps.taigamobile.domain.entities.User
 import com.luminaapps.taigamobile.ui.components.appbars.AppBarWithBackButton
 import com.luminaapps.taigamobile.ui.theme.TaigaMobileTheme
 import com.luminaapps.taigamobile.ui.theme.mainHorizontalScreenPadding
@@ -39,7 +40,8 @@ fun Editor(
     description: String = "",
     showTitle: Boolean = true,
     onSaveClick: (title: String, description: String) -> Unit = { _, _ -> },
-    navigateBack: () -> Unit = {}
+    navigateBack: () -> Unit = {},
+    mentionableUsers: List<User> = emptyList()
 ) = Column(
     modifier = Modifier
         .fillMaxSize()
@@ -91,10 +93,11 @@ fun Editor(
             Spacer(Modifier.height(16.dp))
         }
 
-        TextFieldWithHint(
+        MentionableTextField(
             hintId = R.string.description_hint,
             value = descriptionInput,
             onValueChange = { descriptionInput = it },
+            members = mentionableUsers
         )
 
         Spacer(Modifier.windowInsetsBottomHeight(WindowInsets.navigationBars))

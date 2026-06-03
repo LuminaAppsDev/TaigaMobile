@@ -6,7 +6,9 @@ import com.luminaapps.taigamobile.TaigaApp
 import com.luminaapps.taigamobile.dagger.AppComponent
 import com.luminaapps.taigamobile.domain.entities.CommonTask
 import com.luminaapps.taigamobile.domain.entities.CommonTaskType
+import com.luminaapps.taigamobile.domain.entities.User
 import com.luminaapps.taigamobile.domain.repositories.ITasksRepository
+import com.luminaapps.taigamobile.domain.repositories.IUsersRepository
 import com.luminaapps.taigamobile.state.Session
 import com.luminaapps.taigamobile.state.postUpdate
 import com.luminaapps.taigamobile.ui.utils.mutableResultFlow
@@ -16,6 +18,7 @@ import javax.inject.Inject
 
 class CreateTaskViewModel(appComponent: AppComponent = TaigaApp.appComponent) : ViewModel() {
     @Inject lateinit var tasksRepository: ITasksRepository
+    @Inject lateinit var usersRepository: IUsersRepository
     @Inject lateinit var session: Session
 
     init {
@@ -23,6 +26,11 @@ class CreateTaskViewModel(appComponent: AppComponent = TaigaApp.appComponent) : 
     }
 
     val creationResult = mutableResultFlow<CommonTask>()
+    val team = mutableResultFlow<List<User>>()
+
+    fun onOpen() = viewModelScope.launch {
+        team.loadOrError(showLoading = false) { usersRepository.getTeam().map { it.toUser() } }
+    }
 
     fun createTask(
         commonTaskType: CommonTaskType,
