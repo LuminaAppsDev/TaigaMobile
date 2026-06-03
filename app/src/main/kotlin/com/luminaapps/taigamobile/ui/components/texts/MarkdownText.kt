@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
@@ -18,11 +19,12 @@ import io.noties.markwon.Markwon
 import io.noties.markwon.image.ImagesPlugin
 
 /**
- * A Taiga username can contain letters, digits, underscores, dashes and
- * internal dots — terminal punctuation is excluded so a sentence-ending
- * period or comma after `@user` is not captured.
+ * Match `@username` only when the `@` is not preceded by a username character.
+ * Negative lookbehind is fixed-length (1 char) — variable-length lookbehind is
+ * not portable across the regex engines bundled with all minSdk=23 devices.
+ * Taiga usernames allow letters, digits, underscores, dashes and internal dots.
  */
-private val MENTION_PATTERN = Regex("(?<=^|\\s)@([A-Za-z0-9_-]+(?:\\.[A-Za-z0-9_-]+)*)")
+private val MENTION_PATTERN = Regex("(?<![A-Za-z0-9_])@([A-Za-z0-9_-]+(?:\\.[A-Za-z0-9_-]+)*)")
 
 /**
  * Use android TextView because Compose does not support Markdown yet
@@ -35,25 +37,50 @@ fun MarkdownText(
     members: Map<String, Long> = emptyMap(),
     onMentionClick: ((Long) -> Unit)? = null
 ) {
-    if (!::markwon.isInitialized) {
-        markwon = Markwon.builder(LocalContext.current)
+    val context = LocalContext.current
+    val markwon = remember(context) {
+        Markwon.builder(context)
             .usePlugin(ImagesPlugin.create())
             .build()
     }
     val textSize = MaterialTheme.typography.bodyLarge.fontSize.value
     val textColor = MaterialTheme.colorScheme.onSurface.toArgb()
     val mentionColor = MaterialTheme.colorScheme.primary.toArgb()
+
     AndroidView(
-        factory = ::TextView,
-        modifier = modifier
-    ) {
-        it.textSize = textSize
-        it.setTextColor(textColor)
-        it.setTextIsSelectable(isSelectable)
-        markwon.setMarkdown(it, text)
-        applyMentionSpans(it, members, mentionColor, onMentionClick)
-    }
+        factory = { ctx ->
+            TextView(ctx).apply {
+                setTextIsSelectable(isSelectable)
+            }
+        },
+        modifier = modifier,
+        update = { tv ->
+            tv.textSize = textSize
+            tv.setTextColor(textColor)
+            val lastRender = tv.getTag(R_ID_LAST_MARKDOWN_RENDER) as? RenderState
+            val current = RenderState(text, members, mentionColor)
+            if (lastRender != current) {
+                markwon.setMarkdown(tv, text)
+                applyMentionSpans(tv, members, mentionColor, onMentionClick)
+                tv.setTag(R_ID_LAST_MARKDOWN_RENDER, current)
+            }
+        }
+    )
 }
+
+private data class RenderState(
+    val text: String,
+    val members: Map<String, Long>,
+    val mentionColor: Int
+)
+
+/**
+ * Use `View.setTag(int, Any)` with a stable arbitrary key id. `View.setTag(int, ...)`
+ * requires an id from an aapt-generated resource namespace; we use the app
+ * R.id namespace via a manually-allocated id resource.
+ */
+private val R_ID_LAST_MARKDOWN_RENDER =
+    com.luminaapps.taigamobile.R.id.markdown_text_render_state
 
 /**
  * Post-process the rendered Spannable so resolvable `@username` tokens get a
@@ -111,6 +138,3 @@ private class MentionClickableSpan(
         ds.isUnderlineText = false
     }
 }
-
-// Hold Markwon object (use existing instead of recreating on each recomposition)
-private lateinit var markwon: Markwon

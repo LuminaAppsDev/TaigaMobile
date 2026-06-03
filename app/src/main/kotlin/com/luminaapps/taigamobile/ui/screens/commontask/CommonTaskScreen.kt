@@ -512,7 +512,9 @@ fun CommonTaskScreenContent(
                         comments = comments,
                         editActions = editActions,
                         navigateToProfile = navigateToProfile,
-                        mentionableUsers = teamMembers.associate { it.username to it.id }
+                        mentionableUsers = teamMembers
+                            .distinctBy { it.username }
+                            .associate { it.username to it.id }
                     )
 
                     item {

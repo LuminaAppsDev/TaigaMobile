@@ -27,7 +27,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
@@ -191,7 +190,13 @@ private class AboveAnchorPositionProvider(private val gapPx: Int) : PopupPositio
         layoutDirection: LayoutDirection,
         popupContentSize: IntSize
     ): IntOffset {
-        val x = anchorBounds.left.coerceAtMost(windowSize.width - popupContentSize.width).coerceAtLeast(0)
+        val maxX = (windowSize.width - popupContentSize.width).coerceAtLeast(0)
+        val x = when (layoutDirection) {
+            LayoutDirection.Rtl ->
+                (anchorBounds.right - popupContentSize.width).coerceIn(0, maxX)
+            else ->
+                anchorBounds.left.coerceIn(0, maxX)
+        }
         val above = anchorBounds.top - popupContentSize.height - gapPx
         val y = if (above >= 0) above else anchorBounds.bottom + gapPx
         return IntOffset(x, y)
