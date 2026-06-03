@@ -7,7 +7,6 @@ import androidx.compose.animation.core.tween
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
@@ -91,21 +90,16 @@ fun <T : Any> SelectorList(
 
         AppBarWithBackButton(
             title = {
-                Box(
-                    modifier = Modifier.fillMaxSize(),
-                    contentAlignment = Alignment.CenterStart
-                ) {
-                    if (isSearchable) {
-                        TextFieldWithHint(
-                            hintId = titleHintId,
-                            value = query,
-                            onValueChange = { query = it },
-                            singleLine = true,
-                            onSearchClick = { searchData(query.text) }
-                        )
-                    } else {
-                        Text(stringResource(titleHintId))
-                    }
+                if (isSearchable) {
+                    TextFieldWithHint(
+                        hintId = titleHintId,
+                        value = query,
+                        onValueChange = { query = it },
+                        singleLine = true,
+                        onSearchClick = { searchData(query.text) }
+                    )
+                } else {
+                    Text(stringResource(titleHintId))
                 }
             },
             navigateBack = navigateBack
