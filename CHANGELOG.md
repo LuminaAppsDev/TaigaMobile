@@ -8,7 +8,11 @@ All notable changes to this project are documented in this file.
 
 ### Fixed
 
+- Project selector screen rendering the search bar centered on the whole screen instead of inside the app bar (latent layout bug exposed by newer Compose versions)
+
 ### Changed
+
+- Compose BOM 2024.12.01 → 2026.05.01; migrate the swipeable tab pager to SecondaryTabRow / SecondaryScrollableTabRow
 
 ### Removed
 
