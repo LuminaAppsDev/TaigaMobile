@@ -25,7 +25,7 @@ class WikiPageViewModel(appComponent: AppComponent = TaigaApp.appComponent) : Vi
     lateinit var wikiRepository: IWikiRepository
 
     @Inject
-    lateinit var userRepository: IUsersRepository
+    lateinit var usersRepository: IUsersRepository
 
     private lateinit var pageSlug: String
 
@@ -45,18 +45,13 @@ class WikiPageViewModel(appComponent: AppComponent = TaigaApp.appComponent) : Vi
     fun onOpen(slug: String) {
         pageSlug = slug
         loadData()
-        viewModelScope.launch {
-            team.loadOrError(showLoading = false) {
-                userRepository.getTeam().map { it.toUser() }
-            }
-        }
     }
 
     private fun loadData() = viewModelScope.launch {
         page.loadOrError {
             wikiRepository.getProjectWikiPageBySlug(pageSlug).also {
 
-                lastModifierUser.value = userRepository.getUser(it.lastModifier)
+                lastModifierUser.value = usersRepository.getUser(it.lastModifier)
 
                 val jobsToLoad = arrayOf(
                     launch {
@@ -67,6 +62,11 @@ class WikiPageViewModel(appComponent: AppComponent = TaigaApp.appComponent) : Vi
                     launch {
                         attachments.loadOrError(showLoading = false) {
                             wikiRepository.getPageAttachments(it.id)
+                        }
+                    },
+                    launch {
+                        team.loadOrError(showLoading = false) {
+                            usersRepository.getTeam().map { it.toUser() }
                         }
                     }
                 )

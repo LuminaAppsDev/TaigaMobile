@@ -19,7 +19,7 @@ class WikiCreatePageViewModel(appComponent: AppComponent = TaigaApp.appComponent
     lateinit var wikiRepository: IWikiRepository
 
     @Inject
-    lateinit var userRepository: IUsersRepository
+    lateinit var usersRepository: IUsersRepository
 
     val creationResult = mutableResultFlow<WikiPage>()
     val team = mutableResultFlow<List<User>>()
@@ -30,7 +30,7 @@ class WikiCreatePageViewModel(appComponent: AppComponent = TaigaApp.appComponent
 
     fun onOpen() = viewModelScope.launch {
         team.loadOrError(showLoading = false) {
-            userRepository.getTeam().map { it.toUser() }
+            usersRepository.getTeam().map { it.toUser() }
         }
     }
 

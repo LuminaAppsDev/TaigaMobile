@@ -77,10 +77,14 @@ fun MentionableTextField(
     hasBorder: Boolean = false,
     contentAlignment: Alignment = Alignment.CenterStart
 ) {
-    val mention = remember(value, members) { detectActiveMention(value) }
-    val suggestions = remember(mention, members) {
-        if (mention == null || members.isEmpty()) emptyList()
-        else members.filter { matchesUser(it, mention.token) }.take(MAX_PICKER_SUGGESTIONS)
+    // Defensive dedup: a malformed server response could repeat a username,
+    // which would otherwise show duplicate rows in the picker and let the
+    // username -> id map silently shadow one entry.
+    val uniqueMembers = remember(members) { members.distinctBy { it.username } }
+    val mention = remember(value, uniqueMembers) { detectActiveMention(value) }
+    val suggestions = remember(mention, uniqueMembers) {
+        if (mention == null || uniqueMembers.isEmpty()) emptyList()
+        else uniqueMembers.filter { matchesUser(it, mention.token) }.take(MAX_PICKER_SUGGESTIONS)
     }
 
     Box {

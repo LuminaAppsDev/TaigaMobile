@@ -6,6 +6,9 @@ All notable changes to this project are documented in this file.
 
 ### Added
 
+- Tag project members with `@` in comments, task / story / issue / epic descriptions, and wiki pages — typing `@` brings up a picker filtered by username and display name; selecting one inserts `@username` at the cursor
+- `@username` mentions in rendered comments / descriptions / wiki pages are styled in the app's accent color and tappable to open the mentioned member's profile screen
+
 ### Fixed
 
 - Project selector screen rendering the search bar centered on the whole screen instead of inside the app bar (latent layout bug exposed by newer Compose versions)

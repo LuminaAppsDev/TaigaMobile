@@ -36,6 +36,7 @@ import com.luminaapps.taigamobile.domain.entities.Project
 import com.luminaapps.taigamobile.domain.entities.Status
 import com.luminaapps.taigamobile.domain.entities.StatusType
 import com.luminaapps.taigamobile.domain.entities.User
+import com.luminaapps.taigamobile.domain.entities.toMentionableUsersMap
 import com.luminaapps.taigamobile.ui.components.dialogs.LoadingDialog
 import com.luminaapps.taigamobile.ui.components.editors.Editor
 import com.luminaapps.taigamobile.ui.components.lists.Attachments
@@ -341,9 +342,7 @@ fun CommonTaskScreenContent(
     customFieldsValues =
         customFields.associate { it.id to (if (it.id in customFieldsValues) customFieldsValues[it.id] else it.value) }
 
-    val mentionableUsersMap = remember(teamMembers) {
-        teamMembers.distinctBy { it.username }.associate { it.username to it.id }
-    }
+    val mentionableUsersMap = remember(teamMembers) { teamMembers.toMentionableUsersMap() }
 
     Column(Modifier.fillMaxSize()) {
         CommonTaskAppBar(

@@ -41,6 +41,14 @@ data class TeamMember(
     )
 }
 
+/**
+ * Build the `username -> userId` lookup used by MarkdownText to resolve and
+ * style @mentions. Duplicate usernames are dropped so a malformed server
+ * response cannot make one entry silently shadow another.
+ */
+fun List<User>.toMentionableUsersMap(): Map<String, Long> =
+    distinctBy { it.username }.associate { it.username to it.id }
+
 @JsonClass(generateAdapter = true)
 data class Stats(
     val roles: List<String> = emptyList(),

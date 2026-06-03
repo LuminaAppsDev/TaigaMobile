@@ -34,6 +34,7 @@ import androidx.compose.foundation.layout.imePadding
 import com.luminaapps.taigamobile.R
 import com.luminaapps.taigamobile.domain.entities.Attachment
 import com.luminaapps.taigamobile.domain.entities.User
+import com.luminaapps.taigamobile.domain.entities.toMentionableUsersMap
 import com.luminaapps.taigamobile.ui.components.appbars.AppBarWithBackButton
 import com.luminaapps.taigamobile.ui.components.dialogs.ConfirmActionDialog
 import com.luminaapps.taigamobile.ui.components.editors.Editor
@@ -136,9 +137,7 @@ fun WikiPageScreenContent(
     val sectionsPadding = 24.dp
     var isEditPageVisible by remember { mutableStateOf(false) }
 
-    val mentionableUsersMap = remember(teamMembers) {
-        teamMembers.distinctBy { it.username }.associate { it.username to it.id }
-    }
+    val mentionableUsersMap = remember(teamMembers) { teamMembers.toMentionableUsersMap() }
 
     Column(
         modifier = Modifier
