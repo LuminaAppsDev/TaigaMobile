@@ -143,7 +143,7 @@ private fun MyProjects(
     myProjects: List<Project>,
     currentProjectId: Long,
     changeCurrentProject: (Project) -> Unit
-) = LazyColumn {
+) = LazyColumn(Modifier.fillMaxSize()) {
     items(myProjects) {
         ProjectCard(
             project = it,

@@ -9,6 +9,7 @@ All notable changes to this project are documented in this file.
 ### Fixed
 
 - Project selector screen rendering the search bar centered on the whole screen instead of inside the app bar (latent layout bug exposed by newer Compose versions)
+- Dashboard "My Projects" tab content briefly rendering centered and only accepting horizontal swipes over the project card itself
 
 ### Changed
 
