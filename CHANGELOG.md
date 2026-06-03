@@ -6,6 +6,16 @@ All notable changes to this project are documented in this file.
 
 ### Added
 
+### Fixed
+
+### Changed
+
+### Removed
+
+## 2.3.0 - 2026-06-03
+
+### Added
+
 - Tag project members with `@` in comments, task / story / issue / epic descriptions, and wiki pages — typing `@` brings up a picker filtered by username and display name; selecting one inserts `@username` at the cursor
 - `@username` mentions in rendered comments / descriptions / wiki pages are styled in the app's accent color and tappable to open the mentioned member's profile screen
 
@@ -19,8 +29,6 @@ All notable changes to this project are documented in this file.
 
 - Compose BOM 2024.12.01 → 2026.05.01; migrate the swipeable tab pager to SecondaryTabRow / SecondaryScrollableTabRow
 - Migrate the task filter bottom sheet from a hand-rolled Material 2 ModalBottomSheetLayout-in-Dialog wrapper to Material 3 ModalBottomSheet (adds a drag-handle affordance)
-
-### Removed
 
 ## 2.2.0 - 2026-05-07
 

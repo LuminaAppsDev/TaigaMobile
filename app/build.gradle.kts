@@ -14,8 +14,8 @@ android {
         applicationId = namespace!!
         minSdk = 23
         targetSdk = 37
-        versionCode = 33
-        versionName = "2.2"
+        versionCode = 34
+        versionName = "2.3"
         project.base.archivesName.set("TaigaMobile-$versionName")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
