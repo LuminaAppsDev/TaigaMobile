@@ -8,11 +8,9 @@ import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.ScrollableTabRow
+import androidx.compose.material3.SecondaryScrollableTabRow
+import androidx.compose.material3.SecondaryTabRow
 import androidx.compose.material3.Tab
-import androidx.compose.material3.TabRow
-import androidx.compose.material3.TabRowDefaults
-import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
@@ -37,14 +35,6 @@ fun HorizontalTabbedPager(
 ) = Column(modifier = modifier) {
     val coroutineScope = rememberCoroutineScope()
 
-    val indicator: @Composable (tabPositions: List<androidx.compose.material3.TabPosition>) -> Unit = { tabPositions ->
-        if (tabPositions.isNotEmpty()) {
-            TabRowDefaults.SecondaryIndicator(
-                Modifier.tabIndicatorOffset(tabPositions[pagerState.currentPage])
-            )
-        }
-    }
-
     val tabsRow: @Composable () -> Unit = {
         tabs.forEachIndexed { index, tab ->
             Tab(
@@ -67,23 +57,21 @@ fun HorizontalTabbedPager(
     }
 
     if (scrollable) {
-        ScrollableTabRow(
+        SecondaryScrollableTabRow(
             selectedTabIndex = pagerState.currentPage,
             modifier = Modifier.fillMaxWidth(),
             containerColor = MaterialTheme.colorScheme.surface,
             contentColor = MaterialTheme.colorScheme.primary,
             edgePadding = edgePadding,
-            indicator = indicator,
             divider = {},
             tabs = tabsRow
         )
     } else {
-        TabRow(
+        SecondaryTabRow(
             selectedTabIndex = pagerState.currentPage,
             modifier = Modifier.fillMaxWidth(),
             containerColor = MaterialTheme.colorScheme.surface,
             contentColor = MaterialTheme.colorScheme.primary,
-            indicator = indicator,
             divider = {},
             tabs = tabsRow
         )
