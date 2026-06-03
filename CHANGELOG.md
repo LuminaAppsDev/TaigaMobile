@@ -10,10 +10,12 @@ All notable changes to this project are documented in this file.
 
 - Project selector screen rendering the search bar centered on the whole screen instead of inside the app bar (latent layout bug exposed by newer Compose versions)
 - Dashboard "My Projects" tab content briefly rendering centered and only accepting horizontal swipes over the project card itself
+- Filter button on Scrum / Epics / Issues needing two taps to open: the first tap caused a brief flicker as a hand-rolled bottom-sheet-in-dialog raced with newer Compose's composition timing
 
 ### Changed
 
 - Compose BOM 2024.12.01 → 2026.05.01; migrate the swipeable tab pager to SecondaryTabRow / SecondaryScrollableTabRow
+- Migrate the task filter bottom sheet from a hand-rolled Material 2 ModalBottomSheetLayout-in-Dialog wrapper to Material 3 ModalBottomSheet (adds a drag-handle affordance)
 
 ### Removed
 

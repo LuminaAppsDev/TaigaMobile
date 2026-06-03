@@ -19,27 +19,22 @@ import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.ModalBottomSheetLayout
-import androidx.compose.material.ModalBottomSheetState
-import androidx.compose.material.ModalBottomSheetValue
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
+import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Text
+import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
@@ -49,8 +44,6 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.window.Dialog
-import androidx.compose.ui.window.DialogProperties
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.FlowRow
 import com.luminaapps.taigamobile.R
@@ -69,7 +62,6 @@ import com.luminaapps.taigamobile.ui.theme.TaigaMobileTheme
 import com.luminaapps.taigamobile.ui.theme.dialogTonalElevation
 import com.luminaapps.taigamobile.ui.utils.clickableUnindicated
 import com.luminaapps.taigamobile.ui.utils.toColor
-import kotlinx.coroutines.launch
 
 /**
  * TaskFilters which reacts to LazyList scroll state
@@ -102,7 +94,7 @@ fun TasksFiltersWithLazyList(
  * Filters are placed in bottom sheet dialog as expandable options
  */
 
-@OptIn(ExperimentalMaterialApi::class, ExperimentalComposeUiApi::class)
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TaskFilters(
     selected: FiltersData,
@@ -131,20 +123,12 @@ fun TaskFilters(
     val unselectedFilters = data - selected
 
     val space = 6.dp
-    val coroutineScope = rememberCoroutineScope()
 
-    // compose version of BottomSheetDialog (from Dialog and ModalBottomSheetLayout)
-    val density = LocalDensity.current
-    val bottomSheetState = remember { ModalBottomSheetState(ModalBottomSheetValue.Expanded, density) } // fix to handle dialog closed state properly
-    var isVisible by remember { mutableStateOf(false) }
+    val sheetState = rememberModalBottomSheetState()
+    var isVisible by rememberSaveable { mutableStateOf(false) }
 
     FilledTonalButton(
-        onClick = {
-            coroutineScope.launch {
-                isVisible = true
-                bottomSheetState.show()
-            }
-        }
+        onClick = { isVisible = true }
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Icon(
@@ -166,205 +150,188 @@ fun TaskFilters(
     Spacer(Modifier.height(space))
 
     if (isVisible) {
-        Dialog(
-            properties = DialogProperties(usePlatformDefaultWidth = false),
-            onDismissRequest = {
-                coroutineScope.launch {
-                    bottomSheetState.hide()
-                    isVisible = false
-                }
-            }
+        ModalBottomSheet(
+            onDismissRequest = { isVisible = false },
+            sheetState = sheetState,
+            shape = MaterialTheme.shapes.small,
+            // Transparent scrim — keep the underlying content visible so the user
+            // can still see which list the filters apply to while the sheet is open.
+            scrimColor = Color.Transparent,
+            tonalElevation = dialogTonalElevation
         ) {
-            if (bottomSheetState.currentValue == ModalBottomSheetValue.Hidden && bottomSheetState.targetValue == ModalBottomSheetValue.Hidden) {
-                isVisible = false
-            }
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .verticalScroll(rememberScrollState())
+                    .padding(space)
+            ) {
+                Text(
+                    text = stringResource(R.string.filters),
+                    style = MaterialTheme.typography.headlineSmall,
+                    modifier = Modifier.padding(start = space)
+                )
 
-            ModalBottomSheetLayout(
-                modifier = Modifier.fillMaxSize(),
-                sheetState = bottomSheetState,
-                sheetShape = MaterialTheme.shapes.small,
-                scrimColor = Color.Transparent,
-                content = {},
-                sheetContent = {
-                    Surface(
-                        tonalElevation = dialogTonalElevation
-                    ) {
-                        Column(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .verticalScroll(rememberScrollState())
-                                .padding(space)
-                        ) {
-                            Text(
-                                text = stringResource(R.string.filters),
-                                style = MaterialTheme.typography.headlineSmall,
-                                modifier = Modifier.padding(start = space)
+                Spacer(Modifier.height(space))
+
+                Column(modifier = Modifier.fillMaxWidth()) {
+                    FlowRow(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+                        selected.types.forEach {
+                            FilterChip(
+                                filter = it,
+                                onRemoveClick = { onSelect(selected.copy(types = selected.types - it)) }
                             )
+                        }
 
-                            Spacer(Modifier.height(space))
+                        selected.severities.forEach {
+                            FilterChip(
+                                filter = it,
+                                onRemoveClick = { onSelect(selected.copy(severities = selected.severities - it)) }
+                            )
+                        }
 
-                            Column(modifier = Modifier.fillMaxWidth()) {
-                                FlowRow(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-                                    selected.types.forEach {
-                                        FilterChip(
-                                            filter = it,
-                                            onRemoveClick = { onSelect(selected.copy(types = selected.types - it)) }
-                                        )
-                                    }
+                        selected.priorities.forEach {
+                            FilterChip(
+                                filter = it,
+                                onRemoveClick = { onSelect(selected.copy(priorities = selected.priorities - it)) }
+                            )
+                        }
 
-                                    selected.severities.forEach {
-                                        FilterChip(
-                                            filter = it,
-                                            onRemoveClick = { onSelect(selected.copy(severities = selected.severities - it)) }
-                                        )
-                                    }
+                        selected.statuses.forEach {
+                            FilterChip(
+                                filter = it,
+                                onRemoveClick = { onSelect(selected.copy(statuses = selected.statuses - it)) }
+                            )
+                        }
 
-                                    selected.priorities.forEach {
-                                        FilterChip(
-                                            filter = it,
-                                            onRemoveClick = { onSelect(selected.copy(priorities = selected.priorities - it)) }
-                                        )
-                                    }
+                        selected.tags.forEach {
+                            FilterChip(
+                                filter = it,
+                                onRemoveClick = { onSelect(selected.copy(tags = selected.tags - it)) }
+                            )
+                        }
 
-                                    selected.statuses.forEach {
-                                        FilterChip(
-                                            filter = it,
-                                            onRemoveClick = { onSelect(selected.copy(statuses = selected.statuses - it)) }
-                                        )
-                                    }
+                        selected.assignees.forEach {
+                            FilterChip(
+                                filter = it,
+                                noNameId = R.string.unassigned,
+                                onRemoveClick = { onSelect(selected.copy(assignees = selected.assignees - it)) }
+                            )
+                        }
 
-                                    selected.tags.forEach {
-                                        FilterChip(
-                                            filter = it,
-                                            onRemoveClick = { onSelect(selected.copy(tags = selected.tags - it)) }
-                                        )
-                                    }
+                        selected.roles.forEach {
+                            FilterChip(
+                                filter = it,
+                                onRemoveClick = { onSelect(selected.copy(roles = selected.roles - it)) }
+                            )
+                        }
 
-                                    selected.assignees.forEach {
-                                        FilterChip(
-                                            filter = it,
-                                            noNameId = R.string.unassigned,
-                                            onRemoveClick = { onSelect(selected.copy(assignees = selected.assignees - it)) }
-                                        )
-                                    }
+                        selected.createdBy.forEach {
+                            FilterChip(
+                                filter = it,
+                                onRemoveClick = { onSelect(selected.copy(createdBy = selected.createdBy - it)) }
+                            )
+                        }
 
-                                    selected.roles.forEach {
-                                        FilterChip(
-                                            filter = it,
-                                            onRemoveClick = { onSelect(selected.copy(roles = selected.roles - it)) }
-                                        )
-                                    }
-
-                                    selected.createdBy.forEach {
-                                        FilterChip(
-                                            filter = it,
-                                            onRemoveClick = { onSelect(selected.copy(createdBy = selected.createdBy - it)) }
-                                        )
-                                    }
-
-                                    selected.epics.forEach {
-                                        FilterChip(
-                                            filter = it,
-                                            noNameId = R.string.not_in_an_epic,
-                                            onRemoveClick = { onSelect(selected.copy(epics = selected.epics - it)) }
-                                        )
-                                    }
-                                }
-
-                                if (selected.filtersNumber > 0) {
-                                    Spacer(Modifier.height(space))
-                                }
-
-                                val sectionsSpace = 6.dp
-
-                                unselectedFilters.types.ifHasData {
-                                    Section(
-                                        titleId = R.string.type_title,
-                                        filters = it,
-                                        onSelect = { onSelect(selected.copy(types = selected.types + it)) }
-                                    )
-                                    Spacer(Modifier.height(sectionsSpace))
-                                }
-
-                                unselectedFilters.severities.ifHasData {
-                                    Section(
-                                        titleId = R.string.severity_title,
-                                        filters = it,
-                                        onSelect = { onSelect(selected.copy(severities = selected.severities + it)) }
-                                    )
-                                    Spacer(Modifier.height(sectionsSpace))
-                                }
-
-                                unselectedFilters.priorities.ifHasData {
-                                    Section(
-                                        titleId = R.string.priority_title,
-                                        filters = it,
-                                        onSelect = { onSelect(selected.copy(priorities = selected.priorities + it)) }
-                                    )
-                                    Spacer(Modifier.height(sectionsSpace))
-                                }
-
-                                unselectedFilters.statuses.ifHasData {
-                                    Section(
-                                        titleId = R.string.status_title,
-                                        filters = it,
-                                        onSelect = { onSelect(selected.copy(statuses = selected.statuses + it)) }
-                                    )
-                                    Spacer(Modifier.height(sectionsSpace))
-                                }
-
-                                unselectedFilters.tags.ifHasData {
-                                    Section(
-                                        titleId = R.string.tags_title,
-                                        filters = it,
-                                        onSelect = { onSelect(selected.copy(tags = selected.tags + it)) }
-                                    )
-                                    Spacer(Modifier.height(sectionsSpace))
-                                }
-
-                                unselectedFilters.assignees.ifHasData {
-                                    Section(
-                                        titleId = R.string.assignees_title,
-                                        noNameId = R.string.unassigned,
-                                        filters = it,
-                                        onSelect = { onSelect(selected.copy(assignees = selected.assignees + it)) }
-                                    )
-                                    Spacer(Modifier.height(sectionsSpace))
-                                }
-
-                                unselectedFilters.roles.ifHasData {
-                                    Section(
-                                        titleId = R.string.role_title,
-                                        filters = it,
-                                        onSelect = { onSelect(selected.copy(roles = selected.roles + it)) }
-                                    )
-                                    Spacer(Modifier.height(sectionsSpace))
-                                }
-
-                                unselectedFilters.createdBy.ifHasData {
-                                    Section(
-                                        titleId = R.string.created_by_title,
-                                        filters = it,
-                                        onSelect = { onSelect(selected.copy(createdBy = selected.createdBy + it)) }
-                                    )
-                                    Spacer(Modifier.height(sectionsSpace))
-                                }
-
-                                unselectedFilters.epics.ifHasData {
-                                    Section(
-                                        titleId = R.string.epic_title,
-                                        noNameId = R.string.not_in_an_epic,
-                                        filters = it,
-                                        onSelect = { onSelect(selected.copy(epics = selected.epics + it)) }
-                                    )
-                                }
-                            }
-
-                            Spacer(Modifier.height(space))
+                        selected.epics.forEach {
+                            FilterChip(
+                                filter = it,
+                                noNameId = R.string.not_in_an_epic,
+                                onRemoveClick = { onSelect(selected.copy(epics = selected.epics - it)) }
+                            )
                         }
                     }
+
+                    if (selected.filtersNumber > 0) {
+                        Spacer(Modifier.height(space))
+                    }
+
+                    val sectionsSpace = 6.dp
+
+                    unselectedFilters.types.ifHasData {
+                        Section(
+                            titleId = R.string.type_title,
+                            filters = it,
+                            onSelect = { onSelect(selected.copy(types = selected.types + it)) }
+                        )
+                        Spacer(Modifier.height(sectionsSpace))
+                    }
+
+                    unselectedFilters.severities.ifHasData {
+                        Section(
+                            titleId = R.string.severity_title,
+                            filters = it,
+                            onSelect = { onSelect(selected.copy(severities = selected.severities + it)) }
+                        )
+                        Spacer(Modifier.height(sectionsSpace))
+                    }
+
+                    unselectedFilters.priorities.ifHasData {
+                        Section(
+                            titleId = R.string.priority_title,
+                            filters = it,
+                            onSelect = { onSelect(selected.copy(priorities = selected.priorities + it)) }
+                        )
+                        Spacer(Modifier.height(sectionsSpace))
+                    }
+
+                    unselectedFilters.statuses.ifHasData {
+                        Section(
+                            titleId = R.string.status_title,
+                            filters = it,
+                            onSelect = { onSelect(selected.copy(statuses = selected.statuses + it)) }
+                        )
+                        Spacer(Modifier.height(sectionsSpace))
+                    }
+
+                    unselectedFilters.tags.ifHasData {
+                        Section(
+                            titleId = R.string.tags_title,
+                            filters = it,
+                            onSelect = { onSelect(selected.copy(tags = selected.tags + it)) }
+                        )
+                        Spacer(Modifier.height(sectionsSpace))
+                    }
+
+                    unselectedFilters.assignees.ifHasData {
+                        Section(
+                            titleId = R.string.assignees_title,
+                            noNameId = R.string.unassigned,
+                            filters = it,
+                            onSelect = { onSelect(selected.copy(assignees = selected.assignees + it)) }
+                        )
+                        Spacer(Modifier.height(sectionsSpace))
+                    }
+
+                    unselectedFilters.roles.ifHasData {
+                        Section(
+                            titleId = R.string.role_title,
+                            filters = it,
+                            onSelect = { onSelect(selected.copy(roles = selected.roles + it)) }
+                        )
+                        Spacer(Modifier.height(sectionsSpace))
+                    }
+
+                    unselectedFilters.createdBy.ifHasData {
+                        Section(
+                            titleId = R.string.created_by_title,
+                            filters = it,
+                            onSelect = { onSelect(selected.copy(createdBy = selected.createdBy + it)) }
+                        )
+                        Spacer(Modifier.height(sectionsSpace))
+                    }
+
+                    unselectedFilters.epics.ifHasData {
+                        Section(
+                            titleId = R.string.epic_title,
+                            noNameId = R.string.not_in_an_epic,
+                            filters = it,
+                            onSelect = { onSelect(selected.copy(epics = selected.epics + it)) }
+                        )
+                    }
                 }
-            )
+
+                Spacer(Modifier.height(space))
+            }
         }
     }
 }

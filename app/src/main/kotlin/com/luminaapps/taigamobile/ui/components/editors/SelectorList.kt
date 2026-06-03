@@ -105,7 +105,7 @@ fun <T : Any> SelectorList(
             navigateBack = navigateBack
         )
 
-        LazyColumn {
+        LazyColumn(Modifier.fillMaxSize()) {
             itemsLazy?.let { lazyItems ->
                 items(
                     count = lazyItems.itemCount,
